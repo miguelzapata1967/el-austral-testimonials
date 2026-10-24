@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Data analytics, engineering, forecasting, and business intelligence services from El Austral Consultant.">
+    <title>Services | El Austral Consultant</title>
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
+    <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+    <link rel="stylesheet" href="Styles/style.css">
+    <style>
+      /* Scoped to the Services content only. No header, body, or site-wide colors modified. */
+      .service-content,.service-gallery {max-width:1100px;margin:0 auto;padding:2rem 1.25rem;text-align:center;}
+      .service-selector {max-width:760px;margin:2rem auto;text-align:left;}
+      .service-selector label {display:block;font-weight:700;margin-bottom:.6rem;}
+      .service-selector select {display:block;width:100%;padding:.85rem;border:1px solid currentColor;border-radius:6px;background:transparent;color:inherit;font:inherit;}
+      #service-details {border:1px solid currentColor;border-radius:9px;margin-top:1rem;padding:1.25rem 1.5rem;min-height:145px;}
+      #service-details h2 {margin-top:0;margin-bottom:.4rem;}
+      #service-description {font-style:italic;margin-top:0;}
+      .service-intro {font-weight:700;}
+      .service-points {margin:.75rem 0;padding-left:1.2rem;}
+      .service-points li {margin-bottom:.45rem;line-height:1.5;}
+      .service-result {font-style:italic;margin:.9rem 0;}
+      .service-sub {font-size:1rem;margin:1.25rem 0 .4rem;color:var(--burgundy,#78182e);}
+      .service-graphs {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.5rem;margin-top:1.5rem;}
+      .service-graph {margin:0;text-align:left;min-width:0;}
+      .service-graph img {display:block;width:100%;height:auto;border-radius:5px;}
+      .service-graph figcaption {margin-top:.6rem;line-height:1.5;}
+      @media(max-width:700px) {.service-graphs {grid-template-columns:1fr;}}
+      .price-note {margin:.6rem 0 0;font-size:.85rem;opacity:.85;}
+      .service-actions {display:flex;flex-wrap:wrap;align-items:center;gap:.75rem 1rem;margin-top:1.1rem;}
+      .beside-order {font-size:.9rem;font-weight:700;color:var(--burgundy,#78182e);}
+      .service-btn {display:inline-block;padding:.65rem 1.4rem;border:1px solid var(--burgundy,#78182e);border-radius:999px;font-family:Arial,sans-serif;font-size:.9rem;text-decoration:none;transition:background .2s ease,color .2s ease;}
+      .service-btn.primary {background:var(--burgundy,#78182e);color:#fff;}
+      .service-btn.primary:hover {background:var(--rose,#aa2d48);border-color:var(--rose,#aa2d48);}
+      .service-btn.secondary {background:transparent;color:var(--burgundy,#78182e);}
+      .service-btn.secondary:hover {background:var(--burgundy,#78182e);color:#fff;}
+      .service-btn:focus-visible {outline:2px solid var(--rose,#aa2d48);outline-offset:2px;}
+      /* Restaurant calculation groups (Retail & Revenue Analytics) */
+      .calc-group {border:1px solid rgba(120,24,46,.3);border-radius:7px;margin:.6rem 0;padding:.2rem .9rem;}
+      .calc-group summary {cursor:pointer;font-weight:700;padding:.5rem 0;color:var(--burgundy,#78182e);}
+      .calc-group .service-points {margin-top:.2rem;}
+      /* Philosophy remark between sections */
+      .site-remark {max-width:760px;margin:1rem auto 0;padding:1.5rem 1.25rem;text-align:center;font-style:italic;font-size:1.2rem;line-height:1.5;color:var(--burgundy,#78182e);border-top:1px solid rgba(120,24,46,.25);border-bottom:1px solid rgba(120,24,46,.25);}
+      .site-remark cite {display:block;margin-top:.5rem;font-size:.85rem;font-style:normal;opacity:.8;}
+      /* Sign Up link in the main menu */
+      .main-nav a.nav-signup {padding:8px 18px;border:2px solid var(--burgundy);border-radius:999px;color:var(--burgundy);}
+      .main-nav a.nav-signup:hover {background:var(--burgundy);color:#fff;}
+    </style>
+</head>
+
+<body>
+
+<!-- STANDARD WEBSITE HEADER -->
+<header class="site-header">
+    <a class="logo" href="index.html" aria-label="El Austral Consultant Home">
+        <svg viewBox="0 0 210 57" role="img" aria-label="Aconcagua mountain logo">
+            <path d="M8 47 L47 30 L63 35 L102 5 L130 31 L143 24 L176 43 L201 48 M47 30 L56 39 L70 31 M102 5 L110 25 L119 21 L130 31" fill="none" stroke="#78182e" stroke-width="4" stroke-linejoin="round"/>
+        </svg>
+        <span class="logo-name">EL AUSTRAL</span>
+        <span class="logo-subtitle">CONSULTANT</span>
+    </a>
+    <nav class="main-nav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="services.html" class="active" aria-current="page">Services</a>
+        <a href="about.html">About Us</a>
+        <a href="contact_us.html">Contact Us</a>
+        <a href="testimonials.html">Testimonials</a>
+    </nav>
+    <div class="language-switch" aria-label="Language">
+        <span class="selected">EN</span>
+        <span class="unavailable" title="Spanish website coming soon">ES</span>
+    </div>
+</header>
+
+<main>
+    <section class="service-content" aria-labelledby="services-title">
+      <h1 id="services-title">Our Services</h1>
+      <p>Reading What the Data Really Has to Say.</p>
+      <div class="service-selector">
+        <label for="service-choice">Select a Service</label>
+        <select id="service-choice"></select>
+        <article id="service-details" aria-live="polite" tabindex="0">
+          <h2 id="service-heading"></h2>
+          <p id="service-description"></p>
+          <div id="service-body"></div>
+        </article>
+      </div>
+    </section>
+
+    <blockquote class="site-remark">
+      “If something isn’t right, tell us. We’ll fix it and keep earning your business.”
+      <cite>— El Austral Consultant</cite>
+    </blockquote>
+
+    <section class="service-gallery" aria-labelledby="gallery-title">
+      <h2 id="gallery-title">Examples of Our Analytical Work</h2>
+      <p>Visual examples from completed analysis projects.</p>
+      <div class="service-graphs">
+        <figure class="service-graph"><img src="Graph/workforce_representation.png" alt="Monthly Retail Sales Revenue" loading="lazy"><figcaption><strong>Monthly Retail Sales Revenue</strong> — Monthly retail sales revenue, January through April 2023.</figcaption></figure>
+        <figure class="service-graph"><img src="Graph/department_representation.png" alt="Department Representation" loading="lazy"><figcaption><strong>Department Representation</strong> — Workforce representation across departments.</figcaption></figure>
+        <figure class="service-graph"><img src="Graph/leadership_representation.png" alt="Leadership Representation" loading="lazy"><figcaption><strong>Leadership Representation</strong> — Representation by manager status.</figcaption></figure>
+        <figure class="service-graph"><img src="Graph/experience_distribution.png" alt="Experience Distribution" loading="lazy"><figcaption><strong>Experience Distribution</strong> — Employee years-of-experience distribution.</figcaption></figure>
+      </div>
+    </section>
+</main>
+
+<footer>
+    <h3>Insights for a Higher Tomorrow</h3>
+    <p>Miguel Zapata, Founder</p>
+    <p>&copy; MMXXVI — El Austral Consultant. All rights reserved.</p>
+</footer>
+
+<script>
+  (() => {
+    // ---------------------------------------------------------------
+    // SERVICE DESCRIPTIONS — no prices on this page.
+    // Standby demo version: no Order buttons.
+    // ---------------------------------------------------------------
+    const SIGNUP_URL = 'signup.html';
+
+    const services = [
+      {
+        key: 'analytics',
+        title: 'Data Analytics',
+        description: 'We examine business data to identify patterns, trends, and opportunities for better decisions.',
+        points: [
+          ['Exploratory analysis', 'find what is really happening in your numbers.'],
+          ['Performance comparisons', 'compare locations, products, periods and teams.'],
+          ['KPI evaluation', 'track the measures that matter to your business.'],
+          ['Clear reporting', 'plain-English findings you can act on.']
+        ]
+      },
+      {
+        key: 'bi',
+        title: 'Business Intelligence & Dashboards',
+        description: 'We turn data into clear visual dashboards to help teams monitor business performance.',
+        points: [
+          ['KPI dashboards', 'your key numbers on one screen.'],
+          ['Reporting', 'consistent reports your team can rely on.'],
+          ['Interactive charts', 'filter by location, product or date range.'],
+          ['Operational summaries', 'a quick read on how the business is doing.']
+        ]
+      },
+      {
+        key: 'engineering',
+        title: 'Data Engineering & Preparation',
+        description: 'We prepare reliable datasets for analysis and reporting.',
+        intro: 'For mid-size and growing companies whose data comes from many systems, locations or departments.',
+        points: [
+          ['Pipeline design and build', 'automated pipelines that move data from your POS, spreadsheets and other systems into one central warehouse.'],
+          ['Validation built in', 'every load is checked for duplicates, missing values and impossible numbers before it reaches your reports.'],
+          ['Transformation', 'raw data becomes consistent, analysis-ready tables.'],
+          ['Scheduling and monitoring', 'pipelines run on schedule, with alerts when something breaks.'],
+          ['Scalable storage', 'cloud warehouses like Snowflake that grow with your business.'],
+          ['Documentation', 'every pipeline is documented, so your team knows where each number comes from.']
+        ],
+        result: 'The result: one automated, trusted source of truth across your whole organization.',
+        besideOrder: 'For businesses with two or more locations.',
+        notes: [
+          'Groups with many locations: ask us about volume pricing.',
+          'Your price covers a set monthly data volume, measured when service starts, plus a 20% safety cushion. If your data grows beyond that for several months in a row, we let you know 30 days ahead before adjusting.',
+          'Standard updates are hourly. Near real-time updates are available at an extra cost.',
+          'Single location? See Retail & Revenue Analytics.'
+        ]
+      },
+      {
+        key: 'forecasting',
+        title: 'Forecasting & Demand Planning',
+        description: 'We analyze historical data to support estimates of future demand and business needs.',
+        intro: 'Know what’s coming before it arrives, so you order, staff and plan with confidence.',
+        points: [
+          ['Sales trends', 'see whether each location, product or day of the week is growing, flat or slipping.'],
+          ['Demand forecasts', 'estimates of next week’s and next month’s sales, so you order the right amount and waste less.'],
+          ['Seasonal patterns', 'spot your busy and slow periods, like holidays, summer or game days, before they hit.'],
+          ['Planning scenarios', 'test “what if” questions, like adding a location, changing prices or running a promotion.'],
+          ['Built on clean data', 'every forecast starts from cleaned and validated numbers, because a forecast is only as good as the data behind it.']
+        ],
+        result: 'The result: fewer surprises, less waste and smarter decisions about what’s next.',
+        notes: [
+          'Every forecast is customized for your business after we review your data. Forecasting is billed separately from monthly plans.',
+          'Months your data was not cleaned by us need catch-up cleaning first, billed as regular cleaning.'
+        ],
+        requirements: [
+          'A date column, with one date per sale or per day.',
+          'A sales amount column, in dollars or units.',
+          'At least 6 months of history; 12 months or more to capture seasons.',
+          'No large gaps, such as a missing month.',
+          'Tip: choose “Keep my cleaned data for future forecasts” at sign-up, and your history builds up automatically on your own computer.'
+        ]
+      },
+      {
+        key: 'abtesting',
+        title: 'A/B Testing & Experimentation',
+        description: 'We compare business approaches using measurable results.',
+        intro: 'Stop guessing which idea works. Test it, measure it and know.',
+        points: [
+          ['Experiment design', 'we set up a fair test, like a new menu price at some locations and the old one at others, or two versions of a promotion.'],
+          ['Conversion analysis', 'we measure what matters to you, like orders, average ticket, repeat visits or online sign-ups.'],
+          ['Statistical comparisons', 'we check whether the difference is real or just luck, so you don’t act on a fluke.'],
+          ['Practical recommendations', 'a plain-English answer: keep it, drop it or test again, with the numbers behind it.'],
+          ['Built on clean data', 'duplicates and missing sales can fake a “winner,” so every test starts from cleaned data.']
+        ],
+        result: 'The result: decisions backed by evidence, not hunches.',
+        notes: [
+          'Each test starts with a questionnaire of at least 20 questions. It takes time and detail, and the more accurate your answers, the more reliable your results.'
+        ]
+      },
+      {
+        key: 'retail',
+        title: 'Retail & Revenue Analytics',
+        description: 'We examine sales performance over time and across products or business segments.',
+        intro: 'Upload your sales file. We separate the bad data from the good, you fix it, and you get a clear report on how your business is really doing. No analyst needed.',
+        points: [
+          ['Revenue trends', 'weekly, month over month, quarter over quarter and year over year.'],
+          ['Product performance', 'see what sells, what doesn’t and where margins slip.'],
+          ['Fix and append', 'review the flagged rows, correct them and add them back, then rerun the report with your real numbers.'],
+          ['Rolling periods', 'choose any window, like the last 90 days from today, not just calendar quarters.']
+        ],
+        notes: [
+          'The app runs on your own computer. Your files and reports stay with you.',
+          'Two or more locations? See Data Engineering & Preparation for our pipeline plan with a live dashboard.'
+        ],
+        calcIntro: 'What we calculate for restaurants',
+        calcGroups: [
+          {
+            title: 'Revenue',
+            items: [
+              ['Total revenue', 'sum of all order totals in the period.'],
+              ['Net revenue', 'gross sales minus discounts, refunds and voided orders.'],
+              ['Average check (average ticket)', 'total revenue ÷ number of orders.'],
+              ['Revenue per guest', 'total revenue ÷ number of guests.'],
+              ['Revenue per seat per hour (RevPASH)', 'revenue ÷ (number of seats × hours open).'],
+              ['Revenue by segment', 'revenue by day, hour, menu category, sales channel (dine-in, takeout, delivery) or server.'],
+              ['Revenue growth', '(this period − last period) ÷ last period × 100.'],
+              ['Sales mix %', 'category revenue ÷ total revenue × 100.']
+            ]
+          },
+          {
+            title: 'Cost',
+            items: [
+              ['Food cost', 'opening inventory + purchases − closing inventory.'],
+              ['Food cost %', 'food cost ÷ food revenue × 100 (healthy target: 28–35%).'],
+              ['Beverage cost %', 'beverage cost ÷ beverage revenue × 100.'],
+              ['Labor cost %', 'wages + benefits ÷ total revenue × 100 (healthy target: 25–35%).'],
+              ['Prime cost', 'food cost + labor cost; prime cost % = prime cost ÷ total revenue × 100 (healthy target: 55–65%).'],
+              ['Cost per dish', 'the cost of all its ingredients added together.'],
+              ['Theoretical vs. actual food cost', 'what the dishes sold should have cost vs. what was actually spent. The gap reveals waste, theft or portion errors.'],
+              ['Waste %', 'wasted food cost ÷ total food purchases × 100.'],
+              ['Overhead costs', 'fixed costs: rent, utilities, insurance, marketing and equipment.'],
+              ['Cost per cover', 'total costs ÷ number of guests.']
+            ]
+          },
+          {
+            title: 'Profit',
+            items: [
+              ['Gross profit', 'total revenue − cost of goods sold (food + beverage).'],
+              ['Gross margin %', 'gross profit ÷ total revenue × 100.'],
+              ['Contribution margin per dish', 'menu price − the dish’s food cost; as a % of menu price.'],
+              ['Operating profit', 'gross profit − labor costs − operating expenses.'],
+              ['Net profit', 'total revenue − all costs (food, beverage, labor, overhead, taxes).'],
+              ['Net profit margin %', 'net profit ÷ total revenue × 100.'],
+              ['Break-even covers', 'fixed costs ÷ average contribution margin per guest: how many guests you must serve to cover costs.'],
+              ['Break-even revenue', 'fixed costs ÷ (1 − variable cost %).'],
+              ['Profit per seat / per hour', 'profit ÷ seats, or profit ÷ opening hours.']
+            ]
+          }
+        ],
+        calcNote: 'Every number above depends on clean data. A missing or wrong order total, discount, refund, inventory count, purchase price or labor hour flows straight into a wrong profit number, so we clean first and calculate second.',
+        requirements: [
+          'Revenue numbers: your sales file (order totals, discounts, refunds, voids, date and time). Guest counts, seats and hours open for per-guest and per-seat numbers.',
+          'Cost numbers: opening and closing inventory, purchases, labor hours and wages, and fixed costs like rent and utilities.',
+          'Profit numbers: both of the above, plus each dish’s menu price and ingredient cost.'
+        ]
+      },
+      {
+        key: 'workforce',
+        title: 'Workforce & Diversity Analytics',
+        description: 'We examine workforce composition and representation to support organizational understanding.',
+        intro: 'Get a clear, fact-based picture of your team, so your people decisions rest on data instead of assumptions.',
+        points: [
+          ['Department representation', 'see how each department is made up, and how that compares across locations or over time.'],
+          ['Management composition', 'understand who holds leadership roles, and how that compares to the workforce as a whole.'],
+          ['Experience distribution', 'see the mix of new hires and veterans in each team, to spot training needs and future gaps.'],
+          ['Trends over time', 'track how your workforce changes year to year as you hire and grow.'],
+          ['Privacy first', 'results are reported in groups only, never by individual, and small groups are combined so no single employee can be identified.']
+        ],
+        result: 'The result: a clear, respectful view of your workforce to guide hiring, training and leadership planning.',
+        notes: [
+          'Pricing is based on your total number of employees, counted on the date your data is submitted.'
+        ]
+      },
+      {
+        key: 'security',
+        title: 'Security & Risk Analytics',
+        description: 'We apply structured analysis to incident, operational, and risk-related datasets.',
+        intro: 'Turn incident reports and operational data into a clear picture of where your risks are, and what to do about them.',
+        points: [
+          ['Incident trends', 'see when and where incidents happen, by location, day, time and type, and whether they’re rising or falling.'],
+          ['Severity patterns', 'separate minor events from serious ones, and find what the serious ones have in common.'],
+          ['Loss and shrinkage signals', 'spot unusual voids, refunds, discounts or inventory gaps that may point to theft or process problems.'],
+          ['Reporting', 'clear, consistent reports for management, insurers or required filings, built from organized records instead of scattered paperwork.'],
+          ['Data-driven risk insights', 'practical recommendations, like where to add staff, cameras or training, ranked by impact.'],
+          ['Built on clean data', 'duplicate or incomplete incident records distort the picture, so every analysis starts from validated data.']
+        ],
+        result: 'The result: fewer surprises, smarter security spending and a safer operation.',
+        notes: ['Every security analysis is reviewed by a person before it is delivered.']
+      }
+    ];
+
+    // ---------------------------------------------------------------
+    function el(tag, text, className) {
+      const node = document.createElement(tag);
+      if (text) node.textContent = text;
+      if (className) node.className = className;
+      return node;
+    }
+    function actionButton(service) {
+      const a = el('a', 'Order', 'service-btn primary');
+      a.href = SIGNUP_URL + '?service=' + encodeURIComponent(service.key);
+      return a;
+    }
+
+    const choice = document.getElementById('service-choice');
+    services.forEach((s, i) => choice.appendChild(new Option(s.title, i)));
+
+    function renderService() {
+      const s = services[Number(choice.value)];
+      document.getElementById('service-heading').textContent = s.title;
+      document.getElementById('service-description').textContent = s.description;
+      const body = document.getElementById('service-body');
+      body.textContent = '';
+
+      if (s.intro) body.appendChild(el('p', s.intro, 'service-intro'));
+      const ul = el('ul', '', 'service-points');
+      s.points.forEach(([label, text]) => {
+        const li = document.createElement('li');
+        li.appendChild(el('strong', label + ': '));
+        li.appendChild(document.createTextNode(text));
+        ul.appendChild(li);
+      });
+      body.appendChild(ul);
+      if (s.result) body.appendChild(el('p', s.result, 'service-result'));
+      if (s.calcGroups) {
+        body.appendChild(el('h3', s.calcIntro, 'service-sub'));
+        s.calcGroups.forEach((g, i) => {
+          const d = el('details', '', 'calc-group');
+          if (i === 0) d.open = true;
+          d.appendChild(el('summary', g.title + ' calculations'));
+          const list = el('ul', '', 'service-points');
+          g.items.forEach(([label, text]) => {
+            const li = document.createElement('li');
+            li.appendChild(el('strong', label + ': '));
+            li.appendChild(document.createTextNode(text));
+            list.appendChild(li);
+          });
+          d.appendChild(list);
+          body.appendChild(d);
+        });
+        if (s.calcNote) body.appendChild(el('p', s.calcNote, 'service-result'));
+      }
+      (s.notes || []).forEach(n => body.appendChild(el('p', n, 'price-note')));
+      if (s.requirements) {
+        body.appendChild(el('h3', 'What you’ll need', 'service-sub'));
+        const req = el('ul', '', 'service-points');
+        s.requirements.forEach(r => req.appendChild(el('li', r)));
+        body.appendChild(req);
+      }
+      const actions = el('div', '', 'service-actions');
+      // Standby demo: Order button hidden until the full system is live
+      if (s.besideOrder) actions.appendChild(el('span', s.besideOrder, 'beside-order'));
+      body.appendChild(actions);
+    }
+
+    // Open a specific service from a link, e.g. services.html#forecasting
+    const hash = decodeURIComponent(location.hash.slice(1)).toLowerCase();
+    const start = services.findIndex(s => hash && s.title.toLowerCase().includes(hash));
+    if (start >= 0) choice.value = start;
+
+    choice.addEventListener('change', renderService);
+    renderService();
+  })();
+</script>
+<script src="Scripts/music-player.js" defer></script>
+</body>
+</html>

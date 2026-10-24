@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Testimonials | El Austral Consultant</title>
+<!-- Link your existing site stylesheet so the background and header match every other page -->
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<!-- Link preview (email, text, social). Replace YOUR-USERNAME with your GitHub username after Step 1 of SETUP.md -->
+<meta property="og:site_name" content="El Austral Consultant">
+<meta property="og:title" content="Testimonials for Miguel | El Austral Consultant">
+<meta property="og:description" content="Read what past customers say about working with Miguel, and leave your own testimonial.">
+<meta property="og:image" content="https://YOUR-USERNAME.github.io/el-austral-standby/icons/link-preview.png">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="Styles/style.css">
+<style>
+  /* ---- Testimonials page only ---- */
+  .t-wrap { max-width: 1200px; margin: 0 auto; padding: 32px 16px 64px; }
+  .t-title { text-align: center; font-size: 2.6rem; margin: 0; letter-spacing: 1px; }
+  .t-subtitle { text-align: center; font-size: 1.3rem; margin: 6px 0 36px; font-style: italic; opacity: .85; }
+  .t-cta { display: block; width: fit-content; margin: 0 auto 36px; padding: 12px 26px;
+           background: #78182e; color: #fff; text-decoration: none; border-radius: 6px; font-weight: 600; }
+  .t-cta:hover { background: #aa2d48; }
+
+  /* Collage: frames spread evenly across the page */
+  .t-wall { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 34px; }
+
+  /* Picture frame */
+  .frame { all: unset; cursor: pointer; display: flex; flex-direction: column; justify-content: center;
+           min-height: 230px; padding: 22px; box-sizing: border-box; text-align: center;
+           background: #fffdf7; color: #222;
+           border: 14px solid #6b4a2b;               /* wooden frame */
+           outline: 3px solid #c9a25e; outline-offset: -20px;  /* gold inner trim */
+           box-shadow: 0 8px 18px rgba(0,0,0,.35), inset 0 0 0 4px #3e2a17;
+           transition: transform .2s, box-shadow .2s; }
+  .frame:nth-child(3n+1) { transform: rotate(-1.5deg); }
+  .frame:nth-child(3n+2) { transform: rotate(1deg); }
+  .frame:hover, .frame:focus-visible { transform: scale(1.04) rotate(0); box-shadow: 0 14px 28px rgba(0,0,0,.45); }
+  .frame-quote { font-family: Georgia, serif; font-size: 1rem; line-height: 1.45; padding: 0 18px; }
+  .frame-name { margin-top: 12px; font-size: .85rem; font-weight: 700; color: #6b4a2b; }
+  .t-empty { text-align: center; font-size: 1.1rem; opacity: .8; }
+
+  /* Expanded window */
+  .modal-bg { position: fixed; inset: 0; background: rgba(0,0,0,.65); display: none;
+              align-items: center; justify-content: center; padding: 16px; z-index: 1000; }
+  .modal-bg.open { display: flex; }
+  .modal { position: relative; background: #fffdf7; color: #222; max-width: 680px; width: 100%;
+           max-height: 85vh; overflow-y: auto; border: 14px solid #6b4a2b; padding: 34px 30px 26px;
+           box-sizing: border-box; box-shadow: 0 20px 50px rgba(0,0,0,.5); }
+  .modal-close { position: absolute; top: 8px; right: 12px; background: none; border: none;
+                 font-size: 1.8rem; cursor: pointer; color: #6b4a2b; }
+  .modal-comment { font-family: Georgia, serif; font-size: 1.1rem; line-height: 1.6; white-space: pre-wrap; }
+  .modal-name { margin-top: 18px; font-weight: 700; color: #6b4a2b; text-align: left; }
+  .modal-reply { margin-top: 22px; padding: 16px 18px; background: #fbeef0; border-left: 5px solid #78182e;
+                 border-radius: 4px; line-height: 1.5; }
+  #modalReplyText { white-space: pre-wrap; }
+  .modal-reply h4 { margin: 0 0 6px; color: #78182e; }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+    <a class="logo" href="index.html" aria-label="El Austral Consultant Home">
+        <svg viewBox="0 0 210 57" role="img" aria-label="Aconcagua mountain logo">
+            <path d="M8 47 L47 30 L63 35 L102 5 L130 31 L143 24 L176 43 L201 48 M47 30 L56 39 L70 31 M102 5 L110 25 L119 21 L130 31" fill="none" stroke="#78182e" stroke-width="4" stroke-linejoin="round"/>
+        </svg>
+        <span class="logo-name">EL AUSTRAL</span>
+        <span class="logo-subtitle">CONSULTANT</span>
+    </a>
+    <nav class="main-nav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="about.html">About Us</a>
+        <a href="contact_us.html">Contact Us</a>
+        <a href="testimonials.html" class="active" aria-current="page">Testimonials</a>
+    </nav>
+    <div class="language-switch" aria-label="Language">
+        <span class="selected">EN</span>
+        <span class="unavailable" title="Spanish website coming soon">ES</span>
+    </div>
+</header>
+
+<main class="t-wrap">
+  <h1 class="t-title">Testimonials</h1>
+  <p class="t-subtitle">Testimonials for Miguel</p>
+  <a class="t-cta" href="contact_us.html">Leave your testimonial</a>
+
+  <section class="t-wall" id="wall" aria-label="Customer testimonials"></section>
+</main>
+
+<div class="modal-bg" id="modalBg" role="dialog" aria-modal="true" aria-labelledby="modalName">
+  <div class="modal">
+    <button class="modal-close" id="modalClose" aria-label="Close">&times;</button>
+    <div class="modal-comment" id="modalComment"></div>
+    <div class="modal-name" id="modalName"></div>
+    <div class="modal-reply" id="modalReply" hidden>
+      <h4>Miguel's reply</h4>
+      <div id="modalReplyText"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Comments live in data/testimonials.json in the GitHub repo.
+  const DATA_URL = "data/testimonials.json";
+
+  // Sample entries shown only if the data file can't be loaded (e.g. opening the page from your computer).
+  const SAMPLE = [
+    { id: "sample-1", first_name: "Laura", last_initial: "G", service_year: "2019",
+      comment: "Miguel always went the extra mile. Orders were on time and he answered every question we had.",
+      submitted: "2026-10-22", reply: "Thank you, Laura! It was a pleasure serving you." },
+    { id: "sample-2", first_name: "Robert", last_initial: "M", service_year: "2021",
+      comment: "Good service overall, but communication was slow at times during the busy season.",
+      submitted: "2026-10-22", reply: "Thank you for your honest point of view, Robert. I'm sorry it wasn't a fully positive experience. I'd love the chance to make it right and serve you again with more focus on what you need." }
+  ];
+
+  const wall = document.getElementById("wall");
+  const modalBg = document.getElementById("modalBg");
+  let lastFocus = null;
+
+  function shortText(text, max = 140) {
+    return text.length > max ? text.slice(0, max).trimEnd() + "…" : text;
+  }
+  function signature(t) {
+    return `${t.first_name} ${t.last_initial}. — Served ${t.service_year}`;
+  }
+
+  function render(list) {
+    wall.innerHTML = "";
+    if (!list.length) {
+      wall.outerHTML = '<p class="t-empty">Be the first to leave a testimonial.</p>';
+      return;
+    }
+    list.sort((a, b) => (b.submitted || "").localeCompare(a.submitted || ""));
+    for (const t of list) {
+      const btn = document.createElement("button");
+      btn.className = "frame";
+      btn.setAttribute("aria-label", "Read the full testimonial from " + t.first_name);
+      const q = document.createElement("div");
+      q.className = "frame-quote";
+      q.textContent = "“" + shortText(t.comment) + "”";
+      const n = document.createElement("div");
+      n.className = "frame-name";
+      n.textContent = signature(t);
+      btn.append(q, n);
+      btn.addEventListener("click", () => openModal(t, btn));
+      wall.appendChild(btn);
+    }
+  }
+
+  function openModal(t, from) {
+    lastFocus = from;
+    document.getElementById("modalComment").textContent = "“" + t.comment + "”";
+    document.getElementById("modalName").textContent = signature(t);
+    const reply = document.getElementById("modalReply");
+    if (t.reply && t.reply.trim()) {
+      document.getElementById("modalReplyText").textContent = t.reply;
+      reply.hidden = false;
+    } else {
+      reply.hidden = true;
+    }
+    modalBg.classList.add("open");
+    document.getElementById("modalClose").focus();
+  }
+  function closeModal() {
+    modalBg.classList.remove("open");
+    if (lastFocus) lastFocus.focus();
+  }
+  document.getElementById("modalClose").addEventListener("click", closeModal);
+  modalBg.addEventListener("click", e => { if (e.target === modalBg) closeModal(); });
+  document.addEventListener("keydown", e => { if (e.key === "Escape") closeModal(); });
+
+  fetch(DATA_URL + "?v=" + Date.now())
+    .then(r => { if (!r.ok) throw new Error(); return r.json(); })
+    .then(render)
+    .catch(() => render(SAMPLE));
+</script>
+<script src="Scripts/music-player.js" defer></script>
+</body>
+</html>

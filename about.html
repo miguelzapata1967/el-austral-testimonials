@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="About El Austral Consultant: our mission, values and founder.">
+    <title>About Us | El Austral Consultant</title>
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
+    <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+    <link rel="stylesheet" href="Styles/style.css">
+    <style>
+      .page-wrap {max-width:860px;margin:0 auto;padding:2rem 1.25rem;}
+      .page-wrap h1 {text-align:center;}
+      .lead {text-align:center;font-size:1.1rem;}
+      .card {border:1px solid currentColor;border-radius:9px;padding:1.25rem 1.5rem;margin-top:1.25rem;}
+      .card h2 {margin-top:0;font-size:1.3rem;}
+      .site-remark {max-width:760px;margin:2rem auto 0;padding:1.5rem 1.25rem;text-align:center;font-style:italic;font-size:1.2rem;line-height:1.5;color:var(--burgundy,#78182e);border-top:1px solid rgba(120,24,46,.25);border-bottom:1px solid rgba(120,24,46,.25);}
+      .site-remark cite {display:block;margin-top:.5rem;font-size:.85rem;font-style:normal;opacity:.8;}
+      .btn {display:inline-block;padding:.65rem 1.4rem;border:1px solid var(--burgundy,#78182e);border-radius:999px;font-family:Arial,sans-serif;font-size:.9rem;cursor:pointer;text-decoration:none;background:var(--burgundy,#78182e);color:#fff;}
+      .btn:hover {background:var(--rose,#aa2d48);border-color:var(--rose,#aa2d48);}
+      .main-nav a.nav-signup {padding:8px 18px;border:2px solid var(--burgundy);border-radius:999px;color:var(--burgundy);}
+      .main-nav a.nav-signup:hover {background:var(--burgundy);color:#fff;}
+      .about-mission p {line-height:1.7;}
+      .signature {text-align:right;font-style:italic;margin-top:1rem;}
+      .values {display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1.25rem;}
+      @media(max-width:700px){.values{grid-template-columns:1fr;}}
+      .values .card {margin-top:0;}
+      .values h3 {margin-top:0;color:var(--burgundy,#78182e);}
+      .cta {text-align:center;margin-top:2rem;}
+    </style>
+</head>
+
+<body>
+
+<!-- STANDARD WEBSITE HEADER -->
+<header class="site-header">
+    <a class="logo" href="index.html" aria-label="El Austral Consultant Home">
+        <svg viewBox="0 0 210 57" role="img" aria-label="Aconcagua mountain logo">
+            <path d="M8 47 L47 30 L63 35 L102 5 L130 31 L143 24 L176 43 L201 48 M47 30 L56 39 L70 31 M102 5 L110 25 L119 21 L130 31" fill="none" stroke="#78182e" stroke-width="4" stroke-linejoin="round"/>
+        </svg>
+        <span class="logo-name">EL AUSTRAL</span>
+        <span class="logo-subtitle">CONSULTANT</span>
+    </a>
+    <nav class="main-nav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="about.html" class="active" aria-current="page">About Us</a>
+        <a href="contact_us.html">Contact Us</a>
+        <a href="testimonials.html">Testimonials</a>
+    </nav>
+    <div class="language-switch" aria-label="Language">
+        <span class="selected">EN</span>
+        <span class="unavailable" title="Spanish website coming soon">ES</span>
+    </div>
+</header>
+
+<main class="page-wrap">
+  <h1>About Us</h1>
+  <p class="lead">Inspired by the strength and perspective of Aconcagua, we help our clients reach higher through data-driven decision-making.</p>
+
+  <section class="card about-mission" aria-labelledby="mission-title">
+    <h2 id="mission-title">Our Mission</h2>
+    <p>Our mission is to empower businesses of all sizes by transforming complex data into clear, actionable insights that drive smarter decisions, improve operational efficiency, reduce costs, and support sustainable growth.</p>
+    <p>We are committed to delivering accessible, reliable, and innovative data analytics, business intelligence, and technology solutions tailored to the unique needs of each client. Through automation, transparency, professional integrity, and continuous improvement, we strive to simplify business challenges, eliminate unnecessary complexity, and provide measurable value.</p>
+    <p>Our purpose is not simply to provide reports, dashboards, or technology, but to build lasting partnerships that help our clients better understand their businesses, identify opportunities, manage risks, and achieve their goals with confidence.</p>
+    <p>We believe every business deserves access to meaningful insights, regardless of its size, industry, or location.</p>
+    <p class="signature">Miguel A. Zapata, Founder — El Austral Consultant</p>
+  </section>
+
+  <blockquote class="site-remark">
+    “If something isn’t right, tell us. We’ll fix it and keep earning your business.”
+    <cite>— El Austral Consultant</cite>
+  </blockquote>
+
+  <section aria-labelledby="values-title">
+    <h2 id="values-title" style="text-align:center;margin-top:2rem;">What We Stand For</h2>
+    <div class="values">
+      <div class="card"><h3>Clean data first</h3><p>Good results start with clean data. Every report we deliver is built on validated numbers.</p></div>
+      <div class="card"><h3>Your data stays yours</h3><p>Your raw data stays on your computer. Only the summary numbers needed for your report are sent, and they’re never stored.</p></div>
+      <div class="card"><h3>Always transparent</h3><p>We tell you what the data really says, and we own our mistakes when we make them.</p></div>
+    </div>
+  </section>
+
+  <section class="card" aria-labelledby="founder-title">
+    <h2 id="founder-title">Meet the Founder</h2>
+    <p>This new career is a new horizon for me. I take on this challenge with solid skills, and with passion, devotion and determination.</p>
+    <p class="signature">Miguel A. Zapata, Founder — El Austral Consultant</p>
+  </section>
+
+  <div class="cta"><a class="btn" href="services.html">Explore our services</a></div>
+</main>
+
+<footer>
+    <h3>Insights for a Higher Tomorrow</h3>
+    <p>Miguel Zapata, Founder</p>
+    <p>&copy; MMXXVI — El Austral Consultant. All rights reserved.</p>
+</footer>
+
+<script src="Scripts/music-player.js" defer></script>
+</body>
+</html>

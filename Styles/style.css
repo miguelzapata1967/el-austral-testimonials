@@ -1,0 +1,3218 @@
+
+
+
+:root {
+
+    --burgundy: #78182e;
+
+    --dark-burgundy: #400b19;
+
+    --rose: #aa2d48;
+
+    --blush: #faf5f5;
+
+    --white: #ffffff;
+
+    --text: #252126;
+
+}
+
+
+
+* {
+
+    box-sizing: border-box;
+
+}
+
+
+
+body {
+
+    margin: 0;
+
+    background: var(--blush);
+
+    color: var(--text);
+
+    font-family: Georgia, "Times New Roman", serif;
+
+}
+
+
+
+a {
+
+    color: inherit;
+
+}
+
+
+
+/* HEADER */
+
+
+
+
+
+/* STANDARD HEADER SIZE AND COLOR */
+
+
+
+.site-header {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 25px;
+
+    padding: 10px 7.8%;
+
+    min-height: 86px;
+
+    box-sizing: border-box;
+
+
+
+    background: linear-gradient(
+
+        105deg,
+
+        #e6b0bb 0%,
+
+        #f6ced0 48%,
+
+        #ffd4c0 100%
+
+    );
+
+}
+
+
+
+.logo {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    text-decoration: none;
+
+    width: 200px;
+
+    flex-shrink: 0;
+
+}
+
+
+
+.logo svg {
+
+    width: 190px;
+
+    height: 46px;
+
+}
+
+
+
+.logo-name {
+
+    font-size: 25px;
+
+    letter-spacing: 3px;
+
+    line-height: 1;
+
+}
+
+
+
+.logo-subtitle {
+
+    font-family: Arial, sans-serif;
+
+    font-size: 12px;
+
+    letter-spacing: 4px;
+
+}
+
+
+
+.main-nav,
+
+nav {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 38px;
+
+}
+
+
+
+.main-nav a,
+
+nav a {
+
+    font-size: 17px;
+
+    text-decoration: none;
+
+    padding: 12px 0;
+
+    border-bottom: 3px solid transparent;
+
+}
+
+
+
+.main-nav a:hover,
+
+.main-nav a.active,
+
+nav a:hover {
+
+    color: var(--burgundy);
+
+    border-bottom-color: var(--burgundy);
+
+}
+
+
+
+.language-switch {
+
+    display: flex;
+
+    border: 1px solid #c9adb5;
+
+    border-radius: 24px;
+
+    overflow: hidden;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 13px;
+
+    flex-shrink: 0;
+
+}
+
+
+
+.language-switch span {
+
+    padding: 9px 23px;
+
+}
+
+
+
+.language-switch .selected {
+
+    background: var(--burgundy);
+
+    color: white;
+
+}
+
+
+
+.language-switch .unavailable {
+
+    color: var(--burgundy);
+
+    opacity: .6;
+
+    cursor: default;
+
+}
+
+
+
+/* HOME HERO */
+
+
+
+.home-hero {
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    min-height: 470px;
+
+    padding: 55px 7.8%;
+
+    color: white;
+
+    background-image:
+
+        linear-gradient(
+
+        90deg,
+
+        rgba(83, 7, 26, 0.88) 0%,
+
+        rgba(83, 7, 26, 0.55) 35%,
+
+        rgba(83, 7, 26, 0.08) 75%
+
+    ),
+
+    url("../Images/Aconcagua3.png");
+
+
+
+background-size: cover;
+
+background-position: center;
+
+background-repeat: no-repeat;
+
+}
+
+
+
+.hero-content {
+
+    position: relative;
+
+    z-index: 1;
+
+    max-width: 590px;
+
+}
+
+
+
+.hero-eyebrow {
+
+    font-family: Arial, sans-serif;
+
+    letter-spacing: 5px;
+
+    font-size: 15px;
+
+}
+
+
+
+.home-hero h1 {
+
+    font-size: clamp(52px, 6vw, 85px);
+
+    line-height: .95;
+
+    margin: 20px 0;
+
+    font-weight: 600;
+
+}
+
+
+
+.accent-line {
+
+    width: 65px;
+
+    height: 4px;
+
+    background: var(--rose);
+
+    margin: 20px 0;
+
+}
+
+
+
+.hero-description {
+
+    font-size: 21px;
+
+    line-height: 1.35;
+
+    max-width: 570px;
+
+}
+
+
+
+.primary-button {
+
+    display: inline-block;
+
+    padding: 15px 30px;
+
+    margin-top: 16px;
+
+    background: var(--rose);
+
+    color: white;
+
+    border-radius: 22px;
+
+    text-decoration: none;
+
+    font-size: 17px;
+
+    transition: background .2s ease;
+
+}
+
+
+
+.primary-button:hover {
+
+    background: var(--burgundy);
+
+}
+
+
+
+.hero-quote {
+
+    position: absolute;
+
+    right: 0;
+
+    bottom: 0;
+
+    width: 27%;
+
+    min-width: 290px;
+
+    padding: 28px 35px 32px;
+
+    background: rgba(62, 4, 18, .93);
+
+}
+
+
+
+.hero-quote p {
+
+    font-size: 30px;
+
+    font-style: italic;
+
+    line-height: 1.25;
+
+    margin: 0;
+
+}
+
+
+
+.hero-quote span {
+
+    font-family: Arial, sans-serif;
+
+    font-size: 13px;
+
+    letter-spacing: 1px;
+
+}
+
+
+
+/* EXPERTISE */
+
+
+
+.expertise {
+
+    display: grid;
+
+    grid-template-columns: repeat(5, 1fr);
+
+    gap: 22px;
+
+    padding: 28px 7.8% 38px;
+
+    background: white;
+
+    text-align: center;
+
+}
+
+
+
+.expertise-item {
+
+    padding: 0 8px;
+
+}
+
+
+
+.expertise-icon {
+
+    font-family: Arial, sans-serif;
+
+    font-size: 48px;
+
+    line-height: 1.3;
+
+    color: var(--burgundy);
+
+}
+
+
+
+.snowflake-icon {
+
+    color: #24b5e8;
+
+}
+
+
+
+.expertise h3 {
+
+    font-size: 20px;
+
+    margin: 5px 0;
+
+}
+
+
+
+.expertise p {
+
+    font-family: Arial, sans-serif;
+
+    color: #555;
+
+    font-size: 15px;
+
+    line-height: 1.5;
+
+    margin: 5px 0;
+
+}
+
+
+
+/* SPLIT ABOUT SECTION */
+
+
+
+.home-about {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    min-height: 330px;
+
+}
+
+
+
+.about-copy {
+
+    padding: 35px 10% 45px 16%;
+
+    background: #f6f4f4;
+
+}
+
+
+
+.about-copy h2 {
+
+    font-size: clamp(27px, 3vw, 36px);
+
+    margin: 10px 0;
+
+}
+
+
+
+.about-copy p {
+
+    font-family: Arial, sans-serif;
+
+    font-size: 16px;
+
+    line-height: 1.65;
+
+    color: #444;
+
+}
+
+
+
+.text-link {
+
+    color: var(--burgundy);
+
+    font-weight: bold;
+
+    text-decoration: none;
+
+}
+
+
+
+
+
+.about-photo {
+
+    position: relative;
+
+    min-height: 330px;
+
+    background-image: url("../Images/aconcagua1.jpg");
+
+    background-size: cover;
+
+    background-position: center;
+
+}
+
+
+
+
+
+
+
+.about-photo-caption {
+
+    position: absolute;
+
+    top: 20%;
+
+    right: 8%;
+
+    font-size: 30px;
+
+    font-style: italic;
+
+    line-height: 1.2;
+
+    color: #23181b;
+
+    text-shadow: 0 1px 10px rgba(255,255,255,.9);
+
+}
+
+
+
+/* SERVICES PREVIEW */
+
+
+
+.home-services {
+
+    padding: 70px 12%;
+
+    text-align: center;
+
+    background: white;
+
+}
+
+
+
+.section-eyebrow {
+
+    color: var(--rose);
+
+    font-family: Arial, sans-serif;
+
+    letter-spacing: 3px;
+
+    font-size: 12px;
+
+}
+
+
+
+.home-services h2 {
+
+    font-size: 38px;
+
+    color: var(--burgundy);
+
+}
+
+
+
+.home-services > p:not(.section-eyebrow) {
+
+    max-width: 800px;
+
+    margin: 20px auto;
+
+    font-size: 18px;
+
+    line-height: 1.8;
+
+}
+
+
+
+.services-note {
+
+    color: #666;
+
+}
+
+
+
+/* SHARED INNER PAGES */
+
+
+
+.hero {
+
+    padding: 80px 10%;
+
+    text-align: center;
+
+    background: linear-gradient(145deg, #fffafb, #f8e9ef);
+
+}
+
+
+
+.hero h1 {
+
+    font-size: clamp(38px, 5vw, 65px);
+
+    color: var(--burgundy);
+
+}
+
+
+
+.hero h2 {
+
+    font-size: 28px;
+
+    font-weight: normal;
+
+}
+
+
+
+.hero p {
+
+    max-width: 700px;
+
+    margin: 18px auto;
+
+    font-size: 18px;
+
+    line-height: 1.6;
+
+}
+
+
+
+.eyebrow {
+
+    letter-spacing: 4px;
+
+    color: var(--rose);
+
+    font-family: Arial, sans-serif;
+
+}
+
+
+
+.about,
+
+.services {
+
+    max-width: 1050px;
+
+    margin: auto;
+
+    padding: 65px 8%;
+
+    text-align: center;
+
+}
+
+
+
+.about h2,
+
+.services h2 {
+
+    font-size: 30px;
+
+    color: var(--burgundy);
+
+}
+
+
+
+.about p,
+
+.services p {
+
+    font-size: 17px;
+
+    line-height: 1.7;
+
+}
+
+
+
+.services {
+
+    background: white;
+
+}
+
+
+
+.mountain-image {
+
+    max-width: 850px;
+
+    margin: 40px auto 0;
+
+}
+
+
+
+.mountain-image img {
+
+    display: block;
+
+    width: 100%;
+
+    height: 350px;
+
+    object-fit: cover;
+
+    border-radius: 12px;
+
+    box-shadow: 0 12px 35px rgba(66,17,36,.15);
+
+}
+
+
+
+/* FOOTER */
+
+
+
+footer {
+
+    text-align: center;
+
+    background: var(--dark-burgundy);
+
+    color: white;
+
+    padding: 45px 20px;
+
+}
+
+
+
+footer h3 {
+
+    font-size: 23px;
+
+    font-style: italic;
+
+    font-weight: normal;
+
+}
+
+
+
+footer p {
+
+    font-size: 14px;
+
+}
+
+
+
+/* MOBILE */
+
+
+
+@media (max-width: 900px) {
+
+    .site-header,
+
+    header {
+
+        flex-wrap: wrap;
+
+        justify-content: center;
+
+    }
+
+
+
+    .main-nav,
+
+    nav {
+
+        gap: 20px;
+
+        flex-wrap: wrap;
+
+    }
+
+
+
+    .expertise {
+
+        grid-template-columns: repeat(3, 1fr);
+
+    }
+
+
+
+    .hero-quote {
+
+        position: relative;
+
+        width: 100%;
+
+        margin-top: 30px;
+
+    }
+
+
+
+    .home-hero {
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+    }
+
+}
+
+
+
+@media (max-width: 600px) {
+
+    .home-hero {
+
+        padding: 45px 7%;
+
+    }
+
+
+
+    .home-hero h1 {
+
+        font-size: 50px;
+
+    }
+
+
+
+    .hero-description {
+
+        font-size: 18px;
+
+    }
+
+
+
+    .expertise {
+
+        grid-template-columns: repeat(2, 1fr);
+
+        padding: 30px 5%;
+
+    }
+
+
+
+    .home-about {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+
+    .about-copy {
+
+        padding: 40px 8%;
+
+    }
+
+
+
+    .about-photo {
+
+        min-height: 290px;
+
+    }
+
+
+
+    .about-photo-caption {
+
+        font-size: 25px;
+
+    }
+
+
+
+    .mountain-image img {
+
+        height: 230px;
+
+    }
+
+}
+
+
+
+/* SERVICES ANALYTICS GALLERY */
+
+
+
+.services-gallery {
+
+    padding: 70px 8%;
+
+    background: #faf5f5;
+
+    text-align: center;
+
+}
+
+
+
+.services-gallery h2 {
+
+    color: #78182e;
+
+    font-size: 36px;
+
+}
+
+
+
+.services-gallery > p {
+
+    max-width: 750px;
+
+    margin: 15px auto 40px;
+
+    line-height: 1.6;
+
+}
+
+
+
+.gallery-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 25px;
+
+    max-width: 1250px;
+
+    margin: auto;
+
+}
+
+
+
+.gallery-card {
+
+    background: white;
+
+    border: 1px solid #eadce0;
+
+    border-radius: 12px;
+
+    overflow: hidden;
+
+    box-shadow: 0 5px 20px rgba(65, 5, 20, 0.08);
+
+    text-align: left;
+
+}
+
+
+
+.gallery-card img {
+
+    display: block;
+
+    width: 100%;
+
+    height: 230px;
+
+    object-fit: contain;
+
+    background: white;
+
+    padding: 12px;
+
+}
+
+
+
+.gallery-card h3 {
+
+    color: #78182e;
+
+    font-size: 21px;
+
+    margin: 15px 20px 8px;
+
+}
+
+
+
+.gallery-card p {
+
+    margin: 0 20px 25px;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 15px;
+
+    line-height: 1.5;
+
+    color: #555;
+
+}
+
+
+
+@media (max-width: 900px) {
+
+    .gallery-grid {
+
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
+}
+
+
+
+@media (max-width: 600px) {
+
+    .gallery-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+
+
+
+/* =========================================
+
+   ABOUT PAGE — ANALYTICS GRAPH
+
+   ========================================= */
+
+
+
+.analytics-image {
+
+    max-width: 900px;
+
+    margin: 35px auto;
+
+    padding: 15px;
+
+    background: white;
+
+    border-radius: 12px;
+
+    box-shadow: 0 8px 25px rgba(65, 5, 20, 0.10);
+
+}
+
+
+
+.analytics-image img {
+
+    display: block;
+
+    width: 100%;
+
+    height: auto;
+
+    object-fit: contain;
+
+    border-radius: 8px;
+
+}
+
+
+
+
+
+
+
+
+
+/* FEATURED GRAPH — CENTERED */
+
+
+
+.featured-analytics {
+
+    width: 90%;
+
+    max-width: 550px;
+
+    margin: 35px auto 55px;
+
+    padding: 15px;
+
+    background: white;
+
+    border-radius: 12px;
+
+    box-shadow: 0 6px 20px rgba(65, 5, 20, 0.10);
+
+}
+
+
+
+.featured-analytics img {
+
+    display: block;
+
+    width: 100%;
+
+    height: auto;
+
+    object-fit: contain;
+
+}
+
+
+
+/* RESTORE FULL-WIDTH GALLERY */
+
+
+
+.services-gallery {
+
+    width: 100%;
+
+    max-width: none;
+
+    margin: 0 auto;
+
+    padding: 70px 8%;
+
+}
+
+
+
+.services-gallery .gallery-grid {
+
+    width: 100%;
+
+    max-width: 1250px;
+
+    margin: 0 auto;
+
+}
+
+
+
+/* =========================================
+
+   PROJECTS PAGE — EL AUSTRAL CONSULTANT
+
+   ========================================= */
+
+
+
+.portfolio-section {
+
+    padding: 75px 8%;
+
+    background: #faf5f5;
+
+}
+
+
+
+.portfolio-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    gap: 28px;
+
+    max-width: 1250px;
+
+    margin: 0 auto;
+
+}
+
+
+
+.portfolio-card {
+
+    display: flex;
+
+    flex-direction: column;
+
+    background: white;
+
+    padding: 35px 28px;
+
+    border-radius: 14px;
+
+    border: 1px solid #eadce0;
+
+    box-shadow: 0 8px 25px rgba(65, 5, 20, 0.08);
+
+    transition: transform 0.2s ease;
+
+}
+
+
+
+.portfolio-card:hover {
+
+    transform: translateY(-5px);
+
+}
+
+
+
+.portfolio-number {
+
+    font-size: 42px;
+
+    color: #aa2d48;
+
+    font-weight: bold;
+
+    margin-bottom: 15px;
+
+}
+
+
+
+.portfolio-card h2 {
+
+    color: #78182e;
+
+    font-size: 25px;
+
+    line-height: 1.3;
+
+}
+
+
+
+.portfolio-card h3 {
+
+    color: #400b19;
+
+    font-size: 18px;
+
+    margin-top: 25px;
+
+}
+
+
+
+.portfolio-card p {
+
+    font-family: Arial, sans-serif;
+
+    font-size: 15px;
+
+    line-height: 1.7;
+
+    color: #555;
+
+}
+
+
+
+.portfolio-tech {
+
+    color: #78182e !important;
+
+    font-weight: bold;
+
+}
+
+
+
+.portfolio-footer {
+
+    margin-top: auto;
+
+    padding-top: 25px;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 13px;
+
+    color: #78182e;
+
+}
+
+
+
+.portfolio-disclaimer {
+
+    max-width: 850px;
+
+    margin: 45px auto 0;
+
+    text-align: center;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+
+    color: #666;
+
+}
+
+
+
+.portfolio-contact {
+
+    text-align: center;
+
+    padding: 75px 10%;
+
+    background: white;
+
+}
+
+
+
+.portfolio-contact h2 {
+
+    color: #78182e;
+
+    font-size: 35px;
+
+}
+
+
+
+.portfolio-contact p {
+
+    max-width: 650px;
+
+    margin: 20px auto;
+
+    font-size: 18px;
+
+    line-height: 1.7;
+
+}
+
+
+
+@media (max-width: 900px) {
+
+    .portfolio-grid {
+
+        grid-template-columns: 1fr;
+
+        max-width: 650px;
+
+    }
+
+}
+
+
+
+/* PROJECTS — ALIGN TECHNOLOGIES */
+
+
+
+.portfolio-card {
+
+    display: grid;
+
+    grid-template-rows: auto auto minmax(125px, auto) auto auto 1fr;
+
+    align-content: start;
+
+}
+
+
+
+.portfolio-card h2 {
+
+    margin-top: 15px;
+
+    min-height: 65px;
+
+}
+
+
+
+.portfolio-card h3 {
+
+    margin-top: 15px;
+
+}
+
+
+
+.portfolio-footer {
+
+    align-self: end;
+
+}
+
+
+
+/* PROJECTS PAGE — GITHUB BUTTONS */
+
+
+
+.portfolio-footer {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 18px;
+
+}
+
+
+
+.github-button {
+
+    display: inline-block;
+
+    padding: 12px 20px;
+
+    background: #78182e;
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    border-radius: 8px;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    transition: background 0.2s ease;
+
+}
+
+
+
+.github-button:hover {
+
+    background: #400b19;
+
+}
+
+
+
+.github-button:focus-visible {
+
+    outline: 3px solid #aa2d48;
+
+    outline-offset: 3px;
+
+}
+
+
+
+/* PROJECTS — KEEP BUTTONS INSIDE CARDS */
+
+
+
+.portfolio-card {
+
+    min-width: 0;
+
+}
+
+
+
+.portfolio-card .portfolio-footer {
+
+    grid-row: 6;
+
+    align-self: end;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 15px;
+
+    margin-top: 20px;
+
+    padding-top: 0;
+
+}
+
+
+
+.portfolio-card .github-button {
+
+    display: inline-block;
+
+    width: fit-content;
+
+    max-width: 100%;
+
+}
+
+
+
+/* =========================================
+
+   CONTACT US PAGE
+
+   ========================================= */
+
+
+
+.contact-section {
+
+    padding: 65px 8%;
+
+    background: #faf5f5;
+
+}
+
+
+
+.contact-intro {
+
+    max-width: 800px;
+
+    margin: 0 auto 35px;
+
+    text-align: center;
+
+}
+
+
+
+.contact-intro h2,
+
+.contact-consultation h2 {
+
+    color: #78182e;
+
+    font-size: 32px;
+
+}
+
+
+
+.contact-intro p,
+
+.contact-consultation p {
+
+    font-size: 17px;
+
+    line-height: 1.7;
+
+}
+
+
+
+.contact-form {
+
+    max-width: 900px;
+
+    margin: 0 auto;
+
+    padding: 40px;
+
+    background: white;
+
+    border: 1px solid #eadce0;
+
+    border-radius: 14px;
+
+    box-shadow: 0 8px 25px rgba(65, 5, 20, 0.08);
+
+}
+
+
+
+.contact-row {
+
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 25px;
+
+}
+
+
+
+.form-group {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 9px;
+
+    margin-bottom: 24px;
+
+}
+
+
+
+.form-group label,
+
+.service-selection legend {
+
+    color: #400b19;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+}
+
+
+
+.form-group input,
+
+.form-group textarea,
+
+.form-group select {
+
+    width: 100%;
+
+    padding: 13px;
+
+    border: 1px solid #c9adb5;
+
+    border-radius: 7px;
+
+    background: white;
+
+    color: #252126;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 15px;
+
+}
+
+
+
+.form-group input:focus,
+
+.form-group textarea:focus,
+
+.form-group select:focus {
+
+    outline: 2px solid #aa2d48;
+
+    outline-offset: 1px;
+
+}
+
+
+
+.service-selection {
+
+    border: 1px solid #eadce0;
+
+    border-radius: 10px;
+
+    padding: 22px;
+
+    margin: 5px 0 28px;
+
+}
+
+
+
+.service-selection p {
+
+    font-family: Arial, sans-serif;
+
+    font-size: 14px;
+
+    color: #666;
+
+}
+
+
+
+.service-options {
+
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 15px 25px;
+
+    margin-top: 20px;
+
+}
+
+
+
+.service-options label {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 10px;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+
+    cursor: pointer;
+
+}
+
+
+
+.service-options input {
+
+    margin-top: 3px;
+
+    accent-color: #78182e;
+
+}
+
+
+
+.contact-privacy,
+
+.contact-status {
+
+    font-family: Arial, sans-serif;
+
+    font-size: 13px;
+
+    color: #666;
+
+    line-height: 1.6;
+
+}
+
+
+
+.contact-submit {
+
+    display: block;
+
+    width: 100%;
+
+    padding: 16px;
+
+    margin-top: 25px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #78182e;
+
+    color: white;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+}
+
+
+
+.contact-submit:disabled {
+
+    opacity: 0.65;
+
+    cursor: not-allowed;
+
+}
+
+
+
+.contact-status {
+
+    text-align: center;
+
+}
+
+
+
+.contact-consultation {
+
+    max-width: 900px;
+
+    margin: 0 auto;
+
+    padding: 70px 8%;
+
+    text-align: center;
+
+}
+
+
+
+@media (max-width: 700px) {
+
+    .contact-form {
+
+        padding: 25px 18px;
+
+    }
+
+
+
+    .contact-row,
+
+    .service-options {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+
+
+
+/* CONSISTENT WEBSITE HEADER */
+
+
+
+.site-header {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 25px;
+
+    padding: 10px 7.8%;
+
+    min-height: 100px;
+
+    background: white;
+
+}
+
+
+
+.site-header .logo {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    width: 200px;
+
+    flex-shrink: 0;
+
+    text-decoration: none;
+
+}
+
+
+
+.site-header .logo svg {
+
+    display: block;
+
+    width: 190px;
+
+    height: 46px;
+
+}
+
+
+
+.site-header .main-nav {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 38px;
+
+}
+
+
+
+@media (max-width: 900px) {
+
+    .site-header {
+
+        flex-wrap: wrap;
+
+        justify-content: center;
+
+    }
+
+
+
+    .site-header .main-nav {
+
+        flex-wrap: wrap;
+
+        justify-content: center;
+
+        gap: 20px;
+
+    }
+
+}
+
+
+
+/* =========================================
+
+   EL AUSTRAL CONSULTANT
+
+   HOMEPAGE REDESIGN
+
+   ========================================= */
+
+
+
+.home-hero {
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    min-height: 465px;
+
+    padding: 55px 8%;
+
+    box-sizing: border-box;
+
+    overflow: hidden;
+
+
+
+    background-image:
+
+        linear-gradient(
+
+            90deg,
+
+            rgba(77, 7, 24, 0.94) 0%,
+
+            rgba(77, 7, 24, 0.72) 28%,
+
+            rgba(77, 7, 24, 0.30) 55%,
+
+            rgba(77, 7, 24, 0.06) 100%
+
+        ),
+
+        url("../Images/Aconcagua3.png");
+
+
+
+    background-size: cover;
+
+    background-position: center 45%;
+
+    background-repeat: no-repeat;
+
+    color: #ffffff;
+
+}
+
+
+
+.home-hero .hero-content {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: min(100%, 600px);
+
+}
+
+
+
+.home-hero .hero-eyebrow {
+
+    color: #ffffff;
+
+    font-size: 13px;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 16px;
+
+}
+
+
+
+.home-hero h1 {
+
+    color: #ffffff;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: clamp(48px, 5vw, 76px);
+
+    line-height: 0.98;
+
+    font-weight: 700;
+
+    margin: 0 0 22px;
+
+}
+
+
+
+.home-hero .accent-line {
+
+    width: 75px;
+
+    height: 4px;
+
+    background: #b53650;
+
+    margin: 0 0 20px;
+
+}
+
+
+
+.home-hero .hero-description {
+
+    color: #ffffff;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 19px;
+
+    line-height: 1.5;
+
+    max-width: 570px;
+
+    margin-bottom: 25px;
+
+}
+
+
+
+.hero-buttons {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 18px;
+
+    align-items: center;
+
+}
+
+
+
+.hero-buttons .primary-button,
+
+.hero-buttons .secondary-button {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-height: 46px;
+
+    padding: 10px 25px;
+
+    border-radius: 18px;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 16px;
+
+    text-decoration: none;
+
+    box-sizing: border-box;
+
+}
+
+
+
+.hero-buttons .primary-button {
+
+    background: #a72b44;
+
+    color: #ffffff;
+
+    border: 1px solid #a72b44;
+
+}
+
+
+
+.hero-buttons .secondary-button {
+
+    background: rgba(50, 0, 14, 0.22);
+
+    color: #ffffff;
+
+    border: 1px solid rgba(255,255,255,0.75);
+
+}
+
+
+
+.hero-buttons a:hover {
+
+    filter: brightness(1.15);
+
+}
+
+
+
+.home-hero .hero-quote {
+
+    position: absolute;
+
+    right: 0;
+
+    bottom: 0;
+
+    width: 26%;
+
+    min-width: 275px;
+
+    padding: 28px 32px;
+
+    box-sizing: border-box;
+
+    background: rgba(69, 4, 20, 0.90);
+
+    color: #ffffff;
+
+    z-index: 2;
+
+}
+
+
+
+.hero-quote p {
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-style: italic;
+
+    font-size: 27px;
+
+    line-height: 1.25;
+
+    margin: 0 0 16px;
+
+    color: #ffffff;
+
+}
+
+
+
+.hero-quote span {
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    color: #ffffff;
+
+}
+
+
+
+/* TECHNOLOGY ICON ROW */
+
+
+
+.expertise {
+
+    display: grid;
+
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+
+    gap: 20px;
+
+    padding: 32px 6%;
+
+    background: #ffffff;
+
+    text-align: center;
+
+}
+
+
+
+.expertise-item {
+
+    min-width: 0;
+
+}
+
+
+
+.expertise-icon {
+
+    font-size: 42px;
+
+    line-height: 1.1;
+
+    margin-bottom: 10px;
+
+    color: #8a1831;
+
+}
+
+
+
+.powerbi-icon {
+
+    color: #e6ac00;
+
+}
+
+
+
+.snowflake-icon {
+
+    color: #29a9d6;
+
+}
+
+
+
+.streamlit-icon {
+
+    color: #e64b54;
+
+}
+
+
+
+.expertise-item h3 {
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 19px;
+
+    color: #211c1c;
+
+    margin: 8px 0;
+
+}
+
+
+
+.expertise-item p {
+
+    color: #595959;
+
+    font-size: 15px;
+
+    line-height: 1.45;
+
+    margin: 0 auto;
+
+    max-width: 230px;
+
+}
+
+
+
+/* ABOUT SECTION */
+
+
+
+.home-about {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    background: #f7f5f5;
+
+}
+
+
+
+.home-about .about-copy {
+
+    padding: 55px 10%;
+
+}
+
+
+
+.home-about .about-copy h2 {
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: clamp(27px, 3vw, 38px);
+
+    color: #201c1c;
+
+    margin: 16px 0;
+
+}
+
+
+
+.home-about .about-copy p {
+
+    font-size: 16px;
+
+    line-height: 1.65;
+
+    color: #424242;
+
+}
+
+
+
+.home-about .about-photo {
+
+    min-height: 350px;
+
+    position: relative;
+
+    background-image: url("../Images/aconcagua2.jpg");
+
+    background-position: center;
+
+    background-size: cover;
+
+}
+
+
+
+.home-about .about-photo-caption {
+
+    position: absolute;
+
+    top: 20%;
+
+    right: 8%;
+
+    color: #201515;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-style: italic;
+
+    font-size: 30px;
+
+    line-height: 1.25;
+
+}
+
+
+
+.home-about .about-photo-caption .accent-line {
+
+    margin-top: 16px;
+
+}
+
+
+
+/* RESPONSIVE */
+
+
+
+@media (max-width: 900px) {
+
+    .expertise {
+
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    }
+
+
+
+    .home-hero {
+
+        min-height: 500px;
+
+        padding: 45px 6%;
+
+    }
+
+
+
+    .home-hero .hero-quote {
+
+        min-width: 225px;
+
+        width: 30%;
+
+    }
+
+}
+
+
+
+@media (max-width: 650px) {
+
+    .home-hero {
+
+        display: block;
+
+        min-height: 600px;
+
+        padding: 45px 6% 185px;
+
+        background-position: 60% center;
+
+    }
+
+
+
+    .home-hero h1 {
+
+        font-size: 49px;
+
+    }
+
+
+
+    .home-hero .hero-description {
+
+        font-size: 16px;
+
+    }
+
+
+
+    .home-hero .hero-quote {
+
+        width: 100%;
+
+        min-width: 0;
+
+        padding: 20px 6%;
+
+    }
+
+
+
+    .hero-quote p {
+
+        font-size: 23px;
+
+    }
+
+
+
+    .expertise {
+
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+        padding: 30px 5%;
+
+    }
+
+
+
+    .home-about {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+
+    .home-about .about-photo {
+
+        min-height: 280px;
+
+    }
+
+}
+
+
+
+/* ============================================
+
+   EL AUSTRAL CONSULTANT
+
+   SUNSET PINK & BURGUNDY THEME
+
+   ============================================ */
+
+
+
+:root {
+
+    --austral-burgundy: #780d2b;
+
+    --austral-deep: #52071c;
+
+    --austral-rose: #b52b4d;
+
+    --austral-pink: #f4c3c7;
+
+    --austral-pink-light: #f8d8d6;
+
+    --austral-text: #2c1820;
+
+}
+
+
+
+/* WHITE HEADER -> SOFT SUNSET PINK */
+
+
+
+.site-header {
+
+    background: linear-gradient(
+
+        105deg,
+
+        #e6b0bb 0%,
+
+        #f6ced0 48%,
+
+        #ffd4c0 100%
+
+    );
+
+    border-bottom: 1px solid rgba(120, 13, 43, 0.12);
+
+}
+
+
+
+.main-nav a {
+
+    color: #28151d;
+
+}
+
+
+
+.main-nav a.active,
+
+.main-nav a:hover {
+
+    color: var(--austral-burgundy);
+
+}
+
+
+
+/* HERO: POSITION THE MOUNTAIN FARTHER RIGHT */
+
+
+
+.home-hero {
+
+    background-image:
+
+        linear-gradient(
+
+            90deg,
+
+            rgba(78, 4, 24, 0.97) 0%,
+
+            rgba(78, 4, 24, 0.86) 21%,
+
+            rgba(78, 4, 24, 0.56) 39%,
+
+            rgba(78, 4, 24, 0.12) 68%,
+
+            rgba(78, 4, 24, 0.02) 100%
+
+        ),
+
+        url("../Images/Aconcagua3.png");
+
+
+
+    background-size: cover;
+
+    background-position: 58% center;
+
+    background-repeat: no-repeat;
+
+}
+
+
+
+.home-hero .hero-content {
+
+    max-width: 570px;
+
+}
+
+
+
+.home-hero .hero-description {
+
+    color: #fff8f8;
+
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+
+}
+
+
+
+.home-hero .hero-quote {
+
+    background: rgba(76, 5, 24, 0.91);
+
+}
+
+
+
+/* TECHNOLOGY SECTION: PINK BACKGROUND */
+
+
+
+.expertise {
+
+    background: linear-gradient(
+
+        100deg,
+
+        #e9adb7 0%,
+
+        #f6c4c5 50%,
+
+        #ffd0bb 100%
+
+    );
+
+    border-bottom: 1px solid rgba(120, 13, 43, 0.1);
+
+}
+
+
+
+.expertise-item {
+
+    text-align: center;
+
+}
+
+
+
+.expertise-item h3 {
+
+    color: #2d1420;
+
+}
+
+
+
+.expertise-item p {
+
+    color: #53343b;
+
+}
+
+
+
+/* PROFESSIONAL SVG ICONS */
+
+
+
+.expertise-icon {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    height: 55px;
+
+    margin-bottom: 8px;
+
+}
+
+
+
+.expertise-icon svg {
+
+    display: block;
+
+    width: 46px;
+
+    height: 46px;
+
+    fill: none;
+
+    stroke: currentColor;
+
+    stroke-width: 2.8;
+
+    stroke-linecap: round;
+
+    stroke-linejoin: round;
+
+}
+
+
+
+.analytics-icon,
+
+.engineering-icon {
+
+    color: #981c3d;
+
+}
+
+
+
+.powerbi-icon {
+
+    color: #edb600;
+
+}
+
+
+
+.powerbi-icon svg {
+
+    fill: currentColor;
+
+    stroke: none;
+
+}
+
+
+
+.snowflake-icon {
+
+    color: #15b4e3;
+
+}
+
+
+
+.streamlit-icon {
+
+    color: #e84152;
+
+}
+
+
+
+.streamlit-icon svg {
+
+    fill: currentColor;
+
+    stroke: none;
+
+}
+
+
+
+/* ABOUT SECTION: SUNSET PINK */
+
+
+
+.home-about {
+
+    background: linear-gradient(
+
+        120deg,
+
+        #edb1ba 0%,
+
+        #f8c7c6 50%,
+
+        #ffd5bd 100%
+
+    );
+
+}
+
+
+
+.home-about .about-copy {
+
+    background: transparent;
+
+}
+
+
+
+.home-about .about-copy h2 {
+
+    color: #25151a;
+
+}
+
+
+
+.home-about .about-copy p {
+
+    color: #46313a;
+
+}
+
+
+
+.home-about .about-photo {
+
+    background-image:
+
+        linear-gradient(
+
+            rgba(108, 25, 43, 0.12),
+
+            rgba(108, 25, 43, 0.12)
+
+        ),
+
+        url("../Images/aconcagua2.jpg");
+
+
+
+    background-position: center;
+
+    background-size: cover;
+
+}
+
+
+
+.home-about .about-photo-caption {
+
+    color: #2d1620;
+
+    text-shadow: 0 1px 3px rgba(255,255,255,0.6);
+
+}
+
+
+
+/* SERVICES SECTION */
+
+
+
+.home-services {
+
+    background: linear-gradient(
+
+        110deg,
+
+        #f7c9cd 0%,
+
+        #ffe1d4 100%
+
+    );
+
+}
+
+
+
+.home-services h2 {
+
+    color: var(--austral-burgundy);
+
+}
+
+
+
+/* FOOTER */
+
+
+
+footer {
+
+    background: #590c24;
+
+    color: #ffffff;
+
+}
+
+
+
+footer h3,
+
+footer p {
+
+    color: #ffffff;
+
+}
+
+
+
+/* SMALL SCREEN ADJUSTMENTS */
+
+
+
+@media (max-width: 650px) {
+
+    .home-hero {
+
+        background-position: 60% center;
+
+    }
+
+
+
+    .expertise {
+
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    }
+
+
+
+    .home-about {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+
+/* Keep the mountain logo consistent */
+
+.site-header .logo svg {
+
+    width: 160px;
+
+    height: 44px;
+
+    display: block;
+
+}
+
+
+
+/* SERVICES PAGE HEADER SIZE FIX */
+
+
+
+.site-header {
+
+    padding-top: 10px;
+
+    padding-bottom: 10px;
+
+}
+
+
+
+.site-header .logo svg {
+
+    width: 145px;
+
+    height: 36px;
+
+}
+
+
+
+.site-header .logo-name {
+
+    font-size: 21px;
+
+}
+
+
+
+.site-header .logo-subtitle {
+
+    font-size: 10px;
+
+}
+
+
+
+/* CONSISTENT HEADER ON ALL PAGES */
+
+
+
+.site-header {
+
+    min-height: 86px;
+
+    box-sizing: border-box;
+
+    padding: 10px 8%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+}
+
+
+
+.site-header .logo {
+
+    width: 160px;
+
+    flex: 0 0 160px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    text-decoration: none;
+
+}
+
+
+
+.site-header .logo svg {
+
+    width: 145px;
+
+    height: 36px;
+
+}
+
+
+
+.site-header .logo-name {
+
+    font-size: 21px;
+
+
+
+    line-height: 1;
+
+}
+
+
+
+.site-header .logo-subtitle {
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+}
+
+
+
+.site-header .main-nav {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 30px;
+
+}
+
+
+
+.site-header .main-nav a {
+
+    font-size: 16px;
+
+}
+
+/* HERO: preserve the original bottom-right quote placement */
+@media (min-width: 901px) {
+  .home-hero .hero-quote {
+    position: absolute;
+    top: auto;
+    left: auto;
+    right: 0;
+    bottom: 0;
+    transform: none;
+    margin: 0;
+  }
+}
+/* Hide only buttons within the mountain hero */
+.home-hero .hero-buttons { display: none; }
+
+/* Keep the quote within the mobile layout */
+@media (max-width: 650px) {
+  .home-hero .hero-quote {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: auto;
+    top: auto;
+    width: 100%;
+    min-width: 0;
+  }
+}
