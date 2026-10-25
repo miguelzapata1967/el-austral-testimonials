@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="El Austral Consultant provides data analytics, engineering, forecasting, and business intelligence solutions.">
+    <title>El Austral Consultant | Data. Insights. Impact.</title>
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
+    <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+    <!-- Link preview (email, text, social) -->
+    <meta property="og:site_name" content="El Austral Consultant">
+    <meta property="og:title" content="El Austral Consultant | Data. Insights. Impact.">
+    <meta property="og:description" content="Learn about El Austral Consultant and leave a testimonial about working with Miguel.">
+    <meta property="og:url" content="https://miguelzapata1967.github.io/el-austral-testimonials/">
+    <meta property="og:image" content="https://miguelzapata1967.github.io/el-austral-testimonials/icons/link-preview.png">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="Styles/style.css">
+    <style>
+        /* Sign Up menu item. Not needed here once admin-addendum.css is pasted at the end of style.css. */
+        .main-nav a.nav-signup {padding:8px 18px;border:2px solid var(--burgundy);border-radius:999px;color:var(--burgundy);}
+        .main-nav a.nav-signup:hover {background:var(--burgundy);color:#fff;}
+
+        /* "From data to new horizons." caption: bottom-right corner, in a dark panel like the hero quote */
+        .home-about .about-photo .about-photo-caption {
+            top: auto;
+            left: auto;
+            right: 0;
+            bottom: 0;
+            max-width: 80%;
+            box-sizing: border-box;
+            padding: 28px 32px;
+            background: rgba(76, 5, 24, 0.91);
+            color: #ffffff;
+            font-size: 27px;
+            text-shadow: none;
+        }
+        .home-about .about-photo .about-photo-caption .accent-line {margin-top: 14px;}
+
+        /* Same size for both corner panels ("Insights for a higher tomorrow." and "From data to new horizons.").
+           Change the width and min-height here to resize both together. Phones keep their own layout. */
+        @media (min-width: 651px) {
+            .home-hero .hero-quote,
+            .home-about .about-photo .about-photo-caption {
+                width: 360px;
+                min-height: 185px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="site-header">
+    <a class="logo" href="index.html" aria-label="El Austral Consultant Home">
+        <svg viewBox="0 0 210 57" role="img" aria-label="Aconcagua mountain logo">
+            <path d="M8 47 L47 30 L63 35 L102 5 L130 31 L143 24 L176 43 L201 48 M47 30 L56 39 L70 31 M102 5 L110 25 L119 21 L130 31" fill="none" stroke="#78182e" stroke-width="4" stroke-linejoin="round"/>
+        </svg>
+        <span class="logo-name">EL AUSTRAL</span>
+        <span class="logo-subtitle">CONSULTANT</span>
+    </a>
+    <nav class="main-nav" aria-label="Main navigation">
+        <a href="index.html" class="active" aria-current="page">Home</a>
+        <a href="services.html">Services</a>
+        <a href="about.html">About Us</a>
+        <a href="contact_us.html">Contact Us</a>
+        <a href="testimonials.html">Testimonials</a>
+    </nav>
+    <div class="language-switch" aria-label="Language">
+        <span class="selected">EN</span>
+        <span class="unavailable" title="Spanish website coming soon">ES</span>
+    </div>
+</header>
+    <main>
+        <!-- MOUNTAIN HERO: ONE SECTION, NO BUTTONS -->
+        <section class="home-hero">
+            <div class="hero-content">
+                <p class="hero-eyebrow">DATA · INSIGHTS · IMPACT</p>
+                <h1>El Austral<br>Consultant</h1>
+                <div class="accent-line"></div>
+                <p class="hero-description">
+                    Turning data into opportunities.<br>
+                    Helping businesses make better decisions with
+                    modern data analytics, engineering, and visualization.
+                </p>
+            </div>
+            <aside class="hero-quote">
+                <p>Insights for<br>a higher tomorrow.</p>
+                <div class="accent-line"></div>
+                <span>EL AUSTRAL CONSULTANT</span>
+            </aside>
+        </section>
+        <!-- TECHNOLOGY EXPERTISE -->
+        <section class="expertise" aria-label="Our technologies">
+            <div class="expertise-item">
+                <div class="expertise-icon analytics-icon" aria-hidden="true">
+                    <svg viewBox="0 0 48 48"><rect x="6" y="29" width="7" height="13"/><rect x="20" y="19" width="7" height="23"/><rect x="34" y="7" width="7" height="35"/></svg>
+                </div>
+                <h3>Data Analytics</h3>
+                <p>Transform your data into actionable insights.</p>
+            </div>
+            <div class="expertise-item">
+                <div class="expertise-icon engineering-icon" aria-hidden="true">
+                    <svg viewBox="0 0 48 48"><ellipse cx="24" cy="10" rx="16" ry="6"/><path d="M8 10 V36 C8 44 40 44 40 36 V10"/><path d="M8 19 C8 27 40 27 40 19"/><path d="M8 28 C8 36 40 36 40 28"/></svg>
+                </div>
+                <h3>Data Engineering</h3>
+                <p>Build reliable, scalable data pipelines.</p>
+            </div>
+            <div class="expertise-item">
+                <div class="expertise-icon powerbi-icon" aria-hidden="true">
+                    <svg viewBox="0 0 48 48"><rect x="6" y="25" width="9" height="17" rx="2"/><rect x="18" y="15" width="9" height="27" rx="2"/><rect x="30" y="5" width="9" height="37" rx="2"/></svg>
+                </div>
+                <h3>Power BI</h3>
+                <p>Create interactive dashboards and reports.</p>
+            </div>
+            <div class="expertise-item">
+                <div class="expertise-icon snowflake-icon" aria-hidden="true">
+                    <svg viewBox="0 0 48 48"><path d="M24 3 V45 M3 24 H45 M9 9 L39 39 M39 9 L9 39"/><path d="M18 9 L24 15 L30 9 M18 39 L24 33 L30 39 M9 18 L15 24 L9 30 M39 18 L33 24 L39 30"/></svg>
+                </div>
+                <h3>Snowflake</h3>
+                <p>Leverage the cloud for modern data solutions.</p>
+            </div>
+            <div class="expertise-item">
+                <div class="expertise-icon streamlit-icon" aria-hidden="true">
+                    <svg viewBox="0 0 48 48"><path d="M4 16 L17 22 L24 6 L31 22 L44 16 L36 40 H12 Z"/></svg>
+                </div>
+                <h3>Streamlit</h3>
+                <p>Build powerful, interactive web applications.</p>
+            </div>
+        </section>
+        <!-- ABOUT SECTION -->
+        <section class="home-about">
+            <div class="about-copy">
+                <div class="accent-line"></div>
+                <h2>About El Austral Consultant</h2>
+                <p>We are a data consulting firm focused on helping businesses unlock the value of their data. Our expertise spans data analytics, data engineering, business intelligence, and modern cloud tools.</p>
+                <p>Inspired by the strength and perspective of Aconcagua, we aim to help our clients reach higher through data-driven decision-making.</p>
+                <a href="about.html" class="text-link">Learn more about us →</a>
+            </div>
+            <div class="about-photo">
+                <div class="about-photo-caption">From data<br>to new horizons.<div class="accent-line"></div></div>
+            </div>
+        </section>
+        <!-- SERVICES PREVIEW -->
+        <section class="home-services">
+            <p class="section-eyebrow">PRACTICAL BUSINESS SOLUTIONS</p>
+            <h2>Our Services</h2>
+            <p>Data Analytics · Business Intelligence &amp; Dashboards · Data Engineering &amp; Pipelines · Forecasting &amp; Demand Planning · A/B Testing · Retail &amp; Revenue Analytics · Workforce Analytics · Security &amp; Risk Analytics</p>
+            <p class="services-note">Optional monthly analytics, reporting, and storage are available. Your initial consultation is free.</p>
+            <a class="primary-button" href="services.html">Explore Our Services →</a>
+        </section>
+    </main>
+    <!-- FOOTER -->
+    <footer>
+        <h3>Insights for a Higher Tomorrow</h3>
+        <p>Miguel Zapata, Founder - :. :. :. </p>
+        <p>&copy; MMXXVI — El Austral Consultant. All rights reserved.</p>
+    </footer>
+
+    <script src="Scripts/music-player.js" defer></script>
+</body>
+</html>
