@@ -18,14 +18,14 @@ Before uploading, copy these folders from your English folder into this one (cop
 `Scripts`, `Graph` and `Music`. (`Styles` and `Images` with the two mountain pictures are already included.)
 
 ## Step 1: Put the site on GitHub (about 10 minutes)
-1. On github.com, create a new public repository, for example `el-austral-standby`.
+1. On github.com, create a new public repository, for example `el-austral-testimonials`.
 2. Upload every file and folder from this site, keeping the `data` folder.
 3. Go to Settings > Pages > Source: "Deploy from a branch", choose `main`, then `/ (root)`, then Save.
-4. Your site address will be `https://YOUR-USERNAME.github.io/el-austral-standby/`.
+4. Your site address will be `https://miguelzapata1967.github.io/el-austral-testimonials/`.
 
 ## Step 2: Create the GitHub key for the connector
 1. Go to GitHub > your picture > Settings > Developer settings > Personal access tokens > Fine-grained tokens > Generate new token.
-2. Name: `testimonials-connector`. Repository access: **Only select repositories**, then pick `el-austral-standby`.
+2. Name: `testimonials-connector`. Repository access: **Only select repositories**, then pick `el-austral-testimonials`.
 3. Permissions > Repository permissions > **Contents: Read and write**. Leave everything else alone.
 4. Generate the token and copy it. GitHub shows it only once.
 
@@ -34,10 +34,10 @@ Before uploading, copy these folders from your English folder into this one (cop
 2. Click **Edit code**, delete the sample code, paste all of `connector/worker.js`, then Deploy.
 3. Go to Settings > Variables and Secrets and add:
    - `GITHUB_TOKEN`: the token from Step 2 (choose type **Secret**)
-   - `GITHUB_REPO`: `YOUR-USERNAME/el-austral-standby`
+   - `GITHUB_REPO`: `miguelzapata1967/el-austral-testimonials`
    - `GITHUB_BRANCH`: `main`
    - `FILE_PATH`: `data/testimonials.json`
-   - `ALLOWED_ORIGIN`: `https://YOUR-USERNAME.github.io` (no slash at the end)
+   - `ALLOWED_ORIGIN`: `https://miguelzapata1967.github.io` (no slash at the end)
 4. Copy the Worker address, for example `https://el-austral-testimonials.YOUR-ACCOUNT.workers.dev`.
 5. In `contact_us.html`, replace the `CONNECTOR_URL` value with that address. Upload the file to GitHub again.
 
@@ -62,7 +62,7 @@ Copy `data/testimonials.json` and `testimonials.html` into the main site. Point 
 `GITHUB_REPO` to the main repository. Nothing else changes.
 
 ## Icon and link preview
-- `favicon.ico` and the `icons` folder hold your El Austral Data Engineering Analyst icon. It shows on the browser tab and on phone home screens.
+- `favicon.ico` and the `icons` folder hold your El Austral Consultant icon. It shows on the browser tab and on phone home screens.
 - `icons/link-preview.png` is the picture people see when you send the link by email or text.
 - After Step 1, open both HTML files and replace `YOUR-USERNAME` (and `el-austral-standby` if you named the repo differently) in the `og:image` line. Link previews need the full web address.
 - To use the same icon on your homepage, Services and About Us pages, copy the icon and preview lines from the top of `testimonials.html` into the `<head>` of each page.
