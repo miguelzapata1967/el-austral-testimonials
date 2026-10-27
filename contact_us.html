@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us | El Austral Consultant</title>
+<!-- Link your existing site stylesheet so the background and header match every other page -->
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<!-- Link preview (email, text, social). Uses the live site address -->
+<meta property="og:site_name" content="El Austral Consultant">
+<meta property="og:title" content="Leave a Testimonial | El Austral Consultant">
+<meta property="og:description" content="Customers of Miguel's previous businesses: share your experience working with him.">
+<meta property="og:image" content="https://miguelzapata1967.github.io/el-austral-testimonials/icons/link-preview.png">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="Styles/style.css">
+<style>
+  .c-wrap { max-width: 720px; margin: 0 auto; padding: 32px 16px 64px; }
+  .c-title { text-align: center; font-size: 2.4rem; margin: 0 0 20px; }
+  .c-thanks { background: rgba(255,255,255,.92); color: #222; padding: 22px 26px; border-left: 6px solid #78182e;
+              border-radius: 6px; line-height: 1.6; margin-bottom: 28px; }
+  .c-thanks p { margin: 0 0 10px; }
+  .c-thanks .sig { margin: 14px 0 0; font-weight: 700; }
+  .c-form { background: rgba(255,255,255,.92); color: #222; padding: 24px 26px; border-radius: 6px; }
+  .c-row { display: flex; gap: 16px; flex-wrap: wrap; }
+  .c-field { flex: 1 1 200px; margin-bottom: 16px; }
+  .c-field label { display: block; font-weight: 600; margin-bottom: 6px; }
+  .c-field input, .c-field select, .c-field textarea { width: 100%; box-sizing: border-box; padding: 10px 12px;
+      border: 1px solid #9aa7b5; border-radius: 4px; font: inherit; }
+  .c-field textarea { min-height: 170px; resize: vertical; }
+  .c-hint { font-size: .85rem; opacity: .75; margin-top: 4px; }
+  .c-hp { position: absolute; left: -9999px; }   /* spam trap, hidden from people */
+  .c-btn { padding: 12px 30px; background: #78182e; color: #fff; border: none; border-radius: 6px;
+           font-size: 1rem; font-weight: 600; cursor: pointer; }
+  .c-btn:disabled { opacity: .6; cursor: wait; }
+  .c-msg { margin-top: 16px; padding: 12px 14px; border-radius: 4px; display: none; }
+  .c-msg.ok { display: block; background: #e6f4ea; color: #1e5a2e; }
+  .c-msg.err { display: block; background: #fdecea; color: #8a1f17; }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+    <a class="logo" href="index.html" aria-label="El Austral Consultant Home">
+        <svg viewBox="0 0 210 57" role="img" aria-label="Aconcagua mountain logo">
+            <path d="M8 47 L47 30 L63 35 L102 5 L130 31 L143 24 L176 43 L201 48 M47 30 L56 39 L70 31 M102 5 L110 25 L119 21 L130 31" fill="none" stroke="#78182e" stroke-width="4" stroke-linejoin="round"/>
+        </svg>
+        <span class="logo-name">EL AUSTRAL</span>
+        <span class="logo-subtitle">CONSULTANT</span>
+    </a>
+    <nav class="main-nav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="about.html">About Us</a>
+        <a href="contact_us.html" class="active" aria-current="page">Contact Us</a>
+        <a href="testimonials.html">Testimonials</a>
+    </nav>
+    <div class="language-switch" aria-label="Language">
+        <span class="selected">EN</span>
+        <span class="unavailable" title="Spanish website coming soon">ES</span>
+    </div>
+</header>
+
+<main class="c-wrap">
+  <h1 class="c-title">Contact Us</h1>
+
+  <section class="c-thanks">
+    <p>If you are reading this, it is because you are willing to leave me a message, and I truly appreciate it.</p>
+    <p>Please share your experience with me from my previous business, the one where I served you before
+       El Austral Consultant. El Austral Consultant is my new business, and your testimonial will be shown as coming from a
+       customer of my previous business, so visitors know exactly where our history together comes from.</p>
+    <p>Thank you for taking the time to share your experience, whatever it may be. Every comment is positive to me:
+       the good words tell me what to keep doing, and the critical ones show me what I was missing in my services
+       and customer service so I can do better.</p>
+    <p>Your comment will be posted exactly as you write it, and I will personally reply to every one.</p>
+    <p>If you ever need my new business, El Austral Consultant, please don't hesitate to contact me.</p>
+    <p class="sig">— Miguel A. Zapata, Founder</p>
+    <p class="sig"> elaustralconsultant@gmail.com </p>
+  </section>
+
+  <form class="c-form" id="tForm" novalidate>
+    <div class="c-row">
+      <div class="c-field">
+        <label for="first">First name</label>
+        <input id="first" name="first_name" maxlength="40" required autocomplete="given-name">
+      </div>
+      <div class="c-field">
+        <label for="last">Last name</label>
+        <input id="last" name="last_name" maxlength="40" required autocomplete="family-name">
+        <div class="c-hint">Only your last initial will be shown.</div>
+      </div>
+    </div>
+    <div class="c-row">
+      <div class="c-field">
+        <label for="year">Year I served you (previous business)</label>
+        <select id="year" name="service_year" required></select>
+      </div>
+    </div>
+    <div class="c-field">
+      <label for="comment">Your testimonial about my previous business</label>
+      <textarea id="comment" name="comment" maxlength="3000" required></textarea>
+    </div>
+    <div class="c-hp" aria-hidden="true">
+      <label for="website">Leave this empty</label>
+      <input id="website" name="website" tabindex="-1" autocomplete="off">
+    </div>
+    <button class="c-btn" type="submit" id="submitBtn">Submit testimonial</button>
+    <div class="c-msg" id="msg" role="status"></div>
+  </form>
+</main>
+
+<script>
+  // Address of the connector (Cloudflare Worker) — fill in after setup, see SETUP.md
+       const CONNECTOR_URL = "https://testimonials.elaustralconsultant.workers.dev";
+
+  const yearSel = document.getElementById("year");
+  yearSel.innerHTML = '<option value="">Select a year</option>';
+  for (let y = new Date().getFullYear(); y >= 1995; y--) {
+    yearSel.innerHTML += `<option value="${y}">${y}</option>`;
+  }
+
+  const form = document.getElementById("tForm");
+  const msg = document.getElementById("msg");
+  const btn = document.getElementById("submitBtn");
+
+  function show(text, ok) {
+    msg.textContent = text;
+    msg.className = "c-msg " + (ok ? "ok" : "err");
+  }
+
+  form.addEventListener("submit", async e => {
+    e.preventDefault();
+    const data = Object.fromEntries(new FormData(form));
+    if (!data.first_name.trim() || !data.last_name.trim() || !data.service_year || data.comment.trim().length < 5) {
+      show("Please fill in your name, the year you were served, and your testimonial.", false);
+      return;
+    }
+    btn.disabled = true;
+    btn.textContent = "Sending…";
+    try {
+      const r = await fetch(CONNECTOR_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+      });
+      if (!r.ok) throw new Error();
+      form.reset();
+      show("Thank you! Your testimonial was received and will appear on the Testimonials page in a minute or two.", true);
+    } catch {
+      show("Sorry, something went wrong and your testimonial wasn't sent. Please try again in a few minutes.", false);
+    } finally {
+      btn.disabled = false;
+      btn.textContent = "Submit testimonial";
+    }
+  });
+</script>
+<script src="Scripts/music-player.js" defer></script>
+</body>
+</html>
