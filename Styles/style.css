@@ -3216,3 +3216,11 @@ footer p {
     min-width: 0;
   }
 }
+
+
+/* ===== Sign Up / Log In button in the main menu (connects the website to the app) ===== */
+.main-nav a.nav-signup {padding:8px 18px;border:2px solid var(--burgundy, #78182e);border-radius:999px;
+    color:var(--burgundy, #78182e);white-space:nowrap;}
+.main-nav a.nav-signup:hover {background:var(--burgundy, #78182e);color:#fff;}
+/* El Austral Consultant customer label on the Wall of Fame */
+.t-source-new {color:#78182e;font-weight:700;}
