@@ -78,6 +78,7 @@
         <a href="about.html">About Us</a>
         <a href="contact_us.html">Contact Us</a>
         <a href="testimonials.html" class="active" aria-current="page">Testimonials</a>
+        <a href="#" data-app="signup" class="nav-signup">Sign Up / Log In</a>
     </nav>
     <div class="language-switch" aria-label="Language">
         <span class="selected">EN</span>
@@ -88,9 +89,10 @@
 <main class="t-wrap">
   <h1 class="t-title">Testimonials</h1>
   <p class="t-subtitle">Testimonials for Miguel</p>
-  <p class="t-note">El Austral Consultant is a new business. These comments come from customers I served in my
-     previous businesses before El Austral Consultant. They speak to how I work and how I treat my customers,
-     not to El Austral Consultant's data services.</p>
+  <p class="t-note">El Austral Consultant is a new business. Comments marked <b>Previous business</b> come from
+     customers I served in my previous businesses before El Austral Consultant: they speak to how I work and how I
+     treat my customers, not to El Austral Consultant's data services. Comments marked
+     <b class="t-source-new">El Austral Consultant customer</b> come from customers of El Austral Consultant.</p>
   <a class="t-cta" href="contact_us.html">Leave your testimonial</a>
 
   <section class="t-wall" id="wall" aria-label="Customer testimonials"></section>
@@ -130,7 +132,8 @@
     return text.length > max ? text.slice(0, max).trimEnd() + "…" : text;
   }
   function signature(t) {
-    return `${t.first_name} ${t.last_initial}. — Served ${t.service_year} · Previous business`;
+    const who = t.source === "el-austral" ? "El Austral Consultant customer" : "Previous business";
+    return `${t.first_name} ${t.last_initial}. — Served ${t.service_year} · ${who}`;
   }
 
   function render(list) {
@@ -184,5 +187,6 @@
     .catch(() => render(SAMPLE));
 </script>
 <script src="Scripts/music-player.js" defer></script>
+<script src="Scripts/app-link.js" defer></script>
 </body>
 </html>

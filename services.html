@@ -9,6 +9,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
     <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
     <link rel="stylesheet" href="Styles/style.css">
+    <script src="Scripts/app-link.js"></script>  <!-- the app address, before the Order buttons are built -->
     <style>
       /* Scoped to the Services content only. No header, body, or site-wide colors modified. */
       .service-content,.service-gallery {max-width:1100px;margin:0 auto;padding:2rem 1.25rem;text-align:center;}
@@ -67,6 +68,7 @@
         <a href="about.html">About Us</a>
         <a href="contact_us.html">Contact Us</a>
         <a href="testimonials.html">Testimonials</a>
+        <a href="#" data-app="signup" class="nav-signup">Sign Up / Log In</a>
     </nav>
     <div class="language-switch" aria-label="Language">
         <span class="selected">EN</span>
@@ -116,9 +118,11 @@
   (() => {
     // ---------------------------------------------------------------
     // SERVICE DESCRIPTIONS — no prices on this page.
-    // Standby demo version: no Order buttons.
+    // Order opens the El Austral app (address set in Scripts/app-link.js).
+    // Services the app doesn't sell yet get "Request a quote" (an email).
     // ---------------------------------------------------------------
-    const SIGNUP_URL = 'signup.html';
+    const APP_SERVICES = ['analytics', 'retail'];        // sold in the app: Basic, Basic + Analysis, Monthly
+    const QUOTE_EMAIL = 'elaustralconsultant@gmail.com';
 
     const services = [
       {
@@ -317,8 +321,13 @@
       return node;
     }
     function actionButton(service) {
-      const a = el('a', 'Order', 'service-btn primary');
-      a.href = SIGNUP_URL + '?service=' + encodeURIComponent(service.key);
+      if (APP_SERVICES.includes(service.key)) {
+        const a = el('a', 'Order', 'service-btn primary');
+        a.href = (window.EA_APP_URL || 'http://localhost:8501').replace(/\/$/, '') + '/?page=signup';
+        return a;
+      }
+      const a = el('a', 'Request a quote', 'service-btn primary');
+      a.href = 'mailto:' + QUOTE_EMAIL + '?subject=' + encodeURIComponent('Quote request: ' + service.title);
       return a;
     }
 
@@ -368,7 +377,7 @@
         body.appendChild(req);
       }
       const actions = el('div', '', 'service-actions');
-      // Standby demo: Order button hidden until the full system is live
+      actions.appendChild(actionButton(s));
       if (s.besideOrder) actions.appendChild(el('span', s.besideOrder, 'beside-order'));
       body.appendChild(actions);
     }

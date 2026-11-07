@@ -56,6 +56,7 @@
         <a href="about.html">About Us</a>
         <a href="contact_us.html" class="active" aria-current="page">Contact Us</a>
         <a href="testimonials.html">Testimonials</a>
+        <a href="#" data-app="signup" class="nav-signup">Sign Up / Log In</a>
     </nav>
     <div class="language-switch" aria-label="Language">
         <span class="selected">EN</span>
@@ -123,6 +124,19 @@
 
   const form = document.getElementById("tForm");
   const msg = document.getElementById("msg");
+
+  // An El Austral Consultant customer comes from the link in their report email:
+  // contact_us.html?from=el-austral  -> their comment is labeled as an El Austral Consultant customer
+  const params = new URLSearchParams(location.search);
+  const SOURCE = params.get("from") === "el-austral" ? "el-austral" : "previous";
+  if (SOURCE === "el-austral") {
+    yearSel.value = String(new Date().getFullYear());
+    const note = document.createElement("p");
+    note.className = "c-msg ok";
+    note.textContent = "Thank you for being an El Austral Consultant customer! Your comment will be shown as " +
+                       "an El Austral Consultant customer.";
+    form.prepend(note);
+  }
   const btn = document.getElementById("submitBtn");
 
   function show(text, ok) {
@@ -133,6 +147,7 @@
   form.addEventListener("submit", async e => {
     e.preventDefault();
     const data = Object.fromEntries(new FormData(form));
+    data.source = SOURCE;                       // "el-austral" or "previous" (label on the Testimonials page)
     if (!data.first_name.trim() || !data.last_name.trim() || !data.service_year || data.comment.trim().length < 5) {
       show("Please fill in your name, the year you were served, and your testimonial.", false);
       return;
@@ -157,5 +172,6 @@
   });
 </script>
 <script src="Scripts/music-player.js" defer></script>
+<script src="Scripts/app-link.js" defer></script>
 </body>
 </html>
