@@ -4,9 +4,16 @@
   const script = document.currentScript;
   const base = new URL('../Music/', script.src);   // English/Music, resolved from this script's own location
   const tracks = [
-    {title: 'Graceful Flow', file: 'Graceful Flow.mp3'},
-    {title: 'Serenade in G', file: 'Serenade in G (1).mp3'},
-    {title: '流指小调', file: '流指小调.mp3'}
+    // Miguel's own songs (made with Suno), in the Music folder next to Scripts
+    {title: 'Graceful Flow', file: 'Graceful-Flow.mp3'},
+    {title: 'Serenade in G', file: 'Serenade-in-G.mp3'},
+    {title: '流指小调', file: 'Liu-Zhi-Xiao-Diao.mp3'},
+    {title: 'Amauta', file: 'Amauta.mp3'},
+    {title: 'Armonías Suaves', file: 'Armonias-Suaves.mp3'},
+    {title: 'Fluencia Romántica', file: 'Fluencia-Romantica.mp3'},
+    {title: 'Graceful Resolution', file: 'Graceful-Resolution.mp3'},
+    {title: 'Fading into the Mist', file: 'Fading-into-the-Mist.mp3'},
+    {title: 'Fading into the Wind', file: 'Fading-into-the-Wind.mp3'}
   ];
   const KEY = 'elAustralMusic';
   let saved = {track: 0, time: 0, muted: false};
