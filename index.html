@@ -5,17 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="El Austral Consultant provides data analytics, engineering, forecasting, and business intelligence solutions.">
     <title>El Austral Consultant | Data. Insights. Impact.</title>
-    <link rel="icon" href="favicon.ico" sizes="any">
-    <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
-    <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
-    <!-- Link preview (email, text, social) -->
-    <meta property="og:site_name" content="El Austral Consultant">
-    <meta property="og:title" content="El Austral Consultant | Data. Insights. Impact.">
-    <meta property="og:description" content="Learn about El Austral Consultant and leave a testimonial about working with Miguel in his previous business.">
-    <meta property="og:url" content="https://miguelzapata1967.github.io/el-austral-testimonials/">
-    <meta property="og:image" content="https://miguelzapata1967.github.io/el-austral-testimonials/icons/link-preview.png">
-    <meta property="og:type" content="website">
-    <meta name="twitter:card" content="summary_large_image">
     <link rel="stylesheet" href="Styles/style.css">
     <style>
         /* Sign Up menu item. Not needed here once admin-addendum.css is pasted at the end of style.css. */
@@ -52,26 +41,25 @@
 <body>
     <!-- HEADER -->
     <header class="site-header">
-    <a class="logo" href="index.html" aria-label="El Austral Consultant Home">
-        <svg viewBox="0 0 210 57" role="img" aria-label="Aconcagua mountain logo">
-            <path d="M8 47 L47 30 L63 35 L102 5 L130 31 L143 24 L176 43 L201 48 M47 30 L56 39 L70 31 M102 5 L110 25 L119 21 L130 31" fill="none" stroke="#78182e" stroke-width="4" stroke-linejoin="round"/>
-        </svg>
-        <span class="logo-name">EL AUSTRAL</span>
-        <span class="logo-subtitle">CONSULTANT</span>
-    </a>
-    <nav class="main-nav" aria-label="Main navigation">
-        <a href="index.html" class="active" aria-current="page">Home</a>
-        <a href="services.html">Services</a>
-        <a href="about.html">About Us</a>
-        <a href="contact_us.html">Contact Us</a>
-        <a href="testimonials.html">Testimonials</a>
-        <a href="#" data-app="signup" class="nav-signup">Sign Up / Log In</a>
-    </nav>
-    <div class="language-switch" aria-label="Language">
-        <span class="selected">EN</span>
-        <span class="unavailable" title="Spanish website coming soon">ES</span>
-    </div>
-</header>
+        <a class="logo" href="index.html" aria-label="El Austral Consultant Home">
+            <svg viewBox="0 0 210 57" role="img" aria-label="Aconcagua mountain logo">
+                <path d="M8 47 L47 30 L63 35 L102 5 L130 31 L143 24 L176 43 L201 48 M47 30 L56 39 L70 31 M102 5 L110 25 L119 21 L130 31" fill="none" stroke="#78182e" stroke-width="4" stroke-linejoin="round"/>
+            </svg>
+            <span class="logo-name">EL AUSTRAL</span>
+            <span class="logo-subtitle">CONSULTANT</span>
+        </a>
+        <nav class="main-nav" aria-label="Main navigation">
+            <a href="index.html" class="active" aria-current="page">Home</a>
+            <a href="Pages/services.html">Services</a>
+            <a href="Pages/contact.html">Contact</a>
+            <a href="Pages/about.html">About Us</a>
+            <a class="nav-signup" href="Pages/signup.html">Sign Up</a>
+        </nav>
+        <div class="language-switch" aria-label="Language">
+            <span class="selected">EN</span>
+            <span class="unavailable" title="Spanish website coming soon">ES</span>
+        </div>
+    </header>
     <main>
         <!-- MOUNTAIN HERO: ONE SECTION, NO BUTTONS -->
         <section class="home-hero">
@@ -136,7 +124,7 @@
                 <h2>About El Austral Consultant</h2>
                 <p>We are a data consulting firm focused on helping businesses unlock the value of their data. Our expertise spans data analytics, data engineering, business intelligence, and modern cloud tools.</p>
                 <p>Inspired by the strength and perspective of Aconcagua, we aim to help our clients reach higher through data-driven decision-making.</p>
-                <a href="about.html" class="text-link">Learn more about us →</a>
+                <a href="Pages/about.html" class="text-link">Learn more about us →</a>
             </div>
             <div class="about-photo">
                 <div class="about-photo-caption">From data<br>to new horizons.<div class="accent-line"></div></div>
@@ -148,17 +136,70 @@
             <h2>Our Services</h2>
             <p>Data Analytics · Business Intelligence &amp; Dashboards · Data Engineering &amp; Pipelines · Forecasting &amp; Demand Planning · A/B Testing · Retail &amp; Revenue Analytics · Workforce Analytics · Security &amp; Risk Analytics</p>
             <p class="services-note">Optional monthly analytics, reporting, and storage are available. Your initial consultation is free.</p>
-            <a class="primary-button" href="services.html">Explore Our Services →</a>
+            <a class="primary-button" href="Pages/services.html">Explore Our Services →</a>
         </section>
     </main>
     <!-- FOOTER -->
     <footer>
         <h3>Insights for a Higher Tomorrow</h3>
-        <p>.: .: .: - Miguel Zapata, Founder - :. :. :. </p>
+        <p>      .: .: .:         </p>
+        <p>Miguel Zapata, Founder</p>
+        <p>      :. :. :.         </p> 
         <p>&copy; MMXXVI — El Austral Consultant. All rights reserved.</p>
     </footer>
 
     <script src="Scripts/music-player.js" defer></script>
-<script src="Scripts/app-link.js" defer></script>
+   
+    
+<!-- Tico voice assistant -->
+<script>
+  var vapiInstance = null;
+  const assistant = "981dc76e-8837-4d6c-83e9-f8f69f33641b";
+  const apiKey = "5dbcddbe-ddb3-4d6d-a0a1-9525419cd269";
+  const buttonConfig = {
+    position: "bottom-left",
+    offset: "30px",
+    width: "60px",
+    height: "60px",
+    idle: {
+      color: "#78182e",
+      type: "pill",
+      title: "Talk to Tico",
+      subtitle: "Available 24/7",
+      icon: "https://unpkg.com/lucide-static@latest/icons/infinity.svg",
+    },
+    loading: {
+      color: "#aa2d48",
+      type: "pill",
+      title: "Connecting...",
+      subtitle: "One moment",
+      icon: "https://unpkg.com/lucide-static@latest/icons/loader.svg",
+    },
+    active: {
+      color: "#4c0518",
+      type: "pill",
+      title: "Talking with Tico",
+      subtitle: "Click to end the call",
+      icon: "https://unpkg.com/lucide-static@latest/icons/phone-off.svg",
+    },
+  };
+
+  (function (d, t) {
+    var g = document.createElement(t),
+        s = d.getElementsByTagName(t)[0];
+    g.src = "https://cdn.jsdelivr.net/gh/VapiAI/html-script-tag@latest/dist/assets/index.js";
+    g.defer = true;
+    g.async = true;
+    s.parentNode.insertBefore(g, s);
+    g.onload = function () {
+      vapiInstance = window.vapiSDK.run({
+        apiKey: apiKey,
+        assistant: assistant,
+        config: buttonConfig,
+      });
+    };
+  })(document, "script");
+</script>
+    
 </body>
 </html>
