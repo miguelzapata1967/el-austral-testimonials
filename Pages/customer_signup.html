@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Create your El Austral Consultant customer ID and register your databases.">
+    <title>Customer Sign Up | El Austral Consultant</title>
+    <!-- Same stylesheet as the Services page, so the background and theme match -->
+    <link rel="stylesheet" href="../Styles/style.css">
+    <style>
+        /* Page-specific rules only. Header, footer, background and fonts come from ../Styles/style.css. */
+        .btn-row {display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.25rem;}
+        .btn-row button {padding:.7rem 1.1rem;border:1px solid currentColor;border-radius:6px;background:transparent;color:inherit;font:inherit;cursor:pointer;}
+        .btn-row button:hover, .btn-row button:focus-visible {text-decoration:underline;}
+        .drop-zone {padding:1.75rem 1rem;border:2px dashed currentColor;border-radius:9px;text-align:center;cursor:pointer;}
+        .drop-zone:hover, .drop-zone:focus-visible, .drop-zone.over {border-style:solid;outline:none;}
+        .drop-zone.over {font-weight:700;}
+        .drop-zone p {margin:0;}
+        .drop-zone .drop-title {margin-bottom:.3rem;font-weight:700;}
+        .drop-zone .drop-hint {font-size:.9rem;opacity:.75;}
+        .hint {font-size:.9rem;opacity:.75;margin:.35rem 0 0;}
+        .error {font-weight:700;}
+
+        .signup-content {max-width:1100px;margin:0 auto;padding:2rem 1.25rem;text-align:center;}
+        .signup-content [hidden] {display:none !important;}
+        .signup-lead {max-width:640px;margin:.5rem auto 0;}
+        .signup-box {max-width:760px;margin:2rem auto;padding:1.25rem 1.5rem;border:1px solid currentColor;border-radius:9px;text-align:left;}
+        .signup-box h2 {margin-top:0;}
+        .signup-box fieldset {border:0;margin:1.5rem 0 0;padding:0;min-width:0;}
+        .signup-box legend {font-weight:700;padding:0;margin-bottom:.75rem;}
+        .signup-box .db-block {margin-top:1rem;padding:1rem;border:1px solid currentColor;border-radius:6px;}
+        .signup-box .db-block legend {font-weight:600;padding:0 .4rem;}
+        .grid {display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;}
+        .grid .wide {grid-column:1 / -1;}
+        .field label {display:block;font-weight:600;margin-bottom:.35rem;}
+        .signup-box input[type="text"], .signup-box input[type="email"], .signup-box input[type="tel"],
+        .signup-box input[type="number"], .signup-box select {display:block;width:100%;padding:.7rem;border:1px solid currentColor;border-radius:6px;background:transparent;color:inherit;font:inherit;box-sizing:border-box;}
+        #file-list {list-style:none;margin:1rem 0 0;padding:0;}
+        #file-list li {padding:.3rem 0;border-bottom:1px solid currentColor;}
+        #status, #load-status {margin:1rem 0 0;min-height:1.4em;}
+        .id-line {font-size:1.15rem;margin:.25rem 0;}
+        .main-nav a.nav-signup {padding:8px 18px;border:2px solid var(--burgundy);border-radius:999px;color:var(--burgundy);}
+        .main-nav a.nav-signup:hover {background:var(--burgundy);color:#fff;}
+    </style>
+</head>
+
+<body>
+
+<!-- STANDARD WEBSITE HEADER (same as Services page) -->
+<header class="site-header">
+
+    <a class="logo" href="../index.html" aria-label="El Austral Consultant Home">
+        <svg viewBox="0 0 210 57" role="img" aria-label="Aconcagua mountain logo">
+            <path d="M8 47 L47 30 L63 35 L102 5 L130 31
+                     L143 24 L176 43 L201 48
+                     M47 30 L56 39 L70 31
+                     M102 5 L110 25 L119 21 L130 31"
+                  fill="none" stroke="#78182e" stroke-width="4" stroke-linejoin="round"/>
+        </svg>
+        <span class="logo-name">EL AUSTRAL</span>
+        <span class="logo-subtitle">CONSULTANT</span>
+    </a>
+
+    <nav class="main-nav" aria-label="Main navigation">
+        <a href="../index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Contact</a>
+        <a href="about.html">About Us</a>
+        <a class="nav-signup" href="signup.html">Sign Up</a>
+    </nav>
+
+    <div class="language-switch" aria-label="Language">
+        <span class="selected">EN</span>
+        <span class="unavailable" title="Spanish website coming soon">ES</span>
+    </div>
+
+</header>
+
+<main>
+    <section class="signup-content" aria-labelledby="signup-title">
+        <h1 id="signup-title">Customer Sign Up</h1>
+        <p class="signup-lead">Create your customer ID and register your databases. Your details are saved to the client files on this computer.</p>
+
+        <!-- STEP: connect the client files -->
+        <div class="signup-box" id="files-box">
+            <h2>Connect your data files</h2>
+            <div id="drop-zone" class="drop-zone" tabindex="0" role="button"
+                 aria-label="Load client files. Drop the CSV files here, or press Enter to browse.">
+                <p class="drop-title">Drop the client CSV files here</p>
+                <p class="drop-hint">or click to browse. Select clients.csv and any of the four history files.</p>
+            </div>
+            <input type="file" id="data-files" accept=".csv,text/csv" multiple hidden>
+            <div class="btn-row">
+                <button type="button" id="open-folder" hidden>Open data folder</button>
+            </div>
+            <p class="hint">In Chrome or Edge, Open data folder lets the page save straight into that folder. Files that are missing are created when you save.</p>
+            <ul id="file-list" aria-label="Data files"></ul>
+            <p id="load-status" role="status"></p>
+        </div>
+
+        <!-- STEP: sign-up form -->
+        <form id="signup-form" class="signup-box" hidden novalidate>
+            <h2>Your details</h2>
+            <p class="id-line">Customer ID: <strong id="id-preview"></strong></p>
+            <p class="hint">It starts with P. After your first payment the P becomes a C, and the number stays yours.</p>
+
+            <fieldset>
+                <legend>Company and contact</legend>
+                <div class="grid">
+                    <div class="field wide"><label for="f-company">Company name</label>
+                        <input id="f-company" type="text" maxlength="120" autocomplete="organization"></div>
+                    <div class="field"><label for="f-poc">Contact person</label>
+                        <input id="f-poc" type="text" maxlength="120" autocomplete="name"></div>
+                    <div class="field"><label for="f-email">Email</label>
+                        <input id="f-email" type="email" maxlength="160" autocomplete="email"></div>
+                    <div class="field"><label for="f-phone">Phone number</label>
+                        <input id="f-phone" type="tel" maxlength="25" autocomplete="tel"></div>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Address</legend>
+                <div class="grid">
+                    <div class="field wide"><label for="f-street">Street name</label>
+                        <input id="f-street" type="text" maxlength="120" autocomplete="address-line1"></div>
+                    <div class="field"><label for="f-number">Street number</label>
+                        <input id="f-number" type="text" maxlength="20"></div>
+                    <div class="field"><label for="f-zip">ZIP code</label>
+                        <input id="f-zip" type="text" maxlength="10" inputmode="numeric" autocomplete="postal-code"></div>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Databases</legend>
+                <div class="grid">
+                    <div class="field"><label for="f-qty">How many databases?</label>
+                        <input id="f-qty" type="number" min="1" max="10" step="1" value="1" inputmode="numeric"></div>
+                </div>
+                <div id="db-blocks"></div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Reporting week and PDF day</legend>
+                <div class="grid">
+                    <div class="field"><label for="f-week">Your week runs</label>
+                        <select id="f-week">
+                            <option value="Mon-Sun">Monday to Sunday</option>
+                            <option value="Sun-Sat">Sunday to Saturday</option>
+                        </select></div>
+                    <div class="field"><label for="f-report-day">Create my weekly PDF reports on</label>
+                        <select id="f-report-day">
+                            <option value="">Select a day</option>
+                            <option>Monday</option>
+                            <option>Tuesday</option>
+                            <option>Wednesday</option>
+                            <option>Thursday</option>
+                            <option>Friday</option>
+                            <option>Saturday</option>
+                            <option>Sunday</option>
+                        </select></div>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Referral (optional)</legend>
+                <div class="grid">
+                    <div class="field"><label for="f-ref-by">Referred by</label>
+                        <input id="f-ref-by" type="text" maxlength="120"></div>
+                    <div class="field"><label for="f-ref-id">Referral ID</label>
+                        <input id="f-ref-id" type="text" maxlength="40"></div>
+                </div>
+            </fieldset>
+
+            <div class="btn-row">
+                <button type="submit">Create my customer ID</button>
+            </div>
+            <p id="status" role="status"></p>
+        </form>
+
+        <!-- CONFIRMATION -->
+        <div class="signup-box" id="done-box" hidden>
+            <h2>You are signed up</h2>
+            <p class="id-line">Customer ID: <strong id="done-id"></strong></p>
+            <p id="done-summary"></p>
+            <div class="btn-row">
+                <button type="button" id="download-files" hidden>Download updated files</button>
+                <button type="button" id="another">Sign up another customer</button>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <h3>Insights for a Higher Tomorrow</h3>
+    <p>Miguel Zapata, Founder</p>
+    <p>&copy; MMXXVI — El Austral Consultant. All rights reserved.</p>
+</footer>
+
+<script>
+(() => {
+    /* ---------- The five client files and their columns ---------- */
+    const FILES = {
+        clients: { name: 'clients.csv', cols: ['user_id','company_name','poc_name','poc_email_address','poc_phone_number','address_street_name','address_number','address_zip','database_qty','creation_date','referred_by','referral_id','week_type','report_day'] },
+        client_databases: { name: 'client_databases.csv', cols: ['database_id','user_id','database_name','database_type','access_method','data_classification','status','created_at'] },
+        client_activity_history: { name: 'client_activity_history.csv', cols: ['activity_id','user_id','contract_id','activity_type','description','performed_by','occurred_at'] },
+        client_referral_history: { name: 'client_referral_history.csv', cols: ['record_id','user_id','referral_id','recorded_at','notes'] },
+        client_week_type_history: { name: 'client_week_type_history.csv', cols: ['user_id','previous_week_type','new_week_type','changed_at_utc','changed_by','reason'] }
+    };
+    const KEYS = Object.keys(FILES);
+
+    // ID prefixes for the child tables (change here if you prefer another format)
+    const PREFIX = { database: 'DB-', activity: 'ACT-', referral: 'REF-' };
+
+    const DB_TYPES = ['CSV file', 'Excel file', 'SQL database', 'Other'];
+    const DB_ACCESS = ['Local file', 'Local folder', 'Database connection'];
+    const DB_CLASS = ['Internal', 'Confidential', 'Public'];   // first option is the default
+    const MAX_DBS = 10;
+    const MAX_BYTES = 20 * 1024 * 1024;
+
+    /* ---------- State ---------- */
+    const tables = {};
+    KEYS.forEach(k => tables[k] = { headers: FILES[k].cols.slice(), rows: [], loaded: false, changed: false, saved: '' });
+    let dirHandle = null;
+    let lastUserId = '';
+
+    const $ = id => document.getElementById(id);
+    const el = (tag, cls) => { const e = document.createElement(tag); if (cls) e.className = cls; return e; };
+    const pad = (n, l = 2) => String(n).padStart(l, '0');
+
+    /* ---------- CSV helpers ---------- */
+    function parseCSV(text) {
+        const out = []; let row = [], cell = '', quoted = false;
+        text = text.replace(/^\uFEFF/, '');
+        for (let i = 0; i < text.length; i++) {
+            const c = text[i];
+            if (quoted) {
+                if (c === '"' && text[i + 1] === '"') { cell += '"'; i++; }
+                else if (c === '"') quoted = false;
+                else cell += c;
+            } else if (c === '"') quoted = true;
+            else if (c === ',') { row.push(cell); cell = ''; }
+            else if (c === '\n' || c === '\r') {
+                if (c === '\r' && text[i + 1] === '\n') i++;
+                row.push(cell); out.push(row); row = []; cell = '';
+            } else cell += c;
+        }
+        if (cell !== '' || row.length) { row.push(cell); out.push(row); }
+        return out.filter(r => r.some(v => v.trim() !== ''));
+    }
+
+    const quote = v => /[",\n\r]/.test(v) ? '"' + v.replace(/"/g, '""') + '"' : v;
+
+    function serialize(key) {
+        const t = tables[key];
+        return [t.headers, ...t.rows].map(r => r.map(v => quote(String(v))).join(',')).join('\r\n') + '\r\n';
+    }
+
+    // Stop spreadsheet programs from running text that starts like a formula
+    const safe = v => /^[=+\-@\t\r]/.test(v) ? "'" + v : v;
+
+    /* ---------- Loading files ---------- */
+    function matchKey(name) {
+        const stem = name.toLowerCase().replace(/\.[^.]+$/, '');
+        if (stem.includes('backup')) return null;
+        return [...KEYS].sort((a, b) => b.length - a.length)
+            .find(k => stem === k || new RegExp('^' + k + '[ _(\\-]').test(stem)) || null;
+    }
+
+    function ingest(key, text) {
+        const t = tables[key], table = parseCSV(text);
+        if (table.length) {
+            t.headers = table[0].map(h => h.trim());
+            t.rows = table.slice(1).map(r => t.headers.map((_, i) => (r[i] ?? '').trim()));
+        } else {
+            t.headers = FILES[key].cols.slice(); t.rows = [];
+        }
+        FILES[key].cols.forEach(c => {            // add any column the file is missing
+            if (!t.headers.includes(c)) { t.headers.push(c); t.rows.forEach(r => r.push('')); }
+        });
+        t.loaded = true; t.changed = false; t.saved = text;
+    }
+
+    function setLoadStatus(msg, isError) { $('load-status').textContent = msg; $('load-status').className = isError ? 'error' : ''; }
+
+    function renderFileList() {
+        const list = $('file-list'); list.replaceChildren();
+        KEYS.forEach(k => {
+            const li = el('li'), t = tables[k];
+            li.textContent = t.loaded
+                ? `${FILES[k].name}: loaded, ${t.rows.length} row${t.rows.length === 1 ? '' : 's'}`
+                : `${FILES[k].name}: not loaded (will be created when you save)`;
+            list.appendChild(li);
+        });
+        const ready = tables.clients.loaded;
+        $('signup-form').hidden = !ready || !$('done-box').hidden;
+        if (ready) refreshId();
+    }
+
+    async function loadFiles(files) {
+        const skipped = [];
+        let loaded = 0;
+        for (const file of files) {
+            const key = matchKey(file.name);
+            if (!key) { skipped.push(file.name); continue; }
+            if (file.size > MAX_BYTES) { skipped.push(file.name + ' (over 20 MB)'); continue; }
+            ingest(key, await file.text());
+            loaded++;
+        }
+        renderFileList();
+        if (!loaded) setLoadStatus('No client files recognized. Use clients.csv or one of the four history files.', true);
+        else if (skipped.length) setLoadStatus('Skipped: ' + skipped.join(', ') + '.');
+        else setLoadStatus('');
+        if (loaded && !tables.clients.loaded) setLoadStatus('Load clients.csv to continue. It holds the customer IDs.', true);
+    }
+
+    const zone = $('drop-zone'), fileInput = $('data-files');
+    zone.addEventListener('click', () => fileInput.click());
+    zone.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); fileInput.click(); } });
+    fileInput.addEventListener('change', () => { loadFiles([...fileInput.files]); fileInput.value = ''; });
+    ['dragenter', 'dragover'].forEach(t => zone.addEventListener(t, e => { e.preventDefault(); zone.classList.add('over'); }));
+    ['dragleave', 'drop'].forEach(t => zone.addEventListener(t, () => zone.classList.remove('over')));
+    zone.addEventListener('drop', e => { e.preventDefault(); loadFiles([...e.dataTransfer.files]); });
+    ['dragover', 'drop'].forEach(t => window.addEventListener(t, e => e.preventDefault()));
+
+    if (window.showDirectoryPicker) {
+        $('open-folder').hidden = false;
+        $('open-folder').addEventListener('click', async () => {
+            try {
+                dirHandle = await showDirectoryPicker({ mode: 'readwrite' });
+                const files = [];
+                for await (const [name, handle] of dirHandle.entries()) {
+                    if (handle.kind === 'file' && matchKey(name)) files.push(await handle.getFile());
+                }
+                await loadFiles(files);
+                if (!files.length) setLoadStatus('That folder has no client files yet. They will be created when you save.');
+                renderFileList();
+            } catch (e) { /* picker cancelled */ }
+        });
+    }
+
+    /* ---------- IDs ---------- */
+    function nextUserId() {
+        const d = new Date();
+        const ymd = `${d.getFullYear()}${pad(d.getMonth() + 1)}${pad(d.getDate())}`;
+        const t = tables.clients, i = t.headers.indexOf('user_id');
+        let max = 0;
+        t.rows.forEach(r => {
+            const m = /^[PC]-(\d{8})-(\d{3})$/.exec(r[i]);
+            if (m && m[1] === ymd) max = Math.max(max, parseInt(m[2], 10));
+        });
+        return max >= 999 ? null : `P-${ymd}-${pad(max + 1, 3)}`;
+    }
+
+    function nextSeq(key, col, prefix) {
+        const t = tables[key], i = t.headers.indexOf(col);
+        let max = 0;
+        t.rows.forEach(r => { const m = /(\d+)$/.exec(r[i]); if (m) max = Math.max(max, parseInt(m[1], 10)); });
+        return prefix + pad(max + 1, 3);
+    }
+
+    function refreshId() { $('id-preview').textContent = nextUserId() || 'Daily limit reached'; }
+
+    /* ---------- Database blocks ---------- */
+    const dbBox = $('db-blocks');
+
+    function field(label, control, wide) {
+        const w = el('div', 'field' + (wide ? ' wide' : ''));
+        const l = el('label'); l.htmlFor = control.id; l.textContent = label;
+        w.append(l, control);
+        return w;
+    }
+    function textInput(id, k) { const i = el('input'); i.type = 'text'; i.id = id; i.dataset.k = k; i.maxLength = 120; return i; }
+    function selectInput(id, k, options) {
+        const s = el('select'); s.id = id; s.dataset.k = k;
+        options.forEach(o => { const op = el('option'); op.value = o; op.textContent = o; s.appendChild(op); });
+        return s;
+    }
+
+    function addBlock(n) {
+        const fs = el('fieldset', 'db-block');
+        const lg = el('legend'); lg.textContent = 'Database ' + n; fs.appendChild(lg);
+        const grid = el('div', 'grid'); fs.appendChild(grid);
+        grid.append(
+            field('Database name', textInput(`db-${n}-name`, 'name'), true),
+            field('Type', selectInput(`db-${n}-type`, 'type', DB_TYPES)),
+            field('How it is accessed', selectInput(`db-${n}-access`, 'access', DB_ACCESS)),
+            field('Data classification', selectInput(`db-${n}-class`, 'class', DB_CLASS))
+        );
+        dbBox.appendChild(fs);
+    }
+
+    function syncBlocks(n) {
+        n = Math.min(MAX_DBS, Math.max(1, n));
+        while (dbBox.children.length < n) addBlock(dbBox.children.length + 1);
+        while (dbBox.children.length > n) dbBox.lastElementChild.remove();
+    }
+
+    $('f-qty').addEventListener('input', e => {
+        const n = parseInt(e.target.value, 10);
+        if (!isNaN(n)) syncBlocks(n);
+    });
+    $('f-qty').addEventListener('blur', e => {
+        const n = Math.min(MAX_DBS, Math.max(1, parseInt(e.target.value, 10) || 1));
+        e.target.value = n; syncBlocks(n);
+    });
+
+    /* ---------- Validation ---------- */
+    function validate() {
+        const required = [
+            ['f-company', 'a company name'], ['f-poc', 'a contact person'], ['f-email', 'an email address'],
+            ['f-phone', 'a phone number'], ['f-street', 'a street name'], ['f-number', 'a street number'], ['f-zip', 'a ZIP code']
+        ];
+        for (const [id, label] of required) {
+            if (!$(id).value.trim()) return { el: $(id), msg: `Enter ${label}.` };
+        }
+        const email = $('f-email').value.trim();
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return { el: $('f-email'), msg: 'Enter a valid email address.' };
+        if (!/^(\+|\(|\d)[\d\s().-]{6,19}$/.test($('f-phone').value.trim())) return { el: $('f-phone'), msg: 'Enter a valid phone number.' };
+        if (!/^\d{5}(-\d{4})?$/.test($('f-zip').value.trim())) return { el: $('f-zip'), msg: 'Enter a ZIP code like 94541 or 94541-1234.' };
+
+        const t = tables.clients, ei = t.headers.indexOf('poc_email_address');
+        if (t.rows.some(r => (r[ei] || '').toLowerCase() === email.toLowerCase())) {
+            return { el: $('f-email'), msg: 'A customer with this email already exists.' };
+        }
+        if (!$('f-report-day').value) return { el: $('f-report-day'), msg: 'Select the day your weekly PDF reports are created.' };
+        const qty = parseInt($('f-qty').value, 10);
+        if (!(qty >= 1 && qty <= MAX_DBS)) return { el: $('f-qty'), msg: `Enter between 1 and ${MAX_DBS} databases.` };
+        for (const fs of dbBox.children) {
+            const name = fs.querySelector('[data-k="name"]');
+            if (!name.value.trim()) return { el: name, msg: `Enter a name for ${fs.querySelector('legend').textContent.toLowerCase()}.` };
+        }
+        return null;
+    }
+
+    /* ---------- Saving ---------- */
+    function setStatus(msg, isError) { $('status').textContent = msg; $('status').className = isError ? 'error' : ''; }
+
+    function backupName() {
+        const d = new Date();
+        return `clients_backup_${d.getFullYear()}${pad(d.getMonth() + 1)}${pad(d.getDate())}_${pad(d.getHours())}${pad(d.getMinutes())}${pad(d.getSeconds())}_${pad(d.getMilliseconds(), 3)}000.csv`;
+    }
+
+    // Files waiting to be saved. clients.csv is backed up first, as it was before this change.
+    function pendingFiles() {
+        const out = [];
+        if (tables.clients.changed) out.push({ name: backupName(), text: tables.clients.saved, backup: true });
+        KEYS.filter(k => tables[k].changed).forEach(k => out.push({ name: FILES[k].name, text: serialize(k), key: k }));
+        return out;
+    }
+
+    function markSaved(files) {
+        files.filter(f => f.key).forEach(f => { tables[f.key].saved = f.text; tables[f.key].changed = false; });
+    }
+
+    async function writeToFolder(name, text) {
+        const h = await dirHandle.getFileHandle(name, { create: true });
+        const w = await h.createWritable();
+        await w.write(text);
+        await w.close();
+    }
+
+    function downloadAll() {
+        const files = pendingFiles();
+        files.forEach((f, i) => setTimeout(() => {
+            const url = URL.createObjectURL(new Blob([f.text], { type: 'text/csv' }));
+            const a = Object.assign(el('a'), { href: url, download: f.name });
+            document.body.appendChild(a); a.click(); a.remove();
+            URL.revokeObjectURL(url);
+        }, i * 300));
+        markSaved(files);
+        $('download-files').hidden = true;
+        $('done-summary').textContent = `Downloaded ${files.length} file${files.length === 1 ? '' : 's'}. Replace the old ones in your data folder.`;
+    }
+
+    async function persist(summary) {
+        const files = pendingFiles();
+        $('done-summary').textContent = summary;
+        if (dirHandle) {
+            try {
+                for (const f of files) await writeToFolder(f.name, f.text);
+                markSaved(files);
+                $('done-summary').textContent = summary + ' Saved to the data folder, with a backup of clients.csv.';
+                $('download-files').hidden = true;
+                return;
+            } catch (err) {
+                $('done-summary').textContent = summary + ' Could not save to the folder (' + err.message + '). Download the files instead.';
+            }
+        } else {
+            $('done-summary').textContent = summary + ' Not saved yet: download the updated files and replace the old ones.';
+        }
+        $('download-files').hidden = false;
+    }
+
+    /* ---------- Submit ---------- */
+    $('signup-form').addEventListener('submit', async e => {
+        e.preventDefault();
+        const problem = validate();
+        if (problem) { setStatus(problem.msg, true); problem.el.focus(); return; }
+
+        const userId = nextUserId();
+        if (!userId) { setStatus('The daily limit of 999 sign-ups was reached. Try again tomorrow.', true); return; }
+
+        const now = new Date(), iso = now.toISOString();
+        const today = `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())}`;
+        const add = (key, obj) => {
+            const t = tables[key];
+            t.rows.push(t.headers.map(h => obj[h] ?? ''));
+            t.changed = true;
+        };
+
+        const qty = dbBox.children.length;
+        const refId = $('f-ref-id').value.trim(), refBy = $('f-ref-by').value.trim();
+        const week = $('f-week').value;
+        const reportDay = $('f-report-day').value;
+
+        add('clients', {
+            user_id: userId,
+            company_name: safe($('f-company').value.trim()),
+            poc_name: safe($('f-poc').value.trim()),
+            poc_email_address: $('f-email').value.trim(),
+            poc_phone_number: $('f-phone').value.trim(),
+            address_street_name: safe($('f-street').value.trim()),
+            address_number: safe($('f-number').value.trim()),
+            address_zip: $('f-zip').value.trim(),
+            database_qty: String(qty),
+            creation_date: today,
+            referred_by: safe(refBy),
+            referral_id: safe(refId),
+            week_type: week,
+            report_day: reportDay
+        });
+
+        [...dbBox.children].forEach(fs => {
+            const v = k => fs.querySelector(`[data-k="${k}"]`).value.trim();
+            add('client_databases', {
+                database_id: nextSeq('client_databases', 'database_id', PREFIX.database),
+                user_id: userId,
+                database_name: safe(v('name')),
+                database_type: v('type'),
+                access_method: v('access'),
+                data_classification: v('class'),
+                status: 'pending',
+                created_at: iso
+            });
+        });
+
+        add('client_week_type_history', {
+            user_id: userId, previous_week_type: '', new_week_type: week,
+            changed_at_utc: iso, changed_by: 'customer', reason: 'Initial selection at sign-up'
+        });
+
+        if (refId || refBy) {
+            add('client_referral_history', {
+                record_id: nextSeq('client_referral_history', 'record_id', PREFIX.referral),
+                user_id: userId, referral_id: safe(refId), recorded_at: iso,
+                notes: refBy ? safe('Referred by ' + refBy) : ''
+            });
+        }
+
+        add('client_activity_history', {
+            activity_id: nextSeq('client_activity_history', 'activity_id', PREFIX.activity),
+            user_id: userId, contract_id: '', activity_type: 'sign_up',
+            description: `Customer signed up with ${qty} database${qty === 1 ? '' : 's'}; weekly PDF reports on ${reportDay}`,
+            performed_by: 'customer', occurred_at: iso
+        });
+
+        lastUserId = userId;
+        $('done-id').textContent = userId;
+        $('signup-form').hidden = true;
+        $('done-box').hidden = false;
+        setStatus('');
+        renderFileListOnly();
+        await persist(`Added 1 customer record and ${qty} database record${qty === 1 ? '' : 's'}.`);
+    });
+
+    function renderFileListOnly() {
+        const list = $('file-list'); list.replaceChildren();
+        KEYS.forEach(k => {
+            const li = el('li'), t = tables[k];
+            li.textContent = `${FILES[k].name}: ${t.rows.length} row${t.rows.length === 1 ? '' : 's'}${t.loaded ? '' : ' (new file)'}`;
+            list.appendChild(li);
+        });
+    }
+
+    $('download-files').addEventListener('click', downloadAll);
+
+    $('another').addEventListener('click', () => {
+        if (tables.clients.changed || KEYS.some(k => tables[k].changed)) {
+            if (!confirm('The last sign-up has not been saved yet. Continue anyway?')) return;
+        }
+        $('signup-form').reset();
+        $('f-qty').value = 1; syncBlocks(1);
+        $('done-box').hidden = true;
+        $('signup-form').hidden = false;
+        refreshId();
+        $('f-company').focus();
+    });
+
+    window.addEventListener('beforeunload', e => {
+        if (KEYS.some(k => tables[k].changed)) { e.preventDefault(); e.returnValue = ''; }
+    });
+
+    /* ---------- Start ---------- */
+    syncBlocks(1);
+    renderFileList();
+})();
+</script>
+<script src="../Scripts/music-player.js" defer></script>
+
+</body>
+</html>

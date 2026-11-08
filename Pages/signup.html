@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sign up or sign in to place an order with El Austral Consultant.">
+    <title>Sign Up | El Austral Consultant</title>
+    <link rel="stylesheet" href="../Styles/style.css">
+    <script src="../Scripts/price-list.js"></script>
+    <script src="../Scripts/demo-db.js"></script>
+    <script src="../Scripts/business-types.js"></script>
+    <style>
+      /* Scoped to the sign-up content only. */
+      .signup-wrap {max-width:760px;margin:0 auto;padding:2rem 1.25rem;}
+      .signup-wrap h1 {text-align:center;}
+      .signup-lead {text-align:center;}
+      .step {border:1px solid currentColor;border-radius:9px;padding:1.25rem 1.5rem;margin-top:1.25rem;}
+      .step[hidden] {display:none;}
+      .step h2 {margin-top:0;font-size:1.3rem;}
+      .step-tag {display:block;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;opacity:.7;margin-bottom:.25rem;}
+      .choice-row {display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+      @media(max-width:600px){.choice-row{grid-template-columns:1fr;}}
+      .choice-card {display:block;width:100%;padding:1.1rem;border:2px solid var(--burgundy,#78182e);border-radius:9px;background:transparent;color:inherit;font:inherit;text-align:left;cursor:pointer;}
+      .choice-card strong {display:block;font-size:1.1rem;color:var(--burgundy,#78182e);}
+      .choice-card:hover,.choice-card:focus-visible {background:rgba(120,24,46,.08);outline:none;}
+      .field {margin-bottom:1rem;}
+      .field label,.field legend {display:block;font-weight:700;margin-bottom:.35rem;}
+      .field .hint {display:block;font-weight:400;font-size:.85rem;opacity:.8;margin-top:.15rem;}
+      .field input[type=text],.field input[type=email],.field input[type=tel],.field input[type=password],
+      .field input[type=number],.field input[type=date],.field select,.field textarea
+        {display:block;width:100%;box-sizing:border-box;padding:.7rem;border:1px solid currentColor;border-radius:6px;background:transparent;color:inherit;font:inherit;}
+      .field textarea {min-height:5rem;resize:vertical;}
+      .field fieldset {border:0;margin:0;padding:0;}
+      .check {display:flex;gap:.55rem;align-items:flex-start;margin:.35rem 0;font-weight:400;}
+      .check input {margin-top:.25rem;}
+      .two-col {display:grid;grid-template-columns:1fr 1fr;gap:0 1rem;}
+      @media(max-width:600px){.two-col{grid-template-columns:1fr;}}
+      .id-badge {display:inline-block;padding:.5rem 1rem;border:2px dashed var(--burgundy,#78182e);border-radius:6px;font-family:monospace;font-size:1.15rem;color:var(--burgundy,#78182e);}
+      .service-chip {display:inline-block;padding:.35rem .9rem;border-radius:999px;background:var(--burgundy,#78182e);color:#fff;font-size:.9rem;}
+      .upload-box {border:2px dashed rgba(120,24,46,.5);border-radius:9px;padding:1rem;margin-bottom:.75rem;}
+      .upload-box.has-file {border-style:solid;}
+      .upload-box label {font-weight:700;}
+      .upload-box .file-name {display:block;font-size:.85rem;margin-top:.35rem;opacity:.85;}
+      .note {font-size:.9rem;opacity:.85;}
+      .warn {padding:.75rem 1rem;border-left:4px solid var(--burgundy,#78182e);background:rgba(120,24,46,.06);margin:0 0 1rem;}
+      .error {color:#b00020;font-size:.9rem;margin:.4rem 0 0;}
+      .progress {font-size:.85rem;opacity:.8;margin-bottom:.75rem;}
+      .nav-row {display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.25rem;}
+      .btn {display:inline-block;padding:.65rem 1.4rem;border:1px solid var(--burgundy,#78182e);border-radius:999px;font-family:Arial,sans-serif;font-size:.9rem;cursor:pointer;text-decoration:none;}
+      .btn.primary {background:var(--burgundy,#78182e);color:#fff;}
+      .btn.primary:hover {background:var(--rose,#aa2d48);border-color:var(--rose,#aa2d48);}
+      .btn.secondary {background:transparent;color:var(--burgundy,#78182e);}
+      .btn.secondary:hover {background:var(--burgundy,#78182e);color:#fff;}
+      .summary-table {width:100%;border-collapse:collapse;font-size:.95rem;margin:.5rem 0 1rem;}
+      .summary-table th,.summary-table td {padding:.5rem;border-bottom:1px solid rgba(120,24,46,.25);text-align:left;vertical-align:top;}
+      .summary-table th {width:38%;}
+      .summary-total td,.summary-total th {font-weight:700;font-size:1.05rem;color:var(--burgundy,#78182e);border-bottom:2px solid var(--burgundy,#78182e);}
+      .summary-section {font-size:1rem;margin:1.25rem 0 .25rem;color:var(--burgundy,#78182e);}
+      dialog {max-width:440px;width:calc(100% - 2rem);border:2px solid var(--burgundy,#78182e);border-radius:9px;padding:1.5rem;}
+      dialog::backdrop {background:rgba(0,0,0,.45);}
+      dialog h2 {margin-top:0;}
+      dialog dl {display:grid;grid-template-columns:auto 1fr;gap:.35rem 1rem;margin:0 0 1rem;}
+      dialog dt {font-weight:700;}
+      dialog dd {margin:0;}
+      .demo-banner {text-align:center;font:700 .85rem Arial,sans-serif;letter-spacing:.04em;padding:.55rem 1rem;border:2px dashed #c77700;border-radius:8px;background:rgba(199,119,0,.08);color:#7a4a00;}
+      .main-nav a.nav-signup {padding:8px 18px;border:2px solid var(--burgundy);border-radius:999px;color:var(--burgundy);}
+      .main-nav a.nav-signup:hover,.main-nav a.nav-signup.active {background:var(--burgundy);color:#fff;}
+    </style>
+</head>
+
+<body>
+
+<!-- STANDARD WEBSITE HEADER -->
+<header class="site-header">
+
+    <a class="logo" href="../index.html"
+       aria-label="El Austral Consultant Home">
+
+        <svg viewBox="0 0 210 57"
+             role="img"
+             aria-label="Aconcagua mountain logo">
+            <path d="M8 47 L47 30 L63 35 L102 5 L130 31
+                     L143 24 L176 43 L201 48
+                     M47 30 L56 39 L70 31
+                     M102 5 L110 25 L119 21 L130 31"
+                  fill="none"
+                  stroke="#78182e"
+                  stroke-width="4"
+                  stroke-linejoin="round"/>
+        </svg>
+
+        <span class="logo-name">EL AUSTRAL</span>
+        <span class="logo-subtitle">CONSULTANT</span>
+    </a>
+
+    <nav class="main-nav" aria-label="Main navigation">
+        <a href="../index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Contact</a>
+        <a href="about.html">About Us</a>
+        <a class="nav-signup active" href="signup.html" aria-current="page">Sign Up</a>
+    </nav>
+
+    <div class="language-switch" aria-label="Language">
+        <span class="selected">EN</span>
+        <span class="unavailable" title="Spanish website coming soon">ES</span>
+    </div>
+
+</header>
+
+<main class="signup-wrap">
+  <p class="demo-banner" id="demo-banner" hidden>DEMO MODE · Everything you enter is recorded in the demo database for testing. Nothing is charged.</p>
+  <h1>Sign Up &amp; Order</h1>
+  <p class="signup-lead" id="lead">Sign in or create your account to place an order.</p>
+  <p class="signup-lead" id="chosen-service" hidden></p>
+
+  <!-- STEP 1: existing or new customer -->
+  <section class="step" id="step-start">
+    <span class="step-tag">Step 1</span>
+    <h2>Are you already a customer?</h2>
+    <div class="choice-row">
+      <button type="button" class="choice-card" id="pick-existing"><strong>Existing customer</strong>Sign in with your customer ID.</button>
+      <button type="button" class="choice-card" id="pick-new"><strong>New customer</strong>Create your account in a few minutes.</button>
+    </div>
+  </section>
+
+  <!-- STEP 2A: existing customer sign-in -->
+  <section class="step" id="step-existing" hidden>
+    <span class="step-tag">Step 2</span>
+    <h2>Sign in</h2>
+    <form id="form-existing" novalidate>
+      <div class="field"><label for="cust-id">Customer ID</label><input type="text" id="cust-id" placeholder="P-20261018-001" autocomplete="username" required></div>
+      <div class="field"><label for="cust-pass">Password</label><input type="password" id="cust-pass" autocomplete="current-password" required></div>
+      <p class="error" id="existing-error" hidden></p>
+      <div class="nav-row">
+        <button type="button" class="btn secondary" data-back="step-start">Back</button>
+        <button type="submit" class="btn primary">Sign in</button>
+      </div>
+    </form>
+  </section>
+
+  <!-- STEP 2B: new customer business information -->
+  <section class="step" id="step-new" hidden>
+    <span class="step-tag">Step 2</span>
+    <h2>Your business information</h2>
+    <p>Your pre-assigned customer ID: <span class="id-badge" id="new-id"></span></p>
+    <p class="note">Keep this ID. It becomes your permanent customer ID (starting with C) once your first payment goes through.</p>
+    <form id="form-new" novalidate>
+      <div class="field"><label for="biz-name">Company name</label><input type="text" id="biz-name" maxlength="120" autocomplete="organization" required></div>
+      <div class="two-col">
+        <div class="field"><label for="biz-type">Type of business</label>
+          <select id="biz-type" required>
+            <option value="">Choose one</option>
+            <!-- Filled from Scripts/business-types.js (grouped list) -->
+          </select>
+        </div>
+        <div class="field"><label for="biz-locations">Number of locations</label><input type="number" id="biz-locations" min="1" value="1" required></div>
+      </div>
+      <div class="field" id="biz-type-other-row" hidden><label for="biz-type-other">Describe your type of business</label><input type="text" id="biz-type-other" maxlength="80" placeholder="For example: bicycle repair shop"></div>
+      <div class="two-col">
+        <div class="field"><label for="biz-contact">Contact person</label><input type="text" id="biz-contact" maxlength="120" autocomplete="name" required></div>
+        <div class="field"><label for="biz-email">Email</label><input type="email" id="biz-email" maxlength="160" autocomplete="email" required></div>
+      </div>
+      <div class="two-col">
+        <div class="field"><label for="biz-phone">Phone number</label><input type="tel" id="biz-phone" maxlength="25" autocomplete="tel" required></div>
+        <div class="field"><label for="biz-zip">ZIP code</label><input type="text" id="biz-zip" maxlength="10" inputmode="numeric" autocomplete="postal-code" required></div>
+      </div>
+      <div class="two-col">
+        <div class="field"><label for="biz-street">Street name</label><input type="text" id="biz-street" maxlength="120" autocomplete="address-line1" required></div>
+        <div class="field"><label for="biz-number">Street number</label><input type="text" id="biz-number" maxlength="20" required></div>
+      </div>
+      <div class="two-col">
+        <div class="field"><label for="biz-ref-by">Referred by <span class="hint">Optional.</span></label><input type="text" id="biz-ref-by" maxlength="120"></div>
+        <div class="field"><label for="biz-ref-id">Referral ID <span class="hint">Optional.</span></label><input type="text" id="biz-ref-id" maxlength="40"></div>
+      </div>
+      <div class="two-col">
+        <div class="field"><label for="biz-pass">Create a password<span class="hint">At least 8 characters.</span></label><input type="password" id="biz-pass" autocomplete="new-password" minlength="8" required></div>
+        <div class="field"><label for="biz-pass2">Confirm password<span class="hint">&nbsp;</span></label><input type="password" id="biz-pass2" autocomplete="new-password" required></div>
+      </div>
+      <label class="check"><input type="checkbox" id="biz-marketing"> Send me updates and offers from El Austral Consultant. You can unsubscribe at any time.</label>
+      <p class="error" id="new-error" hidden></p>
+      <div class="nav-row">
+        <button type="button" class="btn secondary" data-back="step-start">Back</button>
+        <button type="submit" class="btn primary">Continue</button>
+      </div>
+    </form>
+  </section>
+
+  <!-- STEP 3: choose a service (only when not arriving from an Order button) -->
+  <section class="step" id="step-service" hidden>
+    <span class="step-tag">Step 3</span>
+    <h2>Which service would you like?</h2>
+    <div class="field"><label for="service-pick">Service</label><select id="service-pick"></select></div>
+    <div class="nav-row">
+      <button type="button" class="btn primary" id="service-next">Continue</button>
+    </div>
+  </section>
+
+  <!-- STEP 4: number of databases and upload boxes -->
+  <section class="step" id="step-data" hidden>
+    <span class="step-tag">Your data</span>
+    <h2>How many databases?</h2>
+    <p class="note" id="data-help">One database per location or branch.</p>
+    <div class="field"><label for="db-count">Number of databases</label><input type="number" id="db-count" min="1" value="1"></div>
+    <p class="warn" id="db-limit" hidden></p>
+    <div id="upload-list"></div>
+    <p class="note">Your files are only listed here so we know what to expect. They are not sent anywhere from this page.</p>
+    <p class="error" id="data-error" hidden></p>
+    <div class="nav-row">
+      <button type="button" class="btn secondary" id="data-back">Back</button>
+      <button type="button" class="btn primary" id="data-next">Continue</button>
+    </div>
+  </section>
+
+  <!-- STEP 5: questionnaire for the chosen service -->
+  <section class="step" id="step-questions" hidden>
+    <span class="step-tag">Questionnaire</span>
+    <h2 id="q-title">A few questions about your order</h2>
+    <div id="q-intro"></div>
+    <form id="form-questions" novalidate>
+      <div id="q-fields"></div>
+      <p class="error" id="q-error" hidden></p>
+      <div class="nav-row">
+        <button type="button" class="btn secondary" data-back="step-data">Back</button>
+        <button type="submit" class="btn primary">Review my order</button>
+      </div>
+    </form>
+  </section>
+
+  <!-- STEP 6: order summary (the only place prices appear) -->
+  <section class="step" id="step-summary" hidden>
+    <span class="step-tag">Order summary</span>
+    <h2>Check your order</h2>
+    <div id="summary"></div>
+    <label class="check"><input type="checkbox" id="keep-data"> <span>Keep my cleaned data for future forecasts and as a backup. <span class="note">(Saved monthly on your own computer. We recommend copying it to a drive or your own cloud.)</span></span></label>
+    <label class="check" id="monthly-terms-row" hidden><input type="checkbox" id="monthly-terms"> <span>I understand monthly services renew every month until I cancel. A reminder is emailed 7 days before the last day of the month, with a way to cancel.</span></label>
+    <label class="check"><input type="checkbox" id="confirm-order"> I confirm the details above are correct.</label>
+    <p class="note">Payments are in test mode. Nothing is charged yet.</p>
+    <p class="error" id="summary-error" hidden></p>
+    <div class="nav-row">
+      <button type="button" class="btn secondary" data-back="step-questions">Edit answers</button>
+      <button type="button" class="btn primary" id="submit-order">Submit order</button>
+    </div>
+  </section>
+
+  <!-- STEP 7: done -->
+  <section class="step" id="step-done" hidden>
+    <h2>Thank you, your order is in.</h2>
+    <p id="done-text"></p>
+    <p>We will call you to confirm everything is correct, set up your application and show you how to use the system.</p>
+    <p class="note">Payment: the payment step will be added here when the payment system goes live.</p>
+    <div class="nav-row"><a class="btn secondary" href="services.html">Back to Services</a></div>
+  </section>
+</main>
+
+<!-- Pop-up: existing customer's basic information -->
+<dialog id="customer-dialog" aria-labelledby="dlg-title">
+  <h2 id="dlg-title">Is this you?</h2>
+  <dl id="dlg-info"></dl>
+  <div class="nav-row">
+    <button type="button" class="btn secondary" id="dlg-no">Not me</button>
+    <button type="button" class="btn primary" id="dlg-yes">Yes, continue</button>
+  </div>
+</dialog>
+
+<footer>
+    <h3>Insights for a Higher Tomorrow</h3>
+    <p>Miguel Zapata, Founder</p>
+    <p>&copy; MMXXVI — El Austral Consultant. All rights reserved.</p>
+</footer>
+
+<script>
+(() => {
+  const PRICES = window.PRICE_LIST || {};
+
+  // Services offered (keys match services.html and price-list.js)
+  const SERVICES = {
+    analytics:   'Data Analytics',
+    bi:          'Business Intelligence & Dashboards',
+    engineering: 'Data Engineering & Preparation',
+    forecasting: 'Forecasting & Demand Planning',
+    abtesting:   'A/B Testing & Experimentation',
+    retail:      'Retail & Revenue Analytics',
+    workforce:   'Workforce & Diversity Analytics',
+    security:    'Security & Risk Analytics'
+  };
+
+  // ------------------------------------------------------------------
+  // ACCOUNTS — demo mode keeps them in the demo database (Scripts/demo-db.js).
+  // When the backend is ready, these two functions call it instead.
+  // ------------------------------------------------------------------
+  const DB = window.EA_DB;
+  const DEMO = window.EA_MODE === 'demo' && DB && DB.available();
+  async function lookupCustomer(id, password) {
+    if (!DEMO) return null;
+    const c = await DB.signIn(id, password);
+    if (!c) return null;
+    return { business: c.company_name, type: c.business_type, contact: c.poc_name, email: c.poc_email_address,
+             phone: c.poc_phone_number, locations: Number(c.location_qty) || 1, status: c.status };
+  }
+  function nextPreCustomerId() { return DEMO ? DB.nextUserId() : 'Assigned after sign-up'; }
+
+  // ------------------------------------------------------------------
+  // QUESTIONNAIRES — one per service. Types: text, textarea, select,
+  // number, date, checks (several), yesno. 'req' = required.
+  // ------------------------------------------------------------------
+  const COMMON = [
+    { id: 'goal',   label: 'What do you want to achieve with this service?', type: 'textarea', req: true },
+    { id: 'source', label: 'Where does your data come from?', type: 'select', req: true,
+      options: ['POS system (Square, Toast, Clover, etc.)', 'Excel or spreadsheets', 'Accounting software', 'Several systems', 'Other'] }
+  ];
+  const WEEKDAYS = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+
+  const QUESTIONS = {
+    retail: [
+      { id: 'plan', label: 'Which report would you like?', type: 'select', req: true,
+        options: (PRICES.retail ? PRICES.retail.plans.map(p => p.name + ' — ' + p.includes) : []) },
+      { id: 'printday', label: 'Which weekday should weekly reports be ready?', type: 'select', options: WEEKDAYS, hint: 'For Monthly Services.' },
+      { id: 'week', label: 'How do you count your week?', type: 'select', options: ['Monday to Sunday', 'Sunday to Saturday'] },
+      { id: 'wkstart', label: 'Your weekend starts on', type: 'select', options: WEEKDAYS, hint: 'For example, Thursday for a Thursday-to-Sunday weekend.' },
+      { id: 'wkend', label: 'Your weekend ends on', type: 'select', options: WEEKDAYS }
+    ],
+    engineering: [
+      { id: 'systems', label: 'Which systems should the pipeline connect?', type: 'textarea', req: true, hint: 'For example: Toast POS at all locations, inventory spreadsheet, online orders.' },
+      { id: 'samepos', label: 'Do all your locations use the same POS system?', type: 'yesno', req: true },
+      { id: 'refresh', label: 'How often should the dashboard update?', type: 'select', req: true,
+        options: ['Hourly (standard)', 'Near real-time (extra cost, quoted separately)'] },
+      { id: 'viewers', label: 'Who will use the main office dashboard?', type: 'text', hint: 'Names or roles.' }
+    ],
+    forecasting: [
+      { id: 'history', label: 'How much sales history do you have?', type: 'select', req: true,
+        options: ['Less than 6 months', '6 to 11 months', '12 to 23 months', '2 years or more'] },
+      { id: 'what', label: 'What should we forecast?', type: 'checks', req: true,
+        options: ['Total sales ($)', 'Units sold', 'Sales by product', 'Sales by location'] },
+      { id: 'horizon', label: 'How far ahead?', type: 'select', req: true,
+        options: ['Next 4 weeks', 'Next 3 months', 'Next 12 months'] },
+      { id: 'events', label: 'Anything coming up that could change sales?', type: 'textarea', hint: 'New location, remodel, price change, local events.' }
+    ],
+    abtesting: [
+      { id: 'q1',  label: 'What do you want to test?', type: 'select', req: true, options: ['New price', 'Promotion or discount', 'New menu item', 'Menu change', 'Hours of operation', 'Other'] },
+      { id: 'q2',  label: 'Describe the change in one or two sentences.', type: 'textarea', req: true },
+      { id: 'q3',  label: 'What does success look like?', type: 'select', req: true, options: ['More total sales', 'Bigger average ticket', 'More orders of a specific item', 'More customers', 'Other'] },
+      { id: 'q4',  label: 'What is that number today, roughly?', type: 'text', req: true, hint: 'For example: average ticket about $24.' },
+      { id: 'q5',  label: 'Which locations get the change (Group A)?', type: 'text', req: true, hint: 'Up to three.' },
+      { id: 'q6',  label: 'Which locations stay the same (Group B)?', type: 'text', req: true },
+      { id: 'q7',  label: 'Are these locations similar in size and type of customers?', type: 'select', req: true, options: ['Yes', 'No', 'Not sure'] },
+      { id: 'q8',  label: 'If not, how are they different?', type: 'textarea' },
+      { id: 'q9',  label: 'Start date of the test (it runs four weeks).', type: 'date', req: true },
+      { id: 'q10', label: 'Anything unusual during those four weeks?', type: 'textarea', req: true, hint: 'Holidays, local events, construction, staff changes. Write "None" if nothing.' },
+      { id: 'q11', label: 'Who will make the change at each location?', type: 'text', req: true },
+      { id: 'q12', label: 'Will staff know it is a test?', type: 'yesno', req: true },
+      { id: 'q13', label: 'Will anything else change during the test (menu, staff, hours)?', type: 'textarea', req: true },
+      { id: 'q14', label: 'Is any marketing or advertising planned during the test?', type: 'textarea', req: true },
+      { id: 'q15', label: 'Could the tested item run out of stock?', type: 'select', req: true, options: ['No', 'Possibly', 'Yes', 'Not applicable'] },
+      { id: 'q16', label: 'How will customers learn about the change?', type: 'checks', req: true, options: ['Menu or menu board', 'Staff tell them', 'Signs in store', 'Online or social media', 'They won’t be told'] },
+      { id: 'q17', label: 'Are nearby competitors running promotions right now?', type: 'select', req: true, options: ['No', 'Yes', 'Not sure'] },
+      { id: 'q18', label: 'Have you tested something like this before? What happened?', type: 'textarea', req: true },
+      { id: 'q19', label: 'If the change wins, what will you do?', type: 'textarea', req: true },
+      { id: 'q20', label: 'If it loses or shows no difference, what will you do?', type: 'textarea', req: true },
+      { id: 'q21', label: 'Anything else we should know?', type: 'textarea' },
+      { id: 'agree', label: 'I understand the A/B results arrive after the fourth weekly report, and a new upload is needed every week of the test.', type: 'agree', req: true }
+    ],
+    workforce: [
+      { id: 'employees', label: 'Total number of employees today', type: 'number', req: true, min: 1 },
+      { id: 'hr', label: 'Where is your employee data kept?', type: 'select', req: true, options: ['Payroll or HR software', 'Spreadsheets', 'Several systems', 'Other'] },
+      { id: 'focus', label: 'What would you like to see?', type: 'checks', req: true,
+        options: ['Department representation', 'Management composition', 'Experience distribution', 'Trends over time'] }
+    ],
+    analytics: [
+      { id: 'questions', label: 'What questions do you want your data to answer?', type: 'textarea', req: true },
+      { id: 'timeline', label: 'When do you need results?', type: 'select', options: ['As soon as possible', 'Within a month', 'Flexible'] }
+    ],
+    bi: [
+      { id: 'kpis', label: 'Which numbers should the dashboard show?', type: 'textarea', req: true },
+      { id: 'users', label: 'Who will use it?', type: 'text' },
+      { id: 'timeline', label: 'When do you need it?', type: 'select', options: ['As soon as possible', 'Within a month', 'Flexible'] }
+    ],
+    security: [
+      { id: 'data', label: 'What kind of records do you have?', type: 'checks', req: true,
+        options: ['Incident reports', 'Voids, refunds and discounts', 'Inventory counts', 'Camera or access logs', 'Other'] },
+      { id: 'concern', label: 'What concerns you most right now?', type: 'textarea', req: true },
+      { id: 'timeline', label: 'When do you need results?', type: 'select', options: ['As soon as possible', 'Within a month', 'Flexible'] }
+    ]
+  };
+
+  const AB_NOTE = 'This process takes some time and detail. The more accurate your answers, the more reliable your results will be. Please don’t rush.';
+
+  // ------------------------------------------------------------------
+  const state = { customer: null, isNew: false, service: null, fromOrder: false, databases: 1, files: [], answers: {} };
+  const $ = id => document.getElementById(id);
+  const money = n => '$' + n.toLocaleString('en-US');
+
+  function show(id) {
+    document.querySelectorAll('.step').forEach(s => { s.hidden = s.id !== id; });
+    const el = $(id);
+    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    const focusable = el.querySelector('input, select, textarea, button');
+    if (focusable) focusable.focus({ preventScroll: true });
+  }
+  function err(id, msg) { const e = $(id); e.textContent = msg || ''; e.hidden = !msg; }
+  document.querySelectorAll('[data-back]').forEach(b => b.addEventListener('click', () => show(b.dataset.back)));
+
+  // Service from an Order button: ?service=forecasting
+  const fromUrl = new URLSearchParams(location.search).get('service');
+  if (fromUrl && SERVICES[fromUrl]) {
+    state.service = fromUrl; state.fromOrder = true;
+    const p = $('chosen-service');
+    p.textContent = ''; p.append('Ordering: ');
+    const chip = document.createElement('span'); chip.className = 'service-chip'; chip.textContent = SERVICES[fromUrl];
+    p.appendChild(chip); p.hidden = false;
+  }
+  Object.entries(SERVICES).forEach(([k, v]) => $('service-pick').appendChild(new Option(v, k)));
+
+  // Type of business: grouped list from Scripts/business-types.js
+  if (window.fillBusinessTypes) window.fillBusinessTypes('biz-type');
+  else ['Restaurant', 'Store', 'Hotel', 'Bar/Pub', 'Warehouse', 'Gas Station', 'Other']
+         .forEach(t => $('biz-type').appendChild(new Option(t, t)));   // backup if the script is missing
+  const isOtherType = v => /^Other/.test(v);
+  $('biz-type').addEventListener('change', () => {
+    const other = isOtherType($('biz-type').value);
+    $('biz-type-other-row').hidden = !other;
+    if (other) $('biz-type-other').focus();
+  });
+  // The value saved to the profile: the chosen type, or "Other: <description>"
+  function chosenBusinessType() {
+    const v = $('biz-type').value;
+    return isOtherType(v) ? 'Other: ' + $('biz-type-other').value.trim() : v;
+  }
+
+  // STEP 1
+  if (DEMO) $('demo-banner').hidden = false;
+  $('pick-existing').addEventListener('click', () => { state.isNew = false; show('step-existing'); });
+  $('pick-new').addEventListener('click', () => {
+    state.isNew = true;
+    if (!$('new-id').textContent) $('new-id').textContent = nextPreCustomerId();
+    show('step-new');
+  });
+
+  // STEP 2A: existing customer
+  $('form-existing').addEventListener('submit', async e => {
+    e.preventDefault();
+    const id = $('cust-id').value, pass = $('cust-pass').value;
+    if (!id || !pass) return err('existing-error', 'Please enter your customer ID and password.');
+    if (!DEMO) return err('existing-error', 'Sign-in is not available yet. Please contact us.');
+    const rec = await lookupCustomer(id, pass);
+    if (!rec) return err('existing-error', 'We couldn’t find that customer ID and password. Please check and try again, or contact us.');
+    err('existing-error');
+    // Basic info appears only after the password is confirmed.
+    const dl = $('dlg-info'); dl.textContent = '';
+    [['Customer ID', id.trim().toUpperCase()], ['Business', rec.business], ['Type', rec.type], ['Contact', rec.contact],
+     ['Email', rec.email], ['Phone', rec.phone], ['Locations', rec.locations], ['Status', rec.status]].forEach(([k, v]) => {
+      const dt = document.createElement('dt'); dt.textContent = k;
+      const dd = document.createElement('dd'); dd.textContent = v;
+      dl.append(dt, dd);
+    });
+    state.customer = Object.assign({ id: id.trim().toUpperCase() }, rec);
+    $('customer-dialog').showModal();
+  });
+  $('dlg-no').addEventListener('click', () => { $('customer-dialog').close(); state.customer = null; $('cust-pass').value = ''; });
+  $('dlg-yes').addEventListener('click', () => { $('customer-dialog').close(); afterAccount(); });
+
+  // STEP 2B: new customer
+  $('form-new').addEventListener('submit', async e => {
+    e.preventDefault();
+    const f = id => $(id).value.trim();
+    const required = ['biz-name', 'biz-type', 'biz-locations', 'biz-contact', 'biz-email', 'biz-phone', 'biz-street', 'biz-number', 'biz-zip', 'biz-pass'];
+    if (required.some(id => !f(id))) return err('new-error', 'Please fill in every field (referral is optional).');
+    if (isOtherType(f('biz-type')) && !f('biz-type-other')) return err('new-error', 'Please describe your type of business.');
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f('biz-email'))) return err('new-error', 'Please enter a valid email address.');
+    if (!/^(\+|\(|\d)[\d\s().-]{6,19}$/.test(f('biz-phone'))) return err('new-error', 'Please enter a valid phone number.');
+    if (!/^\d{5}(-\d{4})?$/.test(f('biz-zip'))) return err('new-error', 'Please enter a ZIP code like 94541 or 94541-1234.');
+    if (f('biz-pass').length < 8) return err('new-error', 'Your password needs at least 8 characters.');
+    if (f('biz-pass') !== f('biz-pass2')) return err('new-error', 'The passwords don’t match.');
+    if (DEMO && DB.emailInUse(f('biz-email'))) return err('new-error', 'An account with this email already exists. Choose “Existing customer” and sign in.');
+    err('new-error');
+    // Field names match clients.csv (see customer_signup.html) so the backend can save them as-is.
+    state.customer = { id: $('new-id').textContent, business: f('biz-name'), type: chosenBusinessType(), contact: f('biz-contact'),
+                       email: f('biz-email'), phone: f('biz-phone'),
+                       address: f('biz-number') + ' ' + f('biz-street') + ', ' + f('biz-zip'),
+                       locations: Number(f('biz-locations')), marketing: $('biz-marketing').checked,
+                       record: { user_id: $('new-id').textContent, company_name: f('biz-name'), poc_name: f('biz-contact'),
+                                 poc_email_address: f('biz-email'), poc_phone_number: f('biz-phone'),
+                                 address_street_name: f('biz-street'), address_number: f('biz-number'), address_zip: f('biz-zip'),
+                                 referred_by: f('biz-ref-by'), referral_id: f('biz-ref-id') } };
+    if (DEMO && !state.customer.saved) {
+      // Saved right away as a pre-customer, so the contact is kept even if no order follows.
+      const row = await DB.createClient({ company_name: f('biz-name'), business_type: chosenBusinessType(), location_qty: f('biz-locations'),
+        poc_name: f('biz-contact'), poc_email_address: f('biz-email'), poc_phone_number: f('biz-phone'),
+        address_street_name: f('biz-street'), address_number: f('biz-number'), address_zip: f('biz-zip'),
+        referred_by: f('biz-ref-by'), referral_id: f('biz-ref-id'), marketing_opt_in: $('biz-marketing').checked ? 'Yes' : 'No' }, f('biz-pass'));
+      state.customer.id = row.user_id; state.customer.saved = true;
+      $('new-id').textContent = row.user_id;
+      $('biz-pass').value = ''; $('biz-pass2').value = '';
+      ['biz-name','biz-email','biz-pass','biz-pass2','biz-type','biz-type-other'].forEach(x => $(x).disabled = true);
+    }
+    afterAccount();
+  });
+
+  function afterAccount() {
+    if (state.fromOrder) startData(); else show('step-service');
+  }
+
+  // STEP 3
+  $('service-next').addEventListener('click', () => { state.service = $('service-pick').value; startData(); });
+
+  // STEP 4: databases + uploads
+  function maxDatabases() { const p = PRICES[state.service]; return (p && p.maxDatabases) || 50; }
+  function startData() {
+    const max = maxDatabases();
+    const count = $('db-count');
+    count.max = max;
+    const suggested = Math.min(Math.max(1, (state.customer && state.customer.locations) || 1), max);
+    if (!state.dataStarted) { count.value = suggested; state.dataStarted = true; }
+    const lim = $('db-limit');
+    if (state.service === 'abtesting') { lim.textContent = 'An A/B test can include up to ' + max + ' locations.'; lim.hidden = false; }
+    else if (state.service === 'engineering') { lim.textContent = 'The pipeline plan is for businesses with two or more locations.'; lim.hidden = false; }
+    else lim.hidden = true;
+    $('data-back').onclick = () => show(state.fromOrder ? (state.isNew ? 'step-new' : 'step-existing') : 'step-service');
+    renderUploads();
+    show('step-data');
+  }
+  function renderUploads() {
+    const max = maxDatabases();
+    let n = Math.floor(Number($('db-count').value) || 1);
+    n = Math.min(Math.max(n, 1), max);
+    state.databases = n;
+    const list = $('upload-list');
+    const kept = state.files.slice();
+    list.textContent = '';
+    state.files = [];
+    for (let i = 0; i < n; i++) {
+      const box = document.createElement('div'); box.className = 'upload-box';
+      const id = 'file-' + i;
+      const label = document.createElement('label'); label.htmlFor = id; label.textContent = 'Database ' + (i + 1) + (n > 1 ? ' (location ' + (i + 1) + ')' : '');
+      const input = document.createElement('input'); input.type = 'file'; input.id = id;
+      input.accept = '.csv,.xlsx,.xls,.json,.parquet,.txt';
+      const name = document.createElement('span'); name.className = 'file-name';
+      const dbName = document.createElement('input'); dbName.type = 'text'; dbName.maxLength = 120;
+      dbName.placeholder = 'Database name, e.g. Main Street location'; dbName.setAttribute('aria-label', 'Name for database ' + (i + 1));
+      dbName.style.cssText = 'display:block;width:100%;box-sizing:border-box;margin:.5rem 0;padding:.55rem;border:1px solid currentColor;border-radius:6px;background:transparent;color:inherit;font:inherit;';
+      state.dbNames = state.dbNames || [];
+      dbName.value = state.dbNames[i] || '';
+      dbName.addEventListener('input', () => { state.dbNames[i] = dbName.value.trim(); });
+      state.files[i] = kept[i] || null;
+      if (state.files[i]) { name.textContent = state.files[i]; box.classList.add('has-file'); } else name.textContent = 'CSV or Excel file. You can also send it later.';
+      input.addEventListener('change', () => {
+        const f = input.files[0];
+        state.files[i] = f ? f.name : null;
+        name.textContent = f ? f.name + ' (' + Math.max(1, Math.round(f.size / 1024)).toLocaleString() + ' KB)' : 'CSV or Excel file. You can also send it later.';
+        box.classList.toggle('has-file', !!f);
+      });
+      box.append(label, dbName, input, name);
+      list.appendChild(box);
+    }
+  }
+  $('db-count').addEventListener('input', renderUploads);
+  $('data-next').addEventListener('click', () => {
+    const max = maxDatabases();
+    const v = Math.floor(Number($('db-count').value));
+    if (!v || v < 1) return err('data-error', 'Please enter at least 1 database.');
+    if (v > max) return err('data-error', 'This service allows up to ' + max + ' databases.');
+    const min = (PRICES[state.service] && PRICES[state.service].minDatabases) || 1;
+    if (v < min) return err('data-error', 'This service needs at least ' + min + ' databases (one per location).');
+    err('data-error');
+    startQuestions();
+  });
+
+  // STEP 5: questionnaire
+  function buildField(q, index, total) {
+    const wrap = document.createElement('div'); wrap.className = 'field';
+    const name = 'q_' + q.id;
+    const labelText = (total ? (index + 1) + '. ' : '') + q.label + (q.req ? ' *' : '');
+    const prev = state.answers[q.id];
+    if (q.type === 'checks' || q.type === 'yesno') {
+      const fs = document.createElement('fieldset');
+      const lg = document.createElement('legend'); lg.textContent = labelText; fs.appendChild(lg);
+      const opts = q.type === 'yesno' ? ['Yes', 'No'] : q.options;
+      opts.forEach(o => {
+        const l = document.createElement('label'); l.className = 'check';
+        const inp = document.createElement('input'); inp.type = q.type === 'yesno' ? 'radio' : 'checkbox'; inp.name = name; inp.value = o;
+        if (prev && (Array.isArray(prev) ? prev.includes(o) : prev === o)) inp.checked = true;
+        l.append(inp, document.createTextNode(' ' + o)); fs.appendChild(l);
+      });
+      wrap.appendChild(fs);
+    } else if (q.type === 'agree') {
+      const l = document.createElement('label'); l.className = 'check';
+      const inp = document.createElement('input'); inp.type = 'checkbox'; inp.name = name; inp.value = 'Yes'; inp.checked = prev === 'Yes';
+      l.append(inp, document.createTextNode(' ' + q.label)); wrap.appendChild(l);
+    } else {
+      const lb = document.createElement('label'); lb.htmlFor = name; lb.textContent = labelText;
+      if (q.hint) { const h = document.createElement('span'); h.className = 'hint'; h.textContent = q.hint; lb.appendChild(h); }
+      let inp;
+      if (q.type === 'textarea') inp = document.createElement('textarea');
+      else if (q.type === 'select') {
+        inp = document.createElement('select'); inp.appendChild(new Option('Choose one', ''));
+        q.options.forEach(o => inp.appendChild(new Option(o, o)));
+      } else { inp = document.createElement('input'); inp.type = q.type; if (q.min) inp.min = q.min; }
+      inp.id = name; inp.name = name;
+      if (prev) inp.value = prev;
+      wrap.append(lb, inp);
+    }
+    return wrap;
+  }
+  function currentQuestions() { return COMMON.concat(QUESTIONS[state.service] || []); }
+  function startQuestions() {
+    const qs = currentQuestions();
+    $('q-title').textContent = 'Questions about your ' + SERVICES[state.service] + ' order';
+    const intro = $('q-intro'); intro.textContent = '';
+    const numbered = state.service === 'abtesting';
+    if (numbered) {
+      const w = document.createElement('p'); w.className = 'warn'; w.textContent = AB_NOTE; intro.appendChild(w);
+      const pr = document.createElement('p'); pr.className = 'progress'; pr.id = 'q-progress'; intro.appendChild(pr);
+    }
+    const box = $('q-fields'); box.textContent = '';
+    const countable = qs.filter(q => q.type !== 'agree').length;
+    let i = 0;
+    qs.forEach(q => { box.appendChild(buildField(q, q.type === 'agree' ? 0 : i, numbered ? countable : 0)); if (q.type !== 'agree') i++; });
+    if (numbered) { box.addEventListener('input', updateProgress); box.addEventListener('change', updateProgress); updateProgress(); }
+    err('q-error');
+    show('step-questions');
+  }
+  function readAnswers() {
+    const out = {};
+    currentQuestions().forEach(q => {
+      const name = 'q_' + q.id;
+      if (q.type === 'checks') out[q.id] = [...document.querySelectorAll('[name="' + name + '"]:checked')].map(x => x.value);
+      else if (q.type === 'yesno') { const c = document.querySelector('[name="' + name + '"]:checked'); out[q.id] = c ? c.value : ''; }
+      else if (q.type === 'agree') { const c = document.querySelector('[name="' + name + '"]'); out[q.id] = c && c.checked ? 'Yes' : ''; }
+      else { const el = document.getElementById(name); out[q.id] = el ? el.value.trim() : ''; }
+    });
+    return out;
+  }
+  function updateProgress() {
+    const a = readAnswers(), qs = currentQuestions().filter(q => q.type !== 'agree');
+    const done = qs.filter(q => Array.isArray(a[q.id]) ? a[q.id].length : a[q.id]).length;
+    $('q-progress').textContent = done + ' of ' + qs.length + ' questions answered';
+  }
+  $('form-questions').addEventListener('submit', e => {
+    e.preventDefault();
+    const a = readAnswers();
+    const missing = currentQuestions().filter(q => q.req && (Array.isArray(a[q.id]) ? !a[q.id].length : !a[q.id]));
+    if (missing.length) return err('q-error', 'Please answer all questions marked with *. ' + missing.length + ' still need an answer.');
+    err('q-error');
+    state.answers = a;
+    renderSummary();
+    show('step-summary');
+  });
+
+  // STEP 6: price + summary
+  function priceFor() {
+    const p = PRICES[state.service];
+    const n = state.databases;
+    if (!p || p.pricing === 'quote') return { quote: true, lines: [['Price', 'By quote. We will contact you with a price after reviewing your order.']] };
+    if (p.pricing === 'per-database-plan') {
+      const chosen = state.answers.plan || '';
+      const plan = p.plans.find(x => chosen.indexOf(x.name + ' —') === 0) || p.plans[0];
+      const lines = [['Report', plan.name], ['Price per database', money(plan.price) + ' ' + plan.term], ['Databases', String(n)]];
+      if (plan.id === 'monthly' && n > 1) lines.push(['Note', 'Monthly Services is meant for a single location. With ' + n + ' locations, ask us about Monthly Services + Pipelines.']);
+      return { total: plan.price * n, term: plan.term, lines };
+    }
+    if (p.pricing === 'per-database') {
+      const lines = [['Plan', p.name], ['Includes', p.includes], ['Price per database', money(p.price) + ' ' + p.term], ['Databases', String(n)]];
+      if (p.note) lines.push(['Note', p.note]);
+      return { total: p.price * n, term: p.term, lines };
+    }
+    if (p.pricing === 'per-database-volume') {
+      const discounted = n >= p.volumeFrom;
+      const each = discounted ? Math.round(p.price * (1 - p.volumeDiscount)) : p.price;
+      const lines = [['Regular price', money(p.price) + ' per database'], ['Databases', String(n)]];
+      lines.push(['Price per database', discounted
+        ? money(each) + ' (' + Math.round(p.volumeDiscount * 100) + '% off the regular ' + money(p.price) + ' price, because you ordered ' + p.volumeFrom + ' or more)'
+        : money(each) + ' ' + p.term]);
+      if (!discounted) lines.push(['Volume discount', 'Order ' + p.volumeFrom + ' or more databases and every one costs ' + money(Math.round(p.price * (1 - p.volumeDiscount))) + ' (' + Math.round(p.volumeDiscount * 100) + '% off the regular ' + money(p.price) + ').']);
+      return { total: each * n, term: 'one-time', lines };
+    }
+    if (p.pricing === 'employee-tiers') {
+      const emp = Number(state.answers.employees) || 0;
+      let total;
+      const tier = p.tiers.find(t => emp <= t.upTo);
+      if (tier) total = tier.price;
+      else {
+        const last = p.tiers[p.tiers.length - 1];
+        total = last.price + Math.ceil((emp - last.upTo) / 100) * p.extraPer100;
+      }
+      return { total, term: p.term, lines: [['Employees', emp.toLocaleString()], ['Pricing', 'One price for the whole organization'], ['Note', p.note]] };
+    }
+    return { quote: true, lines: [['Price', 'By quote.']] };
+  }
+  function row(tbody, k, v, cls) {
+    const tr = document.createElement('tr'); if (cls) tr.className = cls;
+    const th = document.createElement('th'); th.scope = 'row'; th.textContent = k;
+    const td = document.createElement('td'); td.textContent = v;
+    tr.append(th, td); tbody.appendChild(tr);
+  }
+  function table(title, rows, totalRow) {
+    const frag = document.createDocumentFragment();
+    const h = document.createElement('h3'); h.className = 'summary-section'; h.textContent = title; frag.appendChild(h);
+    const t = document.createElement('table'); t.className = 'summary-table';
+    const tb = document.createElement('tbody');
+    rows.forEach(([k, v]) => row(tb, k, v));
+    if (totalRow) row(tb, totalRow[0], totalRow[1], 'summary-total');
+    t.appendChild(tb); frag.appendChild(t);
+    return frag;
+  }
+  function renderSummary() {
+    const c = state.customer, s = $('summary'); s.textContent = '';
+    s.appendChild(table('Customer', [['Customer ID', c.id], ['Business', c.business], ['Contact', c.contact], ['Email', c.email], ['Phone', c.phone]]));
+    const files = state.files.map((f, i) => ['Database ' + (i + 1) + ((state.dbNames || [])[i] ? ': ' + state.dbNames[i] : ''), f || 'Not attached yet']);
+    s.appendChild(table('Service and data', [['Service', SERVICES[state.service]], ['Number of databases', String(state.databases)]].concat(files)));
+    const ans = currentQuestions().filter(q => q.type !== 'agree').map(q => {
+      const v = state.answers[q.id];
+      return [q.label, Array.isArray(v) ? (v.join(', ') || '—') : (v || '—')];
+    });
+    s.appendChild(table('Your answers', ans));
+    const pr = priceFor();
+    s.appendChild(table('Price', pr.lines, pr.quote ? null : ['Total', money(pr.total) + ' ' + (pr.term || '')]));
+    state.price = pr;
+    $('monthly-terms-row').hidden = !/per month/.test(pr.term || '');
+  }
+  $('submit-order').addEventListener('click', () => {
+    if (!$('monthly-terms-row').hidden && !$('monthly-terms').checked) return err('summary-error', 'Please accept the monthly renewal terms.');
+    if (!$('confirm-order').checked) return err('summary-error', 'Please confirm the details are correct.');
+    err('summary-error');
+    state.keepData = $('keep-data').checked;
+    let orderId = '';
+    if (DEMO) {
+      // When the backend is ready, send the same record to it here.
+      const o = DB.addOrder({ user_id: state.customer.id, service_key: state.service, service_name: SERVICES[state.service],
+        database_qty: String(state.databases), database_names: (state.dbNames || []).slice(0, state.databases).join(' | '),
+        file_names: state.files.slice(0, state.databases).map(f => f || '').join(' | '),
+        answers_json: JSON.stringify(state.answers), price_total: state.price.quote ? '' : String(state.price.total),
+        price_term: state.price.quote ? 'quote' : (state.price.term || ''), keep_cleaned_data: state.keepData ? 'Yes' : 'No',
+        monthly_terms_accepted: $('monthly-terms-row').hidden ? '' : 'Yes' });
+      orderId = o.order_id;
+    }
+    $('done-text').textContent = 'Order ' + (orderId ? orderId + ' ' : '') + 'for ' + SERVICES[state.service] + ' received under customer ID ' + state.customer.id + '.' +
+      (DEMO ? ' (Demo: recorded in the demo database. You can now sign in with this customer ID and password as an existing customer.)' : '');
+    show('step-done');
+  });
+})();
+</script>
+<script src="../Scripts/music-player.js" defer></script>
+</body>
+</html>
