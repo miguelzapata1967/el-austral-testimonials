@@ -47,6 +47,7 @@
     </style>
     <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../Styles/austral-theme.css">
+    <script src="../Scripts/app-link.js"></script>
 </head>
 
 <body class="ea-inner">
@@ -63,7 +64,7 @@
         <a href="about.html">About Us</a>
         <a href="contact.html">Contact Us</a>
         
-        <a class="ea-signup" href="signup.html">Sign Up</a>
+        <a class="ea-signup" href="#" data-app="signup">Sign Up / Log In</a>
     </nav>
     <div class="ea-tools">
         <div class="ea-lang" aria-label="Language"><span class="selected">English</span><span class="unavailable" title="Spanish website coming soon">Español</span></div>
@@ -124,7 +125,7 @@
     // Prices live only in Scripts/price-list.js and appear in the
     // order summary on the sign-up page.
     // ---------------------------------------------------------------
-    const SIGNUP_URL = 'signup.html';
+    const SIGNUP_URL = (window.EA_APP_URL || 'http://localhost:8501').replace(/\/$/, '') + '/';
 
     const services = [
       {
@@ -324,7 +325,7 @@
     }
     function actionButton(service) {
       const a = el('a', 'Order', 'service-btn primary');
-      a.href = SIGNUP_URL + '?service=' + encodeURIComponent(service.key);
+      a.href = SIGNUP_URL + '?page=signup&service=' + encodeURIComponent(service.key);
       return a;
     }
 
