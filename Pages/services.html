@@ -44,7 +44,19 @@
       /* Sign Up link in the main menu */
       .main-nav a.nav-signup {padding:8px 18px;border:2px solid var(--burgundy);border-radius:999px;color:var(--burgundy);}
       .main-nav a.nav-signup:hover {background:var(--burgundy);color:#fff;}
-    </style>
+          /* sample report pages */
+      .sample-title {margin-top:2rem;}
+      .sample-note {max-width:760px;margin:0 auto 1rem;}
+      .sample-pages {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.4rem;margin-top:1rem;}
+      .sample-pages a {display:block;text-decoration:none;color:inherit;text-align:center;}
+      .sample-pages img {display:block;width:100%;height:auto;border:1px solid #d9c5c9;border-radius:4px;
+          box-shadow:0 4px 14px rgba(60,10,25,.15);transition:transform .2s;}
+      .sample-pages a:hover img {transform:translateY(-4px);}
+      .sample-pages span {display:block;margin-top:.55rem;font-size:.95rem;}
+      .sample-link {text-align:center;margin:1.6rem 0 2.2rem;}
+      @media(max-width:900px) {.sample-pages {grid-template-columns:repeat(2,minmax(0,1fr));}}
+      @media(max-width:520px) {.sample-pages {grid-template-columns:1fr;}}
+</style>
     <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../Styles/austral-theme.css">
     <script src="../Scripts/app-link.js"></script>
@@ -95,6 +107,21 @@
     <section class="service-gallery" aria-labelledby="gallery-title">
       <h2 id="gallery-title">Examples of Our Analytical Work</h2>
       <p>Visual examples from completed analysis projects.</p>
+
+      <!-- Sample report: pages of a real El Austral report, made with TEST data (a made-up taqueria) -->
+      <h3 class="sample-title">What you receive: a sample report</h3>
+      <p class="sample-note">These pages come from a full El Austral Consultant clean-up and analysis report, made
+         with <b>test data</b> from a sample restaurant (not a real customer). Your report shows your own numbers,
+         each year on its own, month by month, explained in plain English. Click a page to see it larger.</p>
+      <div class="sample-pages">
+        <a href="../Samples/sample-report-page-1.jpg" target="_blank"><img src="../Samples/sample-report-page-1.jpg" alt="Sample report: cover and data quality" loading="lazy"><span>Data quality: what was found and fixed</span></a>
+        <a href="../Samples/sample-report-page-2.jpg" target="_blank"><img src="../Samples/sample-report-page-2.jpg" alt="Sample report: when customers buy, by day of the week" loading="lazy"><span>When customers buy: best days, year by year</span></a>
+        <a href="../Samples/sample-report-page-3.jpg" target="_blank"><img src="../Samples/sample-report-page-3.jpg" alt="Sample report: monthly table for one year" loading="lazy"><span>Each month: up or down, since last December</span></a>
+        <a href="../Samples/sample-report-page-4.jpg" target="_blank"><img src="../Samples/sample-report-page-4.jpg" alt="Sample report: sales by category" loading="lazy"><span>Sales by category, by year</span></a>
+        <a href="../Samples/sample-report-page-5.jpg" target="_blank"><img src="../Samples/sample-report-page-5.jpg" alt="Sample report: discounts and the cost rule" loading="lazy"><span>Discounts that sold below cost, with dates</span></a>
+        <a href="../Samples/sample-report-page-6.jpg" target="_blank"><img src="../Samples/sample-report-page-6.jpg" alt="Sample report: profit by year and month" loading="lazy"><span>Profit by year and month</span></a>
+      </div>
+      <p class="sample-link"><a class="service-btn primary" href="../Samples/El_Austral_Sample_Report.pdf" target="_blank">See the full sample report (PDF)</a></p>
       <div class="service-graphs">
         <figure class="service-graph"><img src="../Graph/workforce_representation.png" alt="Monthly Retail Sales Revenue" loading="lazy"><figcaption><strong>Monthly Retail Sales Revenue</strong> — Monthly retail sales revenue, January through April 2023.</figcaption></figure>
         <figure class="service-graph"><img src="../Graph/department_representation.png" alt="Department Representation" loading="lazy"><figcaption><strong>Department Representation</strong> — Workforce representation across departments.</figcaption></figure>

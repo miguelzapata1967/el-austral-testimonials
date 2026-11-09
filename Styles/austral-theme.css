@@ -357,3 +357,9 @@ footer.ea-footer .ea-logo .snow { stroke: #430b21; }
 /* Pages with a Testimonials menu item need a bit more room */
 @media (max-width: 1560px) { .ea-copy { display: none; } .ea-tools { padding-left: 0; } }
 @media (max-width: 1440px) { .ea-header { gap: 20px; } .ea-nav { gap: 22px; } .ea-lang span { padding: 6px 12px; } }
+
+/* Sample report pages on the Services page */
+.ea-inner .sample-title { color: #fff; font-size: 1.5rem; }
+.ea-inner .sample-pages img { border: 1px solid rgba(220,170,230,.45) !important; box-shadow: 0 10px 26px rgba(5,4,20,.45) !important; background: #fff; }
+.ea-inner .sample-pages a { color: var(--ea-text) !important; }
+.ea-inner .sample-pages a:hover img { border-color: var(--ea-pink) !important; }
