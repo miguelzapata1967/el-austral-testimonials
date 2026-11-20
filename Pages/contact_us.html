@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us | El Austral Consultant</title>
+<!-- Link your existing site stylesheet so the background and header match every other page -->
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<!-- Link preview (email, text, social). Uses the live site address -->
+<meta property="og:site_name" content="El Austral Consultant">
+<meta property="og:title" content="Leave a Testimonial | El Austral Consultant">
+<meta property="og:description" content="Customers of Miguel's previous businesses: share your experience working with him.">
+<meta property="og:image" content="https://miguelzapata1967.github.io/el-austral-testimonials/icons/link-preview.png">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="Styles/style.css">
+<style>
+  .c-wrap { max-width: 720px; margin: 0 auto; padding: 32px 16px 64px; }
+  .c-title { text-align: center; font-size: 2.4rem; margin: 0 0 20px; }
+  .c-thanks { background: rgba(255,255,255,.92); color: #222; padding: 22px 26px; border-left: 6px solid #78182e;
+              border-radius: 6px; line-height: 1.6; margin-bottom: 28px; }
+  .c-thanks p { margin: 0 0 10px; }
+  .c-thanks .sig { margin: 14px 0 0; font-weight: 700; }
+  .c-form { background: rgba(255,255,255,.92); color: #222; padding: 24px 26px; border-radius: 6px; }
+  .c-row { display: flex; gap: 16px; flex-wrap: wrap; }
+  .c-field { flex: 1 1 200px; margin-bottom: 16px; }
+  .c-field label { display: block; font-weight: 600; margin-bottom: 6px; }
+  .c-field input, .c-field select, .c-field textarea { width: 100%; box-sizing: border-box; padding: 10px 12px;
+      border: 1px solid #9aa7b5; border-radius: 4px; font: inherit; }
+  .c-field textarea { min-height: 170px; resize: vertical; }
+  .c-hint { font-size: .85rem; opacity: .75; margin-top: 4px; }
+  .c-hp { position: absolute; left: -9999px; }   /* spam trap, hidden from people */
+  .c-btn { padding: 12px 30px; background: #78182e; color: #fff; border: none; border-radius: 6px;
+           font-size: 1rem; font-weight: 600; cursor: pointer; }
+  .c-btn:disabled { opacity: .6; cursor: wait; }
+  .c-msg { margin-top: 16px; padding: 12px 14px; border-radius: 4px; display: none; }
+  .c-msg.ok { display: block; background: #e6f4ea; color: #1e5a2e; }
+  .c-msg.err { display: block; background: #fdecea; color: #8a1f17; }
+</style>
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Styles/austral-theme.css">
+</head>
+<body class="ea-inner">
+
+<header class="ea-header">
+    <a class="ea-logo" href="index.html" aria-label="El Austral Consultant home"><svg viewBox="0 0 200 80" aria-hidden="true"><path fill="currentColor" d="M0 78 L36 54 L50 60 L78 33 L92 45 L113 6 L139 40 L151 31 L178 57 L200 78 Z"/><path class="snow" d="M113 6 L106 25 M113 6 L121 22 M78 33 L73 45 M151 31 L146 43"/></svg><span class="ea-logo-bar"></span><span class="ea-logo-text"><span class="ea-logo-name">El Austral</span><span class="ea-logo-sub">CONSULTANT</span></span></a>
+    <button class="ea-menu-btn" type="button" aria-label="Open menu" aria-expanded="false"><span></span></button>
+    <nav class="ea-nav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <div class="ea-drop">
+            <button type="button" aria-haspopup="true" aria-expanded="false">Our Solutions<span class="ea-caret"></span></button>
+            <div class="ea-drop-menu"><a href="services.html#analytics">Data Analytics</a><a href="services.html#intelligence">Business Intelligence &amp; Dashboards</a><a href="services.html#engineering">Data Engineering &amp; Preparation</a><a href="services.html#forecasting">Forecasting &amp; Demand Planning</a><a href="services.html#a%2Fb">A/B Testing &amp; Experimentation</a><a href="services.html#retail">Retail &amp; Revenue Analytics</a><a href="services.html#workforce">Workforce &amp; Diversity Analytics</a><a href="services.html#security">Security &amp; Risk Analytics</a><a class="all" href="services.html">See all services &amp; prices →</a></div>
+        </div>
+        <a href="about.html">About Us</a>
+        <a href="contact_us.html" class="active" aria-current="page">Contact Us</a>
+        <a href="testimonials.html">Testimonials</a>
+        <a class="ea-signup" href="#" data-app="signup">Sign Up / Log In</a>
+    </nav>
+    <div class="ea-tools">
+        <div class="ea-lang" aria-label="Language"><span class="selected">English</span><span class="unavailable" title="Spanish website coming soon">Español</span></div>
+        <span class="ea-copy">&copy; MMXXVI</span>
+    </div>
+</header>
+
+<main class="c-wrap">
+  <h1 class="c-title">Contact Us</h1>
+
+  <section class="c-thanks">
+    <p>If you are reading this, it is because you are willing to leave me a message, and I truly appreciate it.</p>
+    <p>Thank you for taking the time to share your experience, whatever it may be. Every comment is positive to me:
+       the good words tell me what to keep doing, and the critical ones show me what I was missing in my services
+       and customer service so I can do better.</p>
+    <p>Your comment will be posted exactly as you write it, and I will personally reply to every one.</p>
+    <p>If you ever need my new business, El Austral Consultant, please don't hesitate to contact me.</p>
+    <p class="sig">— Miguel Angel Zapata · Ile Artifex</p>
+    <p class="sig"> elaustralconsultant@gmail.com </p>
+  </section>
+
+  <form class="c-form" id="tForm" novalidate>
+    <div class="c-row">
+      <div class="c-field">
+        <label for="first">First name</label>
+        <input id="first" name="first_name" maxlength="40" required autocomplete="given-name">
+      </div>
+      <div class="c-field">
+        <label for="last">Last name</label>
+        <input id="last" name="last_name" maxlength="40" required autocomplete="family-name">
+        <div class="c-hint">Only your last initial will be shown.</div>
+      </div>
+    </div>
+    <div class="c-row">
+      <div class="c-field">
+        <label for="year">Year I served you (previous business)</label>
+        <select id="year" name="service_year" required></select>
+      </div>
+    </div>
+    <div class="c-field">
+      <label for="comment">Your testimonial about my previous business</label>
+      <textarea id="comment" name="comment" maxlength="3000" required></textarea>
+    </div>
+    <div class="c-hp" aria-hidden="true">
+      <label for="website">Leave this empty</label>
+      <input id="website" name="website" tabindex="-1" autocomplete="off">
+    </div>
+    <button class="c-btn" type="submit" id="submitBtn">Submit testimonial</button>
+    <div class="c-msg" id="msg" role="status"></div>
+  </form>
+</main>
+
+<script>
+  // Address of the connector (Cloudflare Worker) — fill in after setup, see SETUP.md
+       const CONNECTOR_URL = "https://testimonials.elaustralconsultant.workers.dev";
+
+  const yearSel = document.getElementById("year");
+  yearSel.innerHTML = '<option value="">Select a year</option>';
+  for (let y = new Date().getFullYear(); y >= 1995; y--) {
+    yearSel.innerHTML += `<option value="${y}">${y}</option>`;
+  }
+
+  const form = document.getElementById("tForm");
+  const msg = document.getElementById("msg");
+
+  // An El Austral Consultant customer comes from the link in their report email:
+  // contact_us.html?from=el-austral  -> their comment is labeled as an El Austral Consultant customer
+  const params = new URLSearchParams(location.search);
+  const SOURCE = params.get("from") === "el-austral" ? "el-austral" : "previous";
+  if (SOURCE === "el-austral") {
+    yearSel.value = String(new Date().getFullYear());
+    const note = document.createElement("p");
+    note.className = "c-msg ok";
+    note.textContent = "Thank you for being an El Austral Consultant customer! Your comment will be shown as " +
+                       "an El Austral Consultant customer.";
+    form.prepend(note);
+  }
+  const btn = document.getElementById("submitBtn");
+
+  function show(text, ok) {
+    msg.textContent = text;
+    msg.className = "c-msg " + (ok ? "ok" : "err");
+  }
+
+  form.addEventListener("submit", async e => {
+    e.preventDefault();
+    const data = Object.fromEntries(new FormData(form));
+    data.source = SOURCE;                       // "el-austral" or "previous" (label on the Testimonials page)
+    if (!data.first_name.trim() || !data.last_name.trim() || !data.service_year || data.comment.trim().length < 5) {
+      show("Please fill in your name, the year you were served, and your testimonial.", false);
+      return;
+    }
+    btn.disabled = true;
+    btn.textContent = "Sending…";
+    try {
+      const r = await fetch(CONNECTOR_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+      });
+      if (!r.ok) throw new Error();
+      form.reset();
+      show("Thank you! Your testimonial was received and will appear on the Testimonials page in a minute or two.", true);
+    } catch {
+      show("Sorry, something went wrong and your testimonial wasn't sent. Please try again in a few minutes.", false);
+    } finally {
+      btn.disabled = false;
+      btn.textContent = "Submit testimonial";
+    }
+  });
+</script>
+<footer class="ea-footer">
+    <a class="ea-logo" href="index.html" aria-label="El Austral Consultant home"><svg viewBox="0 0 200 80" aria-hidden="true"><path fill="currentColor" d="M0 78 L36 54 L50 60 L78 33 L92 45 L113 6 L139 40 L151 31 L178 57 L200 78 Z"/><path class="snow" d="M113 6 L106 25 M113 6 L121 22 M78 33 L73 45 M151 31 L146 43"/></svg><span class="ea-logo-bar"></span><span class="ea-logo-text"><span class="ea-logo-name">El Austral</span><span class="ea-logo-sub">CONSULTANT</span></span></a>
+    <p class="ea-tagline">Reading What the Data Really Has to Say<span class="ea-founder">Miguel Angel Zapata · Ile Artifex</span></p>
+    <div class="ea-foot-right">
+        <span class="ea-foot-lang"><span>English</span><span title="Spanish website coming soon">Español</span></span>
+        <span class="ea-social">
+            <!-- Paste your LinkedIn and YouTube page addresses into the two href="" values below -->
+            <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4V21H3zM9.5 9.5h3.8v1.6h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.6 4.8 6V21h-4v-5.2c0-1.3 0-2.9-1.8-2.9s-2.1 1.4-2.1 2.8V21h-4z"/></svg></a>
+            <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12 31 31 0 0 0 1 16.8a3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8zM9.8 15.1V8.9l5.7 3.1z"/></svg></a>
+        </span>
+        <span>&copy; MMXXVI</span>
+    </div>
+</footer>
+<script src="Scripts/music-player.js" defer></script>
+<script src="Scripts/app-link.js" defer></script>
+<script src="Scripts/austral-theme.js" defer></script>
+</body>
+</html>
