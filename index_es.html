@@ -139,6 +139,9 @@
 
 <!-- Tico voice assistant -->
 <script>
+  // ON / OFF: Tico is turned off until there are customers (calls cost money).
+  // To turn him back on, change false to true and upload this page again.
+  const TICO_ON = false;
   var vapiInstance = null;
   const assistant = "981dc76e-8837-4d6c-83e9-f8f69f33641b";
   const apiKey = "5dbcddbe-ddb3-4d6d-a0a1-9525419cd269";
@@ -170,7 +173,7 @@
     },
   };
 
-  (function (d, t) {
+  if (TICO_ON) (function (d, t) {
     var g = document.createElement(t),
         s = d.getElementsByTagName(t)[0];
     g.src = "https://cdn.jsdelivr.net/gh/VapiAI/html-script-tag@latest/dist/assets/index.js";
