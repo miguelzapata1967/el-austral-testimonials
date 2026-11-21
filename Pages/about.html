@@ -1,112 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="About El Austral Consultant: our mission, values and founder.">
-    <title>About Us | El Austral Consultant</title>
-    <link rel="icon" href="favicon.ico" sizes="any">
-    <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
-    <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
-    <link rel="stylesheet" href="Styles/style.css">
-    <style>
-      .page-wrap {max-width:860px;margin:0 auto;padding:2rem 1.25rem;}
-      .page-wrap h1 {text-align:center;}
-      .lead {text-align:center;font-size:1.1rem;}
-      .card {border:1px solid currentColor;border-radius:9px;padding:1.25rem 1.5rem;margin-top:1.25rem;}
-      .card h2 {margin-top:0;font-size:1.3rem;}
-      .site-remark {max-width:760px;margin:2rem auto 0;padding:1.5rem 1.25rem;text-align:center;font-style:italic;font-size:1.2rem;line-height:1.5;color:var(--burgundy,#78182e);border-top:1px solid rgba(120,24,46,.25);border-bottom:1px solid rgba(120,24,46,.25);}
-      .site-remark cite {display:block;margin-top:.5rem;font-size:.85rem;font-style:normal;opacity:.8;}
-      .btn {display:inline-block;padding:.65rem 1.4rem;border:1px solid var(--burgundy,#78182e);border-radius:999px;font-family:Arial,sans-serif;font-size:.9rem;cursor:pointer;text-decoration:none;background:var(--burgundy,#78182e);color:#fff;}
-      .btn:hover {background:var(--rose,#aa2d48);border-color:var(--rose,#aa2d48);}
-      .main-nav a.nav-signup {padding:8px 18px;border:2px solid var(--burgundy);border-radius:999px;color:var(--burgundy);}
-      .main-nav a.nav-signup:hover {background:var(--burgundy);color:#fff;}
-      .about-mission p {line-height:1.7;}
-      .signature {text-align:right;font-style:italic;margin-top:1rem;}
-      .values {display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1.25rem;}
-      @media(max-width:700px){.values{grid-template-columns:1fr;}}
-      .values .card {margin-top:0;}
-      .values h3 {margin-top:0;color:var(--burgundy,#78182e);}
-      .cta {text-align:center;margin-top:2rem;}
-    </style>
-    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="Styles/austral-theme.css">
+<meta charset="UTF-8">
+<title>El Austral Consultant</title>
+<meta http-equiv="refresh" content="0; url=../about.html">
+<link rel="canonical" href="../about.html">
+<script>location.replace("../about.html" + (location.hash && "../about.html".indexOf("#") < 0 ? location.hash : ""));</script>
 </head>
-
-<body class="ea-inner">
-
-<header class="ea-header">
-    <a class="ea-logo" href="index.html" aria-label="El Austral Consultant home"><svg viewBox="0 0 200 80" aria-hidden="true"><path fill="currentColor" d="M0 78 L36 54 L50 60 L78 33 L92 45 L113 6 L139 40 L151 31 L178 57 L200 78 Z"/><path class="snow" d="M113 6 L106 25 M113 6 L121 22 M78 33 L73 45 M151 31 L146 43"/></svg><span class="ea-logo-bar"></span><span class="ea-logo-text"><span class="ea-logo-name">El Austral</span><span class="ea-logo-sub">CONSULTANT</span></span></a>
-    <button class="ea-menu-btn" type="button" aria-label="Open menu" aria-expanded="false"><span></span></button>
-    <nav class="ea-nav" aria-label="Main navigation">
-        <a href="index.html">Home</a>
-        <div class="ea-drop">
-            <button type="button" aria-haspopup="true" aria-expanded="false">Our Solutions<span class="ea-caret"></span></button>
-            <div class="ea-drop-menu"><a href="services.html#analytics">Data Analytics</a><a href="services.html#intelligence">Business Intelligence &amp; Dashboards</a><a href="services.html#engineering">Data Engineering &amp; Preparation</a><a href="services.html#forecasting">Forecasting &amp; Demand Planning</a><a href="services.html#a%2Fb">A/B Testing &amp; Experimentation</a><a href="services.html#retail">Retail &amp; Revenue Analytics</a><a href="services.html#workforce">Workforce &amp; Diversity Analytics</a><a href="services.html#security">Security &amp; Risk Analytics</a><a class="all" href="services.html">See all services &amp; prices →</a></div>
-        </div>
-        <a href="about.html" class="active" aria-current="page">About Us</a>
-        <a href="contact_us.html">Contact Us</a>
-        <a href="testimonials.html">Testimonials</a>
-        <a class="ea-signup" href="#" data-app="signup">Sign Up / Log In</a>
-    </nav>
-    <div class="ea-tools">
-        <div class="ea-lang" aria-label="Language"><span class="selected">English</span><span class="unavailable" title="Spanish website coming soon">Español</span></div>
-        <span class="ea-copy">&copy; MMXXVI</span>
-    </div>
-</header>
-
-<main class="page-wrap">
-  <h1>About Us</h1>
-  <p class="lead">Inspired by the strength and perspective of Aconcagua, we help our clients reach higher through data-driven decision-making.</p>
-
-  <section class="card about-mission" aria-labelledby="mission-title">
-    <h2 id="mission-title">Our Mission</h2>
-    <p>Our mission is to empower businesses of all sizes by transforming complex data into clear, actionable insights that drive smarter decisions, improve operational efficiency, reduce costs, and support sustainable growth.</p>
-    <p>We are committed to delivering accessible, reliable, and innovative data analytics, business intelligence, and technology solutions tailored to the unique needs of each client. Through automation, transparency, professional integrity, and continuous improvement, we strive to simplify business challenges, eliminate unnecessary complexity, and provide measurable value.</p>
-    <p>Our purpose is not simply to provide reports, dashboards, or technology, but to build lasting partnerships that help our clients better understand their businesses, identify opportunities, manage risks, and achieve their goals with confidence.</p>
-    <p>We believe every business deserves access to meaningful insights, regardless of its size, industry, or location.</p>
-    <p class="signature">Miguel Angel Zapata · Ile Artifex — El Austral Consultant</p>
-  </section>
-
-  <blockquote class="site-remark">
-    “If something isn’t right, tell us. We’ll fix it and keep earning your business.”
-    <cite>— El Austral Consultant</cite>
-  </blockquote>
-
-  <section aria-labelledby="values-title">
-    <h2 id="values-title" style="text-align:center;margin-top:2rem;">What We Stand For</h2>
-    <div class="values">
-      <div class="card"><h3>Clean data first</h3><p>Good results start with clean data. Every report we deliver is built on validated numbers.</p></div>
-      <div class="card"><h3>Your data stays yours</h3><p>Your raw data stays on your computer. Only the summary numbers needed for your report are sent, and they’re never stored.</p></div>
-      <div class="card"><h3>Always transparent</h3><p>We tell you what the data really says, and we own our mistakes when we make them.</p></div>
-    </div>
-  </section>
-
-  <section class="card" aria-labelledby="founder-title">
-    <h2 id="founder-title">Meet the Founder</h2>
-    <p>This new career is a new horizon for me. I take on this challenge with solid skills, and with passion, devotion and determination.</p>
-    <p class="signature">Miguel Angel Zapata · Ile Artifex — El Austral Consultant</p>
-  </section>
-
-  <div class="cta"><a class="btn" href="services.html">Explore our services</a></div>
-</main>
-
-<footer class="ea-footer">
-    <a class="ea-logo" href="index.html" aria-label="El Austral Consultant home"><svg viewBox="0 0 200 80" aria-hidden="true"><path fill="currentColor" d="M0 78 L36 54 L50 60 L78 33 L92 45 L113 6 L139 40 L151 31 L178 57 L200 78 Z"/><path class="snow" d="M113 6 L106 25 M113 6 L121 22 M78 33 L73 45 M151 31 L146 43"/></svg><span class="ea-logo-bar"></span><span class="ea-logo-text"><span class="ea-logo-name">El Austral</span><span class="ea-logo-sub">CONSULTANT</span></span></a>
-    <p class="ea-tagline">Reading What the Data Really Has to Say<span class="ea-founder">Miguel Angel Zapata · Ile Artifex</span></p>
-    <div class="ea-foot-right">
-        <span class="ea-foot-lang"><span>English</span><span title="Spanish website coming soon">Español</span></span>
-        <span class="ea-social">
-            <!-- Paste your LinkedIn and YouTube page addresses into the two href="" values below -->
-            <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4V21H3zM9.5 9.5h3.8v1.6h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.6 4.8 6V21h-4v-5.2c0-1.3 0-2.9-1.8-2.9s-2.1 1.4-2.1 2.8V21h-4z"/></svg></a>
-            <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12 31 31 0 0 0 1 16.8a3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8zM9.8 15.1V8.9l5.7 3.1z"/></svg></a>
-        </span>
-        <span>&copy; MMXXVI</span>
-    </div>
-</footer>
-
-<script src="Scripts/music-player.js" defer></script>
-<script src="Scripts/app-link.js" defer></script>
-<script src="Scripts/austral-theme.js" defer></script>
-</body>
+<body><p>Moving you to the new page… <a href="../about.html">../about.html</a></p></body>
 </html>

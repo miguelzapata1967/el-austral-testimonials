@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IL DECIMUS · El Austral Consultant</title>
+<meta name="description" content="IL DECIMUS — The Standard of Ten. A data clean-up prototype by El Austral Consultant. Your data. Your computer. Your control.">
+<link rel="icon" type="image/png" href="icons/il_decimus_en.png">
+<link rel="apple-touch-icon" href="icons/il_decimus_en.png">
+<link rel="alternate" hreflang="es" href="il_decimus_es.html">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { min-height: 100vh; display: flex; flex-direction: column; align-items: center;
+         background: #020a1c radial-gradient(ellipse at center, #06204a 0%, #020a1c 70%);
+         font-family: "Segoe UI", Roboto, Arial, sans-serif; color: #e6eefc; }
+
+  /* the banner, as big as fits above the download bar */
+  .banner { position: relative; width: min(100vw, 1536px, calc((100vh - 86px) * 1.5));
+            aspect-ratio: 1536 / 1024; }
+  .banner img { display: block; width: 100%; height: 100%; user-select: none; -webkit-user-drag: none; }
+
+  /* clickable areas laid exactly over the picture's own button and EN | ES */
+  .hot { position: absolute; display: block; border-radius: 999px; cursor: pointer;
+         transition: box-shadow .25s, background-color .25s; }
+  .hot:hover, .hot:focus-visible { background: rgba(63,182,255,.14); outline: none;
+         box-shadow: 0 0 16px 3px #3fb6ff, inset 0 0 10px rgba(63,182,255,.6); }
+  .join { left: 73.3%; top: 89.3%; width: 25%; height: 7.1%; animation: pulse 2.6s ease-in-out infinite; }
+  .join:hover { animation: none; }
+  .lang-en { left: 91.6%; top: 4.2%; width: 3.2%; height: 4%; border-radius: 6px; }
+  .lang-es { left: 95.3%; top: 4.2%; width: 3.2%; height: 4%; border-radius: 6px; }
+  @keyframes pulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(63,182,255,0); }
+                      50% { box-shadow: 0 0 16px 3px rgba(63,182,255,.55); } }
+  @media (prefers-reduced-motion: reduce) { .join { animation: none; } }
+  .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+  /* bar under the banner: back to the site, download the desktop link */
+  .bar { width: min(100vw, 1536px); display: flex; align-items: center; gap: 18px; flex-wrap: wrap;
+         justify-content: space-between; padding: 12px 20px; }
+  .bar a.home { color: #bfe3ff; text-decoration: none; font-size: .98rem; }
+  .bar a.home:hover { text-decoration: underline; }
+  .dl { display: inline-flex; align-items: center; gap: 12px; padding: 9px 20px 9px 10px; border-radius: 999px;
+        background: linear-gradient(180deg, #0f3a8c, #0a2259); border: 1.5px solid #3aa8ff; color: #fff;
+        text-decoration: none; font-weight: 600; box-shadow: 0 0 14px rgba(58,168,255,.5); }
+  .dl:hover { box-shadow: 0 0 22px rgba(92,196,255,.85); border-color: #7fd3ff; }
+  .dl img { width: 40px; height: 40px; border-radius: 9px; }
+  .note { flex-basis: 100%; text-align: right; font-size: .82rem; color: #9fb3d6; margin-top: -6px; }
+  @media (max-width: 700px) { .bar { justify-content: center; text-align: center; } .note { text-align: center; } }
+</style>
+</head>
+<body>
+  <main class="banner">
+    <img src="Images/il_decimus_banner.jpg" alt="IL DECIMUS — The Standard of Ten. A prototype by El Austral Consultant. Up to 10 processing sessions with a maximum of 3 files per session. Your data never leaves your computer.">
+    <a class="hot join" href="https://el-austral-demo.streamlit.app/" target="_blank" rel="noopener" title="Join the IL DECIMUS Prototype Today"><span class="sr">Join the IL DECIMUS Prototype Today</span></a>
+    <a class="hot lang-en" href="il_decimus.html" lang="en" hreflang="en" title="English"><span class="sr">English</span></a>
+    <a class="hot lang-es" href="il_decimus_es.html" lang="es" hreflang="es" title="Español"><span class="sr">Español</span></a>
+  </main>
+  <div class="bar">
+    <a class="home" href="index.html">← El Austral Consultant</a>
+    <a class="dl" href="IL_DECIMUS.url" download="IL_DECIMUS.url"><img src="icons/il_decimus_en.png" alt="">Download IL DECIMUS link to your desktop</a>
+    <p class="note">Save the file on your Desktop and double-click it to open IL DECIMUS. On Windows it shows the IL DECIMUS icon.</p>
+  </div>
+</body>
+</html>

@@ -60,7 +60,7 @@
         </div>
         <a href="about.html">About Us</a>
         <a href="contact_us.html" class="active" aria-current="page">Contact Us</a>
-        <a href="testimonials.html">Testimonials</a>
+        <a href="index.html#testimonials">Testimonials</a>
         <a class="ea-signup" href="#" data-app="signup">Sign Up / Log In</a>
     </nav>
     <div class="ea-tools">
@@ -149,6 +149,7 @@
   form.addEventListener("submit", async e => {
     e.preventDefault();
     const data = Object.fromEntries(new FormData(form));
+    data.lang = "en";                         // the connector translates it to the other language
     data.source = SOURCE;                       // "el-austral" or "previous" (label on the Testimonials page)
     if (!data.first_name.trim() || !data.last_name.trim() || !data.service_year || data.comment.trim().length < 5) {
       show("Please fill in your name, the year you were served, and your testimonial.", false);
@@ -164,7 +165,7 @@
       });
       if (!r.ok) throw new Error();
       form.reset();
-      show("Thank you! Your testimonial was received and will appear on the Testimonials page in a minute or two.", true);
+      show("Thank you! Your testimonial was received and will appear on the Home page, in English and Spanish, in a minute or two.", true);
     } catch {
       show("Sorry, something went wrong and your testimonial wasn't sent. Please try again in a few minutes.", false);
     } finally {

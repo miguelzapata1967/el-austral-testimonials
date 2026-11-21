@@ -383,3 +383,20 @@ html[lang="es"] body .ea-header .ea-nav { gap: 22px; }
   html[lang="es"] body .ea-header .ea-nav { gap: 11px; }
   html[lang="es"] body .ea-header .ea-nav > a, html[lang="es"] body .ea-header .ea-drop > button { font-size: 14px; }
 }
+
+/* ---- IL DECIMUS on the Home page (Nov 2026) ---- */
+.ea-ild { max-width: 1200px; margin: 40px auto 0; padding: 28px 16px; display: grid; gap: 34px;
+          grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); align-items: center;
+          border-top: 1px solid rgba(255,255,255,.12); }
+.ea-ild-pic img { display: block; width: 100%; border-radius: 14px; box-shadow: 0 0 26px rgba(58,168,255,.35);
+                  border: 1px solid rgba(58,168,255,.5); transition: transform .2s; }
+.ea-ild-pic:hover img { transform: scale(1.01); }
+.ea-ild-copy h2 { margin: 4px 0 10px; font-size: 2.4rem; letter-spacing: .06em; color: #fff; }
+.ea-ild-copy p { line-height: 1.55; }
+.ea-ild-btns { display: flex; flex-direction: column; align-items: flex-start; gap: 14px; margin-top: 18px; }
+.ea-ild-dl { display: inline-flex; align-items: center; gap: 12px; padding: 8px 18px 8px 8px; border-radius: 999px;
+             background: linear-gradient(180deg, #0f3a8c, #0a2259); border: 1.5px solid #3aa8ff; color: #fff;
+             text-decoration: none; font-weight: 600; box-shadow: 0 0 12px rgba(58,168,255,.45); }
+.ea-ild-dl:hover { box-shadow: 0 0 20px rgba(92,196,255,.8); }
+.ea-ild-dl img { width: 38px; height: 38px; border-radius: 8px; }
+@media (max-width: 860px) { .ea-ild { grid-template-columns: 1fr; } }

@@ -6,7 +6,7 @@
  * Any link with data-app="signup" opens the app's Sign Up / Sign in page;
  * data-app="home" opens the app's main page (customers type their customer ID there).
  */
-window.EA_APP_URL = "http://localhost:8501";
+window.EA_APP_URL = "https://el-austral-demo.streamlit.app";   // online (was http://localhost:8501, only on Miguel's computer)
 
 document.addEventListener("DOMContentLoaded", () => {
   const base = window.EA_APP_URL.replace(/\/$/, "");

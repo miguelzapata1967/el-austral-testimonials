@@ -1,0 +1,48 @@
+/* ---- Testimonials section (Home page, English and Spanish) ---- */
+.t-wrap { max-width: 1200px; margin: 0 auto; padding: 32px 16px 64px; }
+.t-title { text-align: center; font-size: 2.6rem; margin: 0; letter-spacing: 1px; }
+.t-subtitle { text-align: center; font-size: 1.3rem; margin: 6px 0 36px; font-style: italic; opacity: .85; }
+.t-note { max-width: 760px; margin: -18px auto 30px; text-align: center; line-height: 1.55;
+          background: rgba(255,255,255,.88); color: #222; padding: 14px 20px; border-radius: 6px; }
+.t-cta { display: block; width: fit-content; margin: 0 auto 36px; padding: 12px 26px;
+         background: #78182e; color: #fff; text-decoration: none; border-radius: 6px; font-weight: 600; }
+.t-cta:hover { background: #aa2d48; }
+
+/* Collage: frames spread evenly across the page */
+.t-wall { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 34px; }
+
+/* Picture frame */
+.frame { all: unset; cursor: pointer; display: flex; flex-direction: column; justify-content: center;
+         min-height: 230px; padding: 22px; box-sizing: border-box; text-align: center;
+         background: #fffdf7; color: #222;
+         border: 14px solid #6b4a2b;               /* wooden frame */
+         outline: 3px solid #c9a25e; outline-offset: -20px;  /* gold inner trim */
+         box-shadow: 0 8px 18px rgba(0,0,0,.35), inset 0 0 0 4px #3e2a17;
+         transition: transform .2s, box-shadow .2s; }
+.frame:nth-child(3n+1) { transform: rotate(-1.5deg); }
+.frame:nth-child(3n+2) { transform: rotate(1deg); }
+.frame:hover, .frame:focus-visible { transform: scale(1.04) rotate(0); box-shadow: 0 14px 28px rgba(0,0,0,.45); }
+.frame-quote { font-family: Georgia, serif; font-size: 1rem; line-height: 1.45; padding: 0 18px; }
+.frame-name { margin-top: 12px; font-size: .85rem; font-weight: 700; color: #6b4a2b; }
+.t-empty { text-align: center; font-size: 1.1rem; opacity: .8; }
+
+/* Expanded window */
+.modal-bg { position: fixed; inset: 0; background: rgba(0,0,0,.65); display: none;
+            align-items: center; justify-content: center; padding: 16px; z-index: 1000; }
+.modal-bg.open { display: flex; }
+.modal { position: relative; background: #fffdf7; color: #222; max-width: 680px; width: 100%;
+         max-height: 85vh; overflow-y: auto; border: 14px solid #6b4a2b; padding: 34px 30px 26px;
+         box-sizing: border-box; box-shadow: 0 20px 50px rgba(0,0,0,.5); }
+.modal-close { position: absolute; top: 8px; right: 12px; background: none; border: none;
+               font-size: 1.8rem; cursor: pointer; color: #6b4a2b; }
+.modal-comment { font-family: Georgia, serif; font-size: 1.1rem; line-height: 1.6; white-space: pre-wrap; }
+.modal-name { margin-top: 18px; font-weight: 700; color: #6b4a2b; text-align: left; }
+.modal-reply { margin-top: 22px; padding: 16px 18px; background: #fbeef0; border-left: 5px solid #78182e;
+               border-radius: 4px; line-height: 1.5; }
+#modalReplyText { white-space: pre-wrap; }
+.modal-reply h4 { margin: 0 0 6px; color: #78182e; }
+
+/* on the Home page: a little space above the section and a matching dark band */
+.t-wrap { scroll-margin-top: 110px; border-top: 1px solid rgba(255,255,255,.12); margin-top: 24px; }
+.t-title { color: #fff; }
+.t-subtitle { color: #f3d6de; }
