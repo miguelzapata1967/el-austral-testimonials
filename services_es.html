@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Servicios de análisis de datos, ingeniería de datos, pronósticos e inteligencia de negocios de El Austral Consultant.">
+    <title>Servicios | El Austral Consultant</title>
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
+    <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+    <link rel="stylesheet" href="Styles/style.css">
+    <script src="Scripts/app-link.js"></script>  <!-- the app address, before the Order buttons are built -->
+    <style>
+      /* Scoped to the Services content only. No header, body, or site-wide colors modified. */
+      .service-content,.service-gallery {max-width:1100px;margin:0 auto;padding:2rem 1.25rem;text-align:center;}
+      .service-selector {max-width:760px;margin:2rem auto;text-align:left;}
+      .service-selector label {display:block;font-weight:700;margin-bottom:.6rem;}
+      .service-selector select {display:block;width:100%;padding:.85rem;border:1px solid currentColor;border-radius:6px;background:transparent;color:inherit;font:inherit;}
+      #service-details {border:1px solid currentColor;border-radius:9px;margin-top:1rem;padding:1.25rem 1.5rem;min-height:145px;}
+      #service-details h2 {margin-top:0;margin-bottom:.4rem;}
+      #service-description {font-style:italic;margin-top:0;}
+      .service-intro {font-weight:700;}
+      .service-points {margin:.75rem 0;padding-left:1.2rem;}
+      .service-points li {margin-bottom:.45rem;line-height:1.5;}
+      .service-result {font-style:italic;margin:.9rem 0;}
+      .service-sub {font-size:1rem;margin:1.25rem 0 .4rem;color:var(--burgundy,#78182e);}
+      .service-graphs {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.5rem;margin-top:1.5rem;}
+      .service-graph {margin:0;text-align:left;min-width:0;}
+      .service-graph img {display:block;width:100%;height:auto;border-radius:5px;}
+      .service-graph figcaption {margin-top:.6rem;line-height:1.5;}
+      @media(max-width:700px) {.service-graphs {grid-template-columns:1fr;}}
+      /* sample report pages */
+      .sample-title {margin-top:2rem;}
+      .sample-note {max-width:760px;margin:0 auto 1rem;}
+      .sample-pages {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.4rem;margin-top:1rem;}
+      .sample-pages a {display:block;text-decoration:none;color:inherit;text-align:center;}
+      .sample-pages img {display:block;width:100%;height:auto;border:1px solid #d9c5c9;border-radius:4px;
+          box-shadow:0 4px 14px rgba(60,10,25,.15);transition:transform .2s;}
+      .sample-pages a:hover img {transform:translateY(-4px);}
+      .sample-pages span {display:block;margin-top:.55rem;font-size:.95rem;}
+      .sample-link {text-align:center;margin:1.6rem 0 2.2rem;}
+      @media(max-width:900px) {.sample-pages {grid-template-columns:repeat(2,minmax(0,1fr));}}
+      @media(max-width:520px) {.sample-pages {grid-template-columns:1fr;}}
+      .price-note {margin:.6rem 0 0;font-size:.85rem;opacity:.85;}
+      .service-actions {display:flex;flex-wrap:wrap;align-items:center;gap:.75rem 1rem;margin-top:1.1rem;}
+      .beside-order {font-size:.9rem;font-weight:700;color:var(--burgundy,#78182e);}
+      .service-btn {display:inline-block;padding:.65rem 1.4rem;border:1px solid var(--burgundy,#78182e);border-radius:999px;font-family:Arial,sans-serif;font-size:.9rem;text-decoration:none;transition:background .2s ease,color .2s ease;}
+      .service-btn.primary {background:var(--burgundy,#78182e);color:#fff;}
+      .service-btn.primary:hover {background:var(--rose,#aa2d48);border-color:var(--rose,#aa2d48);}
+      .service-btn.secondary {background:transparent;color:var(--burgundy,#78182e);}
+      .service-btn.secondary:hover {background:var(--burgundy,#78182e);color:#fff;}
+      .service-btn:focus-visible {outline:2px solid var(--rose,#aa2d48);outline-offset:2px;}
+      /* Restaurant calculation groups (Retail & Revenue Analytics) */
+      .calc-group {border:1px solid rgba(120,24,46,.3);border-radius:7px;margin:.6rem 0;padding:.2rem .9rem;}
+      .calc-group summary {cursor:pointer;font-weight:700;padding:.5rem 0;color:var(--burgundy,#78182e);}
+      .calc-group .service-points {margin-top:.2rem;}
+      /* Philosophy remark between sections */
+      .site-remark {max-width:760px;margin:1rem auto 0;padding:1.5rem 1.25rem;text-align:center;font-style:italic;font-size:1.2rem;line-height:1.5;color:var(--burgundy,#78182e);border-top:1px solid rgba(120,24,46,.25);border-bottom:1px solid rgba(120,24,46,.25);}
+      .site-remark cite {display:block;margin-top:.5rem;font-size:.85rem;font-style:normal;opacity:.8;}
+      /* Sign Up link in the main menu */
+      .main-nav a.nav-signup {padding:8px 18px;border:2px solid var(--burgundy);border-radius:999px;color:var(--burgundy);}
+      .main-nav a.nav-signup:hover {background:var(--burgundy);color:#fff;}
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Styles/austral-theme.css">
+</head>
+
+<body class="ea-inner">
+
+<header class="ea-header">
+    <a class="ea-logo" href="index_es.html" aria-label="Inicio de El Austral Consultant"><svg viewBox="0 0 200 80" aria-hidden="true"><path fill="currentColor" d="M0 78 L36 54 L50 60 L78 33 L92 45 L113 6 L139 40 L151 31 L178 57 L200 78 Z"/><path class="snow" d="M113 6 L106 25 M113 6 L121 22 M78 33 L73 45 M151 31 L146 43"/></svg><span class="ea-logo-bar"></span><span class="ea-logo-text"><span class="ea-logo-name">El Austral</span><span class="ea-logo-sub">CONSULTANT</span></span></a>
+    <button class="ea-menu-btn" type="button" aria-label="Abrir menú" aria-expanded="false"><span></span></button>
+    <nav class="ea-nav" aria-label="Navegación principal">
+        <a href="index_es.html">Inicio</a>
+        <div class="ea-drop active">
+            <button type="button" aria-haspopup="true" aria-expanded="false">Soluciones<span class="ea-caret"></span></button>
+            <div class="ea-drop-menu"><a href="services_es.html#analytics">Análisis de Datos</a><a href="services_es.html#intelligence">Inteligencia de Negocios y Tableros</a><a href="services_es.html#engineering">Ingeniería y Preparación de Datos</a><a href="services_es.html#forecasting">Pronósticos y Planificación de la Demanda</a><a href="services_es.html#a%2Fb">Pruebas A/B y Experimentación</a><a href="services_es.html#retail">Análisis de Ventas e Ingresos</a><a href="services_es.html#workforce">Análisis de Personal y Diversidad</a><a href="services_es.html#security">Análisis de Seguridad y Riesgos</a><a class="all" href="services_es.html">Ver todos los servicios →</a></div>
+        </div>
+        <a href="about_es.html">Sobre Nosotros</a>
+        <a href="contact_us_es.html">Contáctenos</a>
+        <a href="testimonials_es.html">Testimonios</a>
+        <a class="ea-signup" href="#" data-app="signup">Registro / Ingreso</a>
+    </nav>
+    <div class="ea-tools">
+        <div class="ea-lang" aria-label="Idioma"><a href="services_es.html" lang="en" hreflang="en">English</a><span class="selected">Español</span></div>
+        <span class="ea-copy">&copy; MMXXVI</span>
+    </div>
+</header>
+
+<main>
+    <section class="service-content" aria-labelledby="services-title">
+      <h1 id="services-title">Nuestros Servicios</h1>
+      <p>Leyendo lo que los datos realmente tienen que decir.</p>
+      <div class="service-selector">
+        <label for="service-choice">Seleccione un servicio</label>
+        <select id="service-choice"></select>
+        <article id="service-details" aria-live="polite" tabindex="0">
+          <h2 id="service-heading"></h2>
+          <p id="service-description"></p>
+          <div id="service-body"></div>
+        </article>
+      </div>
+    </section>
+
+    <blockquote class="site-remark">
+      “Si algo no está bien, díganoslo. Lo arreglaremos y seguiremos ganándonos su confianza.”
+      <cite>— El Austral Consultant</cite>
+    </blockquote>
+
+    <section class="service-gallery" aria-labelledby="gallery-title">
+      <h2 id="gallery-title">Ejemplos de nuestro trabajo analítico</h2>
+      <p>Ejemplos visuales de proyectos de análisis terminados.</p>
+
+      <!-- Sample report: pages of a real El Austral report, made with TEST data (a made-up taqueria) -->
+      <h3 class="sample-title">Lo que usted recibe: un informe de muestra</h3>
+      <p class="sample-note">Estas páginas son de un informe completo de limpieza y análisis de El Austral Consultant, hecho
+         con <b>datos de prueba</b> de un restaurante de muestra (no es un cliente real). Su informe muestra sus propios números,
+         cada año por separado, mes por mes, explicados en lenguaje sencillo. Haga clic en una página para verla más grande.
+         <i>(El informe de muestra está en inglés.)</i></p>
+      <div class="sample-pages">
+        <a href="Samples/sample-report-page-1.jpg" target="_blank"><img src="Samples/sample-report-page-1.jpg" alt="Informe de muestra: portada y calidad de los datos" loading="lazy"><span>Calidad de los datos: qué se encontró y se corrigió</span></a>
+        <a href="Samples/sample-report-page-2.jpg" target="_blank"><img src="Samples/sample-report-page-2.jpg" alt="Informe de muestra: cuándo compran los clientes, por día de la semana" loading="lazy"><span>Cuándo compran los clientes: los mejores días, año por año</span></a>
+        <a href="Samples/sample-report-page-3.jpg" target="_blank"><img src="Samples/sample-report-page-3.jpg" alt="Informe de muestra: tabla mensual de un año" loading="lazy"><span>Cada mes: sube o baja, desde el último diciembre</span></a>
+        <a href="Samples/sample-report-page-4.jpg" target="_blank"><img src="Samples/sample-report-page-4.jpg" alt="Informe de muestra: ventas por categoría" loading="lazy"><span>Ventas por categoría, por año</span></a>
+        <a href="Samples/sample-report-page-5.jpg" target="_blank"><img src="Samples/sample-report-page-5.jpg" alt="Informe de muestra: descuentos y la regla del costo" loading="lazy"><span>Descuentos que vendieron por debajo del costo, con fechas</span></a>
+        <a href="Samples/sample-report-page-6.jpg" target="_blank"><img src="Samples/sample-report-page-6.jpg" alt="Informe de muestra: ganancia por año y por mes" loading="lazy"><span>Ganancia por año y por mes</span></a>
+      </div>
+      <p class="sample-link"><a class="service-btn primary" href="Samples/El_Austral_Sample_Report.pdf" target="_blank">Ver el informe de muestra completo (PDF, en inglés)</a></p>
+
+      <div class="service-graphs">
+        <figure class="service-graph"><img src="Graph/workforce_representation.png" alt="Ingresos mensuales por ventas minoristas" loading="lazy"><figcaption><strong>Ingresos mensuales por ventas minoristas</strong> — Ingresos mensuales por ventas minoristas, de enero a abril de 2023.</figcaption></figure>
+        <figure class="service-graph"><img src="Graph/department_representation.png" alt="Representación por departamento" loading="lazy"><figcaption><strong>Representación por departamento</strong> — Composición del personal en cada departamento.</figcaption></figure>
+        <figure class="service-graph"><img src="Graph/leadership_representation.png" alt="Representación en puestos de liderazgo" loading="lazy"><figcaption><strong>Representación en puestos de liderazgo</strong> — Representación según el cargo de gerencia.</figcaption></figure>
+        <figure class="service-graph"><img src="Graph/experience_distribution.png" alt="Distribución de la experiencia" loading="lazy"><figcaption><strong>Distribución de la experiencia</strong> — Distribución de los años de experiencia del personal.</figcaption></figure>
+      </div>
+    </section>
+</main>
+
+<footer class="ea-footer">
+    <a class="ea-logo" href="index_es.html" aria-label="Inicio de El Austral Consultant"><svg viewBox="0 0 200 80" aria-hidden="true"><path fill="currentColor" d="M0 78 L36 54 L50 60 L78 33 L92 45 L113 6 L139 40 L151 31 L178 57 L200 78 Z"/><path class="snow" d="M113 6 L106 25 M113 6 L121 22 M78 33 L73 45 M151 31 L146 43"/></svg><span class="ea-logo-bar"></span><span class="ea-logo-text"><span class="ea-logo-name">El Austral</span><span class="ea-logo-sub">CONSULTANT</span></span></a>
+    <p class="ea-tagline">Leyendo lo que los datos realmente tienen que decir<span class="ea-founder">Miguel Angel Zapata · Ile Artifex</span></p>
+    <div class="ea-foot-right">
+        <span class="ea-foot-lang"><a href="services_es.html" lang="en" hreflang="en">English</a><span>Español</span></span>
+        <span class="ea-social">
+            <!-- Paste your LinkedIn and YouTube page addresses into the two href="" values below -->
+            <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4V21H3zM9.5 9.5h3.8v1.6h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.6 4.8 6V21h-4v-5.2c0-1.3 0-2.9-1.8-2.9s-2.1 1.4-2.1 2.8V21h-4z"/></svg></a>
+            <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12 31 31 0 0 0 1 16.8a3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8zM9.8 15.1V8.9l5.7 3.1z"/></svg></a>
+        </span>
+        <span>&copy; MMXXVI</span>
+    </div>
+</footer>
+
+<script>
+  (() => {
+    // ---------------------------------------------------------------
+    // SERVICE DESCRIPTIONS — no prices on this page.
+    // Order opens the El Austral app (address set in Scripts/app-link.js).
+    // Services the app doesn't sell yet get "Request a quote" (an email).
+    // ---------------------------------------------------------------
+    const APP_SERVICES = ['analytics', 'retail'];        // sold in the app: Basic, Basic + Analysis, Monthly
+    const QUOTE_EMAIL = 'elaustralconsultant@gmail.com';
+
+    const services = [
+      {
+        key: 'analytics',
+        title: 'Análisis de Datos',
+        description: 'Examinamos los datos de su negocio para identificar patrones, tendencias y oportunidades para decidir mejor.',
+        points: [
+          ['Análisis exploratorio', 'descubra lo que realmente está pasando en sus números.'],
+          ['Comparaciones de desempeño', 'compare locales, productos, períodos y equipos.'],
+          ['Evaluación de indicadores (KPI)', 'siga las medidas que importan para su negocio.'],
+          ['Informes claros', 'resultados en lenguaje sencillo, listos para actuar.']
+        ]
+      },
+      {
+        key: 'bi',
+        title: 'Inteligencia de Negocios y Tableros',
+        description: 'Convertimos los datos en tableros visuales claros para que su equipo siga el desempeño del negocio.',
+        points: [
+          ['Tableros de indicadores', 'sus números clave en una sola pantalla.'],
+          ['Informes', 'informes consistentes en los que su equipo puede confiar.'],
+          ['Gráficos interactivos', 'filtre por local, producto o rango de fechas.'],
+          ['Resúmenes operativos', 'una lectura rápida de cómo va el negocio.']
+        ]
+      },
+      {
+        key: 'engineering',
+        title: 'Ingeniería y Preparación de Datos',
+        description: 'Preparamos conjuntos de datos confiables para análisis e informes.',
+        intro: 'Para empresas medianas y en crecimiento cuyos datos vienen de muchos sistemas, locales o departamentos.',
+        points: [
+          ['Diseño y construcción de pipelines', 'pipelines automáticos que llevan los datos de su punto de venta, sus planillas y otros sistemas a un único almacén central.'],
+          ['Validación incluida', 'cada carga se revisa en busca de duplicados, valores faltantes y números imposibles antes de llegar a sus informes.'],
+          ['Transformación', 'los datos crudos se convierten en tablas consistentes, listas para analizar.'],
+          ['Programación y monitoreo', 'los pipelines corren según lo programado, con alertas cuando algo falla.'],
+          ['Almacenamiento escalable', 'almacenes en la nube como Snowflake que crecen con su negocio.'],
+          ['Documentación', 'cada pipeline queda documentado, para que su equipo sepa de dónde sale cada número.']
+        ],
+        result: 'El resultado: una única fuente de información, automática y confiable, para toda su organización.',
+        besideOrder: 'Para negocios con dos o más locales.',
+        notes: [
+          'Grupos con muchos locales: consúltenos por precios por volumen.',
+          'Su precio cubre un volumen mensual de datos fijo, medido al comenzar el servicio, más un margen de seguridad del 20%. Si sus datos superan ese volumen varios meses seguidos, le avisamos con 30 días de anticipación antes de ajustar el precio.',
+          'Las actualizaciones estándar son cada hora. Hay actualizaciones casi en tiempo real con un costo adicional.',
+          '¿Un solo local? Vea Análisis de Ventas e Ingresos.'
+        ]
+      },
+      {
+        key: 'forecasting',
+        title: 'Pronósticos y Planificación de la Demanda',
+        description: 'Analizamos datos históricos para estimar la demanda futura y las necesidades de su negocio.',
+        intro: 'Sepa lo que viene antes de que llegue, para comprar, organizar al personal y planificar con confianza.',
+        points: [
+          ['Tendencias de ventas', 'vea si cada local, producto o día de la semana crece, se mantiene o baja.'],
+          ['Pronósticos de demanda', 'estimaciones de las ventas de la próxima semana y del próximo mes, para comprar lo justo y desperdiciar menos.'],
+          ['Patrones de temporada', 'detecte sus períodos de mucho y poco movimiento, como feriados, el verano o los días de partido, antes de que lleguen.'],
+          ['Escenarios de planificación', 'pruebe preguntas del tipo “¿qué pasaría si…?”, como abrir un local, cambiar precios o lanzar una promoción.'],
+          ['Basado en datos limpios', 'cada pronóstico parte de números limpios y validados, porque un pronóstico es tan bueno como los datos que lo respaldan.']
+        ],
+        result: 'El resultado: menos sorpresas, menos desperdicio y decisiones más inteligentes sobre lo que viene.',
+        notes: [
+          'Cada pronóstico se hace a medida de su negocio después de revisar sus datos. Los pronósticos se facturan aparte de los planes mensuales.',
+          'Los meses cuyos datos no limpiamos nosotros necesitan primero una limpieza de puesta al día, que se cobra como una limpieza normal.'
+        ],
+        requirements: [
+          'Una columna de fecha, con una fecha por venta o por día.',
+          'Una columna con el monto de ventas, en dólares o en unidades.',
+          'Al menos 6 meses de historial; 12 meses o más para captar las temporadas.',
+          'Sin huecos grandes, como un mes que falte.',
+          'Consejo: al registrarse, elija “Guardar mis datos limpios para futuros pronósticos”, y su historial se acumula solo en su propia computadora.'
+        ]
+      },
+      {
+        key: 'abtesting',
+        title: 'Pruebas A/B y Experimentación',
+        description: 'Comparamos distintas estrategias de negocio con resultados medibles.',
+        intro: 'Deje de adivinar qué idea funciona. Pruébela, mídala y sepa.',
+        points: [
+          ['Diseño del experimento', 'armamos una prueba justa, como un precio nuevo del menú en algunos locales y el anterior en otros, o dos versiones de una promoción.'],
+          ['Análisis de conversión', 'medimos lo que le importa, como pedidos, ticket promedio, visitas repetidas o registros en línea.'],
+          ['Comparaciones estadísticas', 'verificamos si la diferencia es real o pura suerte, para que no actúe por una casualidad.'],
+          ['Recomendaciones prácticas', 'una respuesta en lenguaje sencillo: mantenerlo, dejarlo o volver a probar, con los números que lo respaldan.'],
+          ['Basado en datos limpios', 'los duplicados y las ventas faltantes pueden inventar un “ganador”, por eso cada prueba parte de datos limpios.']
+        ],
+        result: 'El resultado: decisiones respaldadas por evidencia, no por corazonadas.',
+        notes: [
+          'Cada prueba empieza con un cuestionario de al menos 20 preguntas. Lleva tiempo y detalle, y cuanto más precisas sean sus respuestas, más confiables serán sus resultados.'
+        ]
+      },
+      {
+        key: 'retail',
+        title: 'Análisis de Ventas e Ingresos',
+        description: 'Examinamos el desempeño de las ventas a lo largo del tiempo y por producto o segmento del negocio.',
+        intro: 'Suba su archivo de ventas. El sistema separa los datos con errores de los buenos, usted los corrige y recibe un informe claro de cómo le va realmente a su negocio.',
+        points: [
+          ['Tendencias de ingresos', 'semanales, mes contra mes, trimestre contra trimestre y año contra año.'],
+          ['Desempeño de productos', 'vea qué se vende, qué no y dónde se pierden márgenes.'],
+          ['Corregir y agregar', 'revise las filas marcadas, corríjalas y vuelva a agregarlas; luego genere el informe otra vez con sus números reales.'],
+          ['Períodos móviles', 'elija cualquier período, como los últimos 90 días desde hoy, no solo trimestres calendario.']
+        ],
+        notes: [
+          'La aplicación funciona en su propia computadora. Sus archivos e informes se quedan con usted.',
+          '¿Dos o más locales? Vea Ingeniería y Preparación de Datos para nuestro plan con pipelines y tablero en vivo.'
+        ],
+        calcIntro: 'Lo que calculamos para restaurantes',
+        calcGroups: [
+          {
+            title: 'Ingresos',
+            items: [
+              ['Ingresos totales', 'suma de los totales de todos los pedidos del período.'],
+              ['Ingresos netos', 'ventas brutas menos descuentos, devoluciones y pedidos anulados.'],
+              ['Ticket promedio', 'ingresos totales ÷ cantidad de pedidos.'],
+              ['Ingreso por comensal', 'ingresos totales ÷ cantidad de comensales.'],
+              ['Ingreso por asiento por hora (RevPASH)', 'ingresos ÷ (cantidad de asientos × horas abiertas).'],
+              ['Ingresos por segmento', 'ingresos por día, hora, categoría del menú, canal de venta (en el local, para llevar, delivery) o mesero.'],
+              ['Crecimiento de ingresos', '(este período − período anterior) ÷ período anterior × 100.'],
+              ['Mezcla de ventas %', 'ingresos de la categoría ÷ ingresos totales × 100.']
+            ]
+          },
+          {
+            title: 'Costos',
+            items: [
+              ['Costo de alimentos', 'inventario inicial + compras − inventario final.'],
+              ['Costo de alimentos %', 'costo de alimentos ÷ ingresos por alimentos × 100 (meta saludable: 28–35%).'],
+              ['Costo de bebidas %', 'costo de bebidas ÷ ingresos por bebidas × 100.'],
+              ['Costo de mano de obra %', 'sueldos + beneficios ÷ ingresos totales × 100 (meta saludable: 25–35%).'],
+              ['Costo primo', 'costo de alimentos + costo de mano de obra; costo primo % = costo primo ÷ ingresos totales × 100 (meta saludable: 55–65%).'],
+              ['Costo por plato', 'la suma del costo de todos sus ingredientes.'],
+              ['Costo de alimentos teórico vs. real', 'lo que deberían haber costado los platos vendidos vs. lo que realmente se gastó. La diferencia revela desperdicio, robo o errores en las porciones.'],
+              ['Desperdicio %', 'costo de los alimentos desperdiciados ÷ total de compras de alimentos × 100.'],
+              ['Gastos generales', 'costos fijos: alquiler, servicios, seguros, marketing y equipos.'],
+              ['Costo por cubierto', 'costos totales ÷ cantidad de comensales.']
+            ]
+          },
+          {
+            title: 'Ganancias',
+            items: [
+              ['Ganancia bruta', 'ingresos totales − costo de la mercadería vendida (alimentos + bebidas).'],
+              ['Margen bruto %', 'ganancia bruta ÷ ingresos totales × 100.'],
+              ['Margen de contribución por plato', 'precio en el menú − costo de alimentos del plato; también como % del precio en el menú.'],
+              ['Ganancia operativa', 'ganancia bruta − costo de mano de obra − gastos operativos.'],
+              ['Ganancia neta', 'ingresos totales − todos los costos (alimentos, bebidas, mano de obra, gastos generales, impuestos).'],
+              ['Margen de ganancia neta %', 'ganancia neta ÷ ingresos totales × 100.'],
+              ['Cubiertos de punto de equilibrio', 'costos fijos ÷ margen de contribución promedio por comensal: cuántos comensales debe atender para cubrir los costos.'],
+              ['Ingresos de punto de equilibrio', 'costos fijos ÷ (1 − costo variable %).'],
+              ['Ganancia por asiento / por hora', 'ganancia ÷ asientos, o ganancia ÷ horas abiertas.']
+            ]
+          }
+        ],
+        calcNote: 'Cada número de arriba depende de datos limpios. Un total de pedido, descuento, devolución, conteo de inventario, precio de compra u hora de trabajo que falte o esté mal termina directamente en una ganancia equivocada; por eso primero se limpia y después se calcula.',
+        requirements: [
+          'Números de ingresos: su archivo de ventas (totales de pedidos, descuentos, devoluciones, anulaciones, fecha y hora). Cantidad de comensales, asientos y horas abiertas para los números por comensal y por asiento.',
+          'Números de costos: inventario inicial y final, compras, horas y sueldos del personal, y costos fijos como alquiler y servicios.',
+          'Números de ganancias: todo lo anterior, más el precio en el menú y el costo de ingredientes de cada plato.'
+        ]
+      },
+      {
+        key: 'workforce',
+        title: 'Análisis de Personal y Diversidad',
+        description: 'Examinamos la composición y la representación del personal para entender mejor la organización.',
+        intro: 'Obtenga una imagen clara y basada en hechos de su equipo, para que sus decisiones sobre el personal se apoyen en datos y no en suposiciones.',
+        points: [
+          ['Representación por departamento', 'vea cómo está compuesto cada departamento y cómo se compara entre locales o a lo largo del tiempo.'],
+          ['Composición de la gerencia', 'entienda quiénes ocupan los puestos de liderazgo y cómo se compara con el personal en su conjunto.'],
+          ['Distribución de la experiencia', 'vea la combinación de personal nuevo y con experiencia en cada equipo, para detectar necesidades de capacitación y futuros huecos.'],
+          ['Tendencias en el tiempo', 'siga cómo cambia su personal año a año a medida que contrata y crece.'],
+          ['La privacidad primero', 'los resultados se informan solo por grupos, nunca por persona, y los grupos pequeños se combinan para que ningún empleado pueda ser identificado.']
+        ],
+        result: 'El resultado: una visión clara y respetuosa de su personal para guiar las contrataciones, la capacitación y la planificación del liderazgo.',
+        notes: [
+          'El precio se basa en la cantidad total de empleados, contados en la fecha en que se envían sus datos.'
+        ]
+      },
+      {
+        key: 'security',
+        title: 'Análisis de Seguridad y Riesgos',
+        description: 'Aplicamos un análisis estructurado a datos de incidentes, operaciones y riesgos.',
+        intro: 'Convierta los informes de incidentes y los datos operativos en una imagen clara de dónde están sus riesgos y qué hacer con ellos.',
+        points: [
+          ['Tendencias de incidentes', 'vea cuándo y dónde ocurren los incidentes, por local, día, hora y tipo, y si aumentan o disminuyen.'],
+          ['Patrones de gravedad', 'separe los hechos menores de los graves y descubra qué tienen en común los graves.'],
+          ['Señales de pérdidas y faltantes', 'detecte anulaciones, devoluciones, descuentos o diferencias de inventario fuera de lo común que puedan indicar robos o problemas de procedimiento.'],
+          ['Informes', 'informes claros y consistentes para la gerencia, las aseguradoras o los trámites obligatorios, hechos con registros ordenados en lugar de papeles sueltos.'],
+          ['Conclusiones sobre riesgos basadas en datos', 'recomendaciones prácticas, como dónde sumar personal, cámaras o capacitación, ordenadas por impacto.'],
+          ['Basado en datos limpios', 'los registros de incidentes duplicados o incompletos distorsionan la imagen, por eso cada análisis parte de datos validados.']
+        ],
+        result: 'El resultado: menos sorpresas, un gasto en seguridad más inteligente y una operación más segura.',
+        notes: ['Cada análisis de seguridad lo revisa una persona antes de entregarlo.']
+      }
+    ];
+
+    // ---------------------------------------------------------------
+    function el(tag, text, className) {
+      const node = document.createElement(tag);
+      if (text) node.textContent = text;
+      if (className) node.className = className;
+      return node;
+    }
+    function actionButton(service) {
+      if (APP_SERVICES.includes(service.key)) {
+        const a = el('a', 'Contratar', 'service-btn primary');
+        a.href = (window.EA_APP_URL || 'http://localhost:8501').replace(/\/$/, '') + '/?page=signup&lang=es';
+        return a;
+      }
+      const a = el('a', 'Pedir un presupuesto', 'service-btn primary');
+      a.href = 'mailto:' + QUOTE_EMAIL + '?subject=' + encodeURIComponent('Pedido de presupuesto: ' + service.title);
+      return a;
+    }
+
+    const choice = document.getElementById('service-choice');
+    services.forEach((s, i) => choice.appendChild(new Option(s.title, i)));
+
+    function renderService() {
+      const s = services[Number(choice.value)];
+      document.getElementById('service-heading').textContent = s.title;
+      document.getElementById('service-description').textContent = s.description;
+      const body = document.getElementById('service-body');
+      body.textContent = '';
+
+      if (s.intro) body.appendChild(el('p', s.intro, 'service-intro'));
+      const ul = el('ul', '', 'service-points');
+      s.points.forEach(([label, text]) => {
+        const li = document.createElement('li');
+        li.appendChild(el('strong', label + ': '));
+        li.appendChild(document.createTextNode(text));
+        ul.appendChild(li);
+      });
+      body.appendChild(ul);
+      if (s.result) body.appendChild(el('p', s.result, 'service-result'));
+      if (s.calcGroups) {
+        body.appendChild(el('h3', s.calcIntro, 'service-sub'));
+        s.calcGroups.forEach((g, i) => {
+          const d = el('details', '', 'calc-group');
+          if (i === 0) d.open = true;
+          d.appendChild(el('summary', 'Cálculos de ' + g.title.toLowerCase()));
+          const list = el('ul', '', 'service-points');
+          g.items.forEach(([label, text]) => {
+            const li = document.createElement('li');
+            li.appendChild(el('strong', label + ': '));
+            li.appendChild(document.createTextNode(text));
+            list.appendChild(li);
+          });
+          d.appendChild(list);
+          body.appendChild(d);
+        });
+        if (s.calcNote) body.appendChild(el('p', s.calcNote, 'service-result'));
+      }
+      (s.notes || []).forEach(n => body.appendChild(el('p', n, 'price-note')));
+      if (s.requirements) {
+        body.appendChild(el('h3', 'Lo que necesitará', 'service-sub'));
+        const req = el('ul', '', 'service-points');
+        s.requirements.forEach(r => req.appendChild(el('li', r)));
+        body.appendChild(req);
+      }
+      const actions = el('div', '', 'service-actions');
+      actions.appendChild(actionButton(s));
+      if (s.besideOrder) actions.appendChild(el('span', s.besideOrder, 'beside-order'));
+      body.appendChild(actions);
+    }
+
+    // Open a specific service from a link, e.g. services.html#forecasting
+    const hash = decodeURIComponent(location.hash.slice(1)).toLowerCase();
+    const ALIAS = { intelligence: 'bi', 'a/b': 'abtesting' };
+    const start = services.findIndex(s => hash && s.key === (ALIAS[hash] || hash));
+    if (start >= 0) choice.value = start;
+
+    choice.addEventListener('change', renderService);
+    renderService();
+  })();
+</script>
+<script src="Scripts/music-player.js" defer></script>
+<script src="Scripts/austral-theme.js" defer></script>
+</body>
+</html>

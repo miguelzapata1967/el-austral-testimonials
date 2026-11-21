@@ -38,6 +38,11 @@
   .c-msg { margin-top: 16px; padding: 12px 14px; border-radius: 4px; display: none; }
   .c-msg.ok { display: block; background: #e6f4ea; color: #1e5a2e; }
   .c-msg.err { display: block; background: #fdecea; color: #8a1f17; }
+  .ea-lang a, .ea-foot-lang a { color: inherit; text-decoration: none; }
+  .ea-lang a { padding: 6px 15px; border-radius: 999px; font-size: 15px; color: #2a2440; }
+  .ea-lang a:hover { background: rgba(140,21,56,.12); }
+  .ea-foot-lang a:hover { text-decoration: underline; }
+  footer.ea-footer .ea-foot-lang > * + *::before { content: "|"; margin: 0 14px; opacity: .6; display: inline-block; text-decoration: none; }
 </style>
     <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="Styles/austral-theme.css">
@@ -59,7 +64,7 @@
         <a class="ea-signup" href="#" data-app="signup">Sign Up / Log In</a>
     </nav>
     <div class="ea-tools">
-        <div class="ea-lang" aria-label="Language"><span class="selected">English</span><span class="unavailable" title="Spanish website coming soon">Español</span></div>
+        <div class="ea-lang" aria-label="Language"><span class="selected">English</span><a href="contact_us_es.html" lang="es" hreflang="es">Español</a></div>
         <span class="ea-copy">&copy; MMXXVI</span>
     </div>
 </header>
@@ -92,12 +97,12 @@
     </div>
     <div class="c-row">
       <div class="c-field">
-        <label for="year">Year I served you (previous business)</label>
+        <label for="year">Year I served you</label>
         <select id="year" name="service_year" required></select>
       </div>
     </div>
     <div class="c-field">
-      <label for="comment">Your testimonial about my previous business</label>
+      <label for="comment">Your testimonial</label>
       <textarea id="comment" name="comment" maxlength="3000" required></textarea>
     </div>
     <div class="c-hp" aria-hidden="true">
@@ -172,7 +177,7 @@
     <a class="ea-logo" href="index.html" aria-label="El Austral Consultant home"><svg viewBox="0 0 200 80" aria-hidden="true"><path fill="currentColor" d="M0 78 L36 54 L50 60 L78 33 L92 45 L113 6 L139 40 L151 31 L178 57 L200 78 Z"/><path class="snow" d="M113 6 L106 25 M113 6 L121 22 M78 33 L73 45 M151 31 L146 43"/></svg><span class="ea-logo-bar"></span><span class="ea-logo-text"><span class="ea-logo-name">El Austral</span><span class="ea-logo-sub">CONSULTANT</span></span></a>
     <p class="ea-tagline">Reading What the Data Really Has to Say<span class="ea-founder">Miguel Angel Zapata · Ile Artifex</span></p>
     <div class="ea-foot-right">
-        <span class="ea-foot-lang"><span>English</span><span title="Spanish website coming soon">Español</span></span>
+        <span class="ea-foot-lang"><span>English</span><a href="contact_us_es.html" lang="es" hreflang="es">Español</a></span>
         <span class="ea-social">
             <!-- Paste your LinkedIn and YouTube page addresses into the two href="" values below -->
             <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4V21H3zM9.5 9.5h3.8v1.6h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.6 4.8 6V21h-4v-5.2c0-1.3 0-2.9-1.8-2.9s-2.1 1.4-2.1 2.8V21h-4z"/></svg></a>

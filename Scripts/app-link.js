@@ -11,6 +11,7 @@ window.EA_APP_URL = "http://localhost:8501";
 document.addEventListener("DOMContentLoaded", () => {
   const base = window.EA_APP_URL.replace(/\/$/, "");
   document.querySelectorAll("[data-app]").forEach((a) => {
-    a.href = a.dataset.app === "signup" ? base + "/?page=signup" : base + "/";
+    const es = (document.documentElement.lang || "").startsWith("es");   // Spanish pages open the app in Spanish
+    a.href = (a.dataset.app === "signup" ? base + "/?page=signup" : base + "/") + (es ? (a.dataset.app === "signup" ? "&" : "?") + "lang=es" : "");
   });
 });

@@ -363,3 +363,23 @@ footer.ea-footer .ea-logo .snow { stroke: #430b21; }
 .ea-inner .sample-pages img { border: 1px solid rgba(220,170,230,.45) !important; box-shadow: 0 10px 26px rgba(5,4,20,.45) !important; background: #fff; }
 .ea-inner .sample-pages a { color: var(--ea-text) !important; }
 .ea-inner .sample-pages a:hover img { border-color: var(--ea-pink) !important; }
+
+/* ---- English / Español switch: links between the two versions of each page (Nov 2026) ---- */
+.ea-lang a { padding: 6px 15px; border-radius: 999px; font-size: 15px; color: #2a2440; text-decoration: none; }
+.ea-lang a:hover { background: rgba(140, 21, 56, .12); }
+footer.ea-footer .ea-foot-lang a { color: inherit; text-decoration: none; }
+footer.ea-footer .ea-foot-lang a:hover { text-decoration: underline; }
+footer.ea-footer .ea-foot-lang > * + *::before { content: "|"; margin: 0 14px; opacity: .6; display: inline-block; }
+@media (max-width: 1440px) { .ea-lang a { padding: 6px 12px; } }
+
+/* ---- Spanish pages: the menu words are longer, so the menu sits a little tighter ---- */
+html[lang="es"] body .ea-header .ea-nav { gap: 22px; }
+@media (max-width: 1700px) {
+  html[lang="es"] body .ea-header { gap: 16px; }
+  html[lang="es"] body .ea-header .ea-nav { gap: 15px; }
+  html[lang="es"] body .ea-header .ea-nav > a, html[lang="es"] body .ea-header .ea-drop > button { font-size: 15px; }
+}
+@media (max-width: 1280px) {
+  html[lang="es"] body .ea-header .ea-nav { gap: 11px; }
+  html[lang="es"] body .ea-header .ea-nav > a, html[lang="es"] body .ea-header .ea-drop > button { font-size: 14px; }
+}

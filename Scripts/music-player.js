@@ -37,11 +37,12 @@
   const box = document.createElement('div');
   box.className = 'music-player';
   box.setAttribute('role', 'region');
-  box.setAttribute('aria-label', 'Background music');
+  const ES = (document.documentElement.lang || '').startsWith('es');   // Spanish pages
+  box.setAttribute('aria-label', ES ? 'Música de fondo' : 'Background music');
   const mute = document.createElement('button');
   mute.type = 'button';
   const select = document.createElement('select');
-  select.setAttribute('aria-label', 'Choose a track');
+  select.setAttribute('aria-label', ES ? 'Elija una canción' : 'Choose a track');
   tracks.forEach((t, i) => select.add(new Option(t.title, i)));
   select.value = saved.track;
   const audio = document.createElement('audio');
@@ -53,7 +54,7 @@
 
   const paint = () => {
     mute.innerHTML = audio.muted ? ICON_OFF : ICON_ON;
-    mute.setAttribute('aria-label', audio.muted ? 'Unmute music' : 'Mute music');
+    mute.setAttribute('aria-label', audio.muted ? (ES ? 'Activar la música' : 'Unmute music') : (ES ? 'Silenciar la música' : 'Mute music'));
     mute.setAttribute('aria-pressed', String(audio.muted));
   };
   const save = () => {
