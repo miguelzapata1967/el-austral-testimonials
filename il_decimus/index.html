@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IL DECIMUS · El Austral Consultor</title>
+<!-- These 4 lines make the page installable as a desktop icon -->
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="../il-decimus/icon-192.png">
+<link rel="apple-touch-icon" href="../il-decimus/icon-192.png">
+<meta name="theme-color" content="#040a1e">
+<script>
+  // Where the tool lives. Change only this line if the address changes.
+  const APP_URL = "https://el-austral-demo.streamlit.app";
+  // Opened from the desktop icon? Go straight into the tool.
+  if (new URLSearchParams(location.search).get("app") === "1") location.replace(APP_URL);
+</script>
+<style>
+  body { margin:0; min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center;
+         background:linear-gradient(180deg,#030817 0%,#071433 55%,#04091c 100%); color:#e6eefc;
+         font-family:Georgia,"Times New Roman",serif; text-align:center; padding:24px; box-sizing:border-box; }
+  img.banner { max-width:min(900px,100%); border-radius:12px; margin-bottom:24px; }
+  h1 { font-weight:500; letter-spacing:.06em; margin:0 0 8px; }
+  p  { color:#9fb3d6; max-width:560px; line-height:1.5; }
+  .btn { display:inline-block; margin:8px; padding:14px 28px; border-radius:999px; font-size:1.05rem;
+         color:#fff; text-decoration:none; cursor:pointer; font-family:inherit;
+         background:linear-gradient(180deg,#0f3a8c 0%,#0a2259 100%); border:1.5px solid #3aa8ff;
+         box-shadow:0 0 14px rgba(58,168,255,.55); }
+  .btn:hover { box-shadow:0 0 22px rgba(92,196,255,.85); }
+  .btn.secondary { background:rgba(10,25,60,.65); }
+  #help { display:none; margin-top:16px; padding:14px 18px; border:1px solid rgba(58,168,255,.5);
+          border-radius:12px; background:rgba(10,25,60,.6); max-width:560px; text-align:left; }
+  #help b { color:#fff; }
+</style>
+</head>
+<body>
+  <img class="banner" src="../il_decimus_banner.png" alt="il_Decimus" onerror="this.remove()">
+  <h1>IL DECIMUS</h1>
+  <p>Poné IL DECIMUS en tu escritorio. Un clic en el ícono y abrís la herramienta de limpieza.</p>
+  <div>
+    <button class="btn" id="install">Agregar IL DECIMUS a mi escritorio</button>
+    <a class="btn secondary" id="open">Abrir IL DECIMUS ahora</a>
+  </div>
+  <div id="help"></div>
+
+<script>
+  document.getElementById("open").href = APP_URL;
+
+  // Register the tiny service worker (needed for the install button)
+  if ("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js");
+
+  let installPrompt = null;
+  // Chrome and Edge fire this when the page can be installed
+  window.addEventListener("beforeinstallprompt", (e) => { e.preventDefault(); installPrompt = e; });
+  window.addEventListener("appinstalled", () => showHelp(
+    "<b>¡Listo!</b> El ícono de IL DECIMUS está en tu escritorio y en el menú Inicio. Hacé clic cuando quieras para abrir la herramienta."));
+
+  function showHelp(html) { const h = document.getElementById("help"); h.innerHTML = html; h.style.display = "block"; }
+
+  document.getElementById("install").addEventListener("click", async () => {
+    if (installPrompt) {                       // Chrome / Edge: real install, real desktop icon
+      installPrompt.prompt();
+      await installPrompt.userChoice;
+      installPrompt = null;
+      return;
+    }
+    // Other browsers, or already installed: show simple steps instead
+    const ua = navigator.userAgent;
+    if (/iPhone|iPad|iPod/.test(ua)) {
+      showHelp("<b>iPhone / iPad:</b> tocá <b>Compartir</b> y después <b>Agregar a pantalla de inicio</b>.");
+    } else if (/Android/.test(ua)) {
+      showHelp("<b>Android:</b> tocá el menú del navegador (⋮) y después <b>Agregar a la pantalla principal</b> o <b>Instalar app</b>.");
+    } else if (/Firefox/.test(ua)) {
+      showHelp("<b>Firefox:</b> arrastrá el candado de la barra de direcciones a tu escritorio. " +
+               "O abrí esta página en <b>Chrome</b> o <b>Edge</b> para tener el ícono completo.");
+    } else {
+      showHelp("Si no pasó nada, puede que IL DECIMUS ya esté instalado (mirá tu escritorio y el menú Inicio). " +
+               "Si no, en <b>Chrome</b> o <b>Edge</b> hacé clic en el menú (⋮ o …) y elegí <b>Instalar IL DECIMUS</b>.");
+    }
+  });
+</script>
+</body>
+</html>
