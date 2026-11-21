@@ -1,195 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="El Austral Consultant turns your data into actionable insights with expert consulting, advanced analytics, and reliable data solutions.">
-    <title>El Austral Consultant | Reading What the Data Really Has to Say</title>
-    <link rel="icon" href="favicon.ico" sizes="any">
-    <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
-    <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
-    <link rel="stylesheet" href="Styles/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="Styles/austral-theme.css">
-    <link rel="stylesheet" href="Styles/testimonials.css">
-    <script src="Scripts/app-link.js"></script>
-</head>
-<body class="ea-home">
-<header class="ea-header">
-    <a class="ea-logo" href="index.html" aria-label="El Austral Consultant home"><svg viewBox="0 0 200 80" aria-hidden="true"><path fill="currentColor" d="M0 78 L36 54 L50 60 L78 33 L92 45 L113 6 L139 40 L151 31 L178 57 L200 78 Z"/><path class="snow" d="M113 6 L106 25 M113 6 L121 22 M78 33 L73 45 M151 31 L146 43"/></svg><span class="ea-logo-bar"></span><span class="ea-logo-text"><span class="ea-logo-name">El Austral</span><span class="ea-logo-sub">CONSULTANT</span></span></a>
-    <button class="ea-menu-btn" type="button" aria-label="Open menu" aria-expanded="false"><span></span></button>
-    <nav class="ea-nav" aria-label="Main navigation">
-        <a href="index.html" class="active" aria-current="page">Home</a>
-        <div class="ea-drop">
-            <button type="button" aria-haspopup="true" aria-expanded="false">Our Solutions<span class="ea-caret"></span></button>
-            <div class="ea-drop-menu"><a href="services.html#analytics">Data Analytics</a><a href="services.html#intelligence">Business Intelligence &amp; Dashboards</a><a href="services.html#engineering">Data Engineering &amp; Preparation</a><a href="services.html#forecasting">Forecasting &amp; Demand Planning</a><a href="services.html#a%2Fb">A/B Testing &amp; Experimentation</a><a href="services.html#retail">Retail &amp; Revenue Analytics</a><a href="services.html#workforce">Workforce &amp; Diversity Analytics</a><a href="services.html#security">Security &amp; Risk Analytics</a><a class="all" href="services.html">See all services &amp; prices →</a></div>
-        </div>
-        <a href="about.html">About Us</a>
-        <a href="contact_us.html">Contact Us</a>
-        <a href="#testimonials">Testimonials</a>
-        <a class="ea-signup" href="#" data-app="signup">Sign Up / Log In</a>
-    </nav>
-    <div class="ea-tools">
-        <div class="ea-lang" aria-label="Language"><span class="selected">English</span><a href="index_es.html" lang="es" hreflang="es">Español</a></div>
-        <span class="ea-copy">&copy; MMXXVI</span>
-    </div>
-</header>
-
-<main>
-    <!-- HERO -->
-    <section class="ea-hero">
-        <div class="ea-hero-copy">
-            <h1>Reading What the Data<br><em>Really</em> Has to Say</h1>
-            <p>Transform your data into actionable insights with expert consulting, advanced analytics, and reliable data solutions.</p>
-            <a class="ea-btn" href="services.html">Discover Our Solutions <span class="ea-arrow">→</span></a>
-        </div>
-    </section>
-
-    <!-- SERVICE CARDS -->
-    <section class="ea-cards" aria-label="Our solutions">
-        <article class="ea-card">
-            <svg viewBox="0 0 56 56"><path d="M6 50h44"/><rect x="9" y="34" width="7" height="14"/><rect x="21" y="27" width="7" height="21"/><rect x="33" y="31" width="7" height="17"/><path d="M8 26l12-9 11 6 14-13"/><path d="M38 9h8v8"/></svg>
-            <div><h3>Data Analysis &amp; Business Intelligence</h3><p>Turn data into strategic decisions.</p><a href="services.html#analytics">Learn More →</a></div>
-        </article>
-        <article class="ea-card">
-            <svg viewBox="0 0 56 56"><ellipse cx="28" cy="11" rx="18" ry="6"/><path d="M10 11v34c0 3.3 8 6 18 6s18-2.7 18-6V11"/><path d="M10 22.5c0 3.3 8 6 18 6s18-2.7 18-6"/><path d="M10 34c0 3.3 8 6 18 6s18-2.7 18-6"/></svg>
-            <div><h3>Data Cleanup &amp; Management</h3><p>Get clean, reliable data for accurate reporting.</p><a href="services.html#retail">Learn More →</a></div>
-        </article>
-        <article class="ea-card">
-            <svg viewBox="0 0 56 56"><path d="M15 42h27a10 10 0 0 0 1.5-19.9A14 14 0 0 0 16.6 19 11.5 11.5 0 0 0 15 42z"/></svg>
-            <div><h3>Data Consulting &amp; Reporting</h3><p>Expert guidance for your data-driven goals.</p><a href="services.html#intelligence">Learn More →</a></div>
-        </article>
-        <article class="ea-card">
-            <svg viewBox="0 0 56 56"><path d="M28 5l19 7v14c0 12-8 21-19 25C17 47 9 38 9 26V12z"/><rect x="20" y="25" width="16" height="12" rx="2"/><path d="M23 25v-4a5 5 0 0 1 10 0v4"/></svg>
-            <div><h3>Cloud Data Solutions</h3><p>Secure, scalable solutions with AWS and Snowflake.</p><a href="services.html#engineering">Learn More →</a></div>
-        </article>
-    </section>
-
-    <!-- WHY CHOOSE -->
-    <section class="ea-why">
-        <div>
-            <p class="ea-eyebrow">Innovation &nbsp;•&nbsp; Precision &nbsp;•&nbsp; Trust</p>
-            <h2>Why Choose<br>El Austral Consultant?</h2>
-        </div>
-        <div class="ea-points">
-            <div class="ea-point"><svg viewBox="0 0 52 52"><path d="M19 36h14M20 41h12M22 46h8"/><path d="M19 36c0-6-7-9-7-17a14 14 0 0 1 28 0c0 8-7 11-7 17"/><path d="M26 2v-0M8 8l2 2M44 8l-2 2M3 21h3M46 21h3"/></svg><p>Actionable<br>Insights</p></div>
-            <div class="ea-point"><svg viewBox="0 0 52 52"><path d="M3 22l9-9 8 4 6-3 7 1 9-6 7 9"/><path d="M12 13l-7 13 4 4"/><path d="M42 9l7 13-9 9"/><path d="M20 17l-6 7c2 2 5 2 7 0l4-3 12 11c1.5 1.5-.5 4-2.2 2.7L31 34m6 2c1.3 1.6-.7 3.8-2.2 2.6l-4-3.4m2.5 5.2c1 1.6-1 3.4-2.4 2.2L28 40m-19-10 5 5m-1.5-7.5 7 7m-3.5-9 8 8"/></svg><p>Trusted<br>Expertise</p></div>
-            <div class="ea-point"><svg viewBox="0 0 52 52"><path d="M30 8c6-3 12-3 14-2 1 2 1 8-2 14L29 33l-10-10z"/><circle cx="35" cy="17" r="3.5"/><path d="M19 23l-7-1-6 6 9 1M29 33l1 7-6 6-1-9"/><path d="M14 38c-3 0-6 2-7 7 5-1 7-4 7-7z"/></svg><p>Scalable<br>Solutions</p></div>
-            <div class="ea-point"><svg viewBox="0 0 52 52"><path d="M26 3l18 7v13c0 12-8 21-18 25C16 44 8 35 8 23V10z"/><path d="M18 25l6 6 11-12"/></svg><p>Your Data,<br>Our Priority</p></div>
-        </div>
-        <a class="ea-btn ghost" href="contact_us.html">Contact Us <span class="ea-arrow">→</span></a>
-    </section>
-
-    <!-- IL DECIMUS: free clean-up prototype -->
-    <section class="ea-ild" aria-labelledby="ild-title">
-      <a class="ea-ild-pic" href="il_decimus.html"><img src="Images/il_decimus_banner.jpg" alt="IL DECIMUS — The Standard of Ten" loading="lazy"></a>
-      <div class="ea-ild-copy">
-        <p class="ea-eyebrow">Free prototype</p>
-        <h2 id="ild-title">IL DECIMUS</h2>
-        <p>Clean up to 10 of your own databases, free. Everything runs on your computer: your data never leaves it.</p>
-        <div class="ea-ild-btns">
-          <a class="ea-btn" href="il_decimus.html">Open IL DECIMUS <span class="ea-arrow">→</span></a>
-          <a class="ea-ild-dl" href="IL_DECIMUS.url" download="IL_DECIMUS.url"><img src="icons/il_decimus_en.png" alt="">Download IL DECIMUS link to your desktop</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- TESTIMONIALS (data/testimonials.json, shown by Scripts/testimonials-wall.js) -->
-    <section class="t-wrap" id="testimonials" aria-labelledby="t-title">
-      <h2 class="t-title" id="t-title">Testimonials</h2>
-      <p class="t-subtitle">Testimonials for Miguel</p>
-      <p class="t-note">El Austral Consultant is a new business. Comments marked <b>Previous business</b> come from
-         customers I served in my previous businesses before El Austral Consultant: they speak to how I work and how I
-         treat my customers, not to El Austral Consultant's data services. Comments marked
-         <b class="t-source-new">El Austral Consultant customer</b> come from customers of El Austral Consultant.
-         Every comment shows in English and Spanish.</p>
-      <a class="t-cta" href="contact_us.html">Leave your testimonial</a>
-      <div class="t-wall" id="wall" aria-label="Customer testimonials"></div>
-    </section>
-</main>
-
-<div class="modal-bg" id="modalBg" role="dialog" aria-modal="true" aria-labelledby="modalName">
-  <div class="modal">
-    <button class="modal-close" id="modalClose" aria-label="Close">&times;</button>
-    <div class="modal-comment" id="modalComment"></div>
-    <div class="modal-name" id="modalName"></div>
-    <div class="modal-reply" id="modalReply" hidden>
-      <h4>Miguel's reply</h4>
-      <div id="modalReplyText"></div>
-    </div>
-  </div>
-</div>
-
-<footer class="ea-footer">
-    <a class="ea-logo" href="index.html" aria-label="El Austral Consultant home"><svg viewBox="0 0 200 80" aria-hidden="true"><path fill="currentColor" d="M0 78 L36 54 L50 60 L78 33 L92 45 L113 6 L139 40 L151 31 L178 57 L200 78 Z"/><path class="snow" d="M113 6 L106 25 M113 6 L121 22 M78 33 L73 45 M151 31 L146 43"/></svg><span class="ea-logo-bar"></span><span class="ea-logo-text"><span class="ea-logo-name">El Austral</span><span class="ea-logo-sub">CONSULTANT</span></span></a>
-    <p class="ea-tagline">Reading What the Data Really Has to Say<span class="ea-founder">Miguel Angel Zapata · Ile Artifex</span></p>
-    <div class="ea-foot-right">
-        <span class="ea-foot-lang"><span>English</span><a href="index_es.html" lang="es" hreflang="es">Español</a></span>
-        <span class="ea-social">
-            <!-- Paste your LinkedIn and YouTube page addresses into the two href="" values below -->
-            <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4V21H3zM9.5 9.5h3.8v1.6h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.6 4.8 6V21h-4v-5.2c0-1.3 0-2.9-1.8-2.9s-2.1 1.4-2.1 2.8V21h-4z"/></svg></a>
-            <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12 31 31 0 0 0 1 16.8a3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8zM9.8 15.1V8.9l5.7 3.1z"/></svg></a>
-        </span>
-        <span>&copy; MMXXVI</span>
-    </div>
-</footer>
-
-<script src="Scripts/music-player.js" defer></script>
-<script src="Scripts/austral-theme.js" defer></script>
-
-<!-- Tico voice assistant -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>il_Decimus · El Austral Consultant</title>
+<!-- These 4 lines make the page installable as a desktop icon -->
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<meta name="theme-color" content="#040a1e">
 <script>
-  // ON / OFF: Tico is turned off until there are customers (calls cost money).
-  // To turn him back on, change false to true and upload this page again.
-  const TICO_ON = false;
-  var vapiInstance = null;
-  const assistant = "981dc76e-8837-4d6c-83e9-f8f69f33641b";
-  const apiKey = "5dbcddbe-ddb3-4d6d-a0a1-9525419cd269";
-  const buttonConfig = {
-    position: "bottom-left",
-    offset: "30px",
-    width: "60px",
-    height: "60px",
-    idle: {
-      color: "#78182e",
-      type: "pill",
-      title: "Talk to Tico",
-      subtitle: "Available 24/7",
-      icon: "https://unpkg.com/lucide-static@latest/icons/infinity.svg",
-    },
-    loading: {
-      color: "#aa2d48",
-      type: "pill",
-      title: "Connecting...",
-      subtitle: "One moment",
-      icon: "https://unpkg.com/lucide-static@latest/icons/loader.svg",
-    },
-    active: {
-      color: "#4c0518",
-      type: "pill",
-      title: "Talking with Tico",
-      subtitle: "Click to end the call",
-      icon: "https://unpkg.com/lucide-static@latest/icons/phone-off.svg",
-    },
-  };
-
-  if (TICO_ON) (function (d, t) {
-    var g = document.createElement(t),
-        s = d.getElementsByTagName(t)[0];
-    g.src = "https://cdn.jsdelivr.net/gh/VapiAI/html-script-tag@latest/dist/assets/index.js";
-    g.defer = true;
-    g.async = true;
-    s.parentNode.insertBefore(g, s);
-    g.onload = function () {
-      vapiInstance = window.vapiSDK.run({
-        apiKey: apiKey,
-        assistant: assistant,
-        config: buttonConfig,
-      });
-    };
-  })(document, "script");
+  // Where the tool lives. Change only this line if the address changes.
+  const APP_URL = "https://el-austral-demo.streamlit.app";
+  // Opened from the desktop icon? Go straight into the tool.
+  if (new URLSearchParams(location.search).get("app") === "1") location.replace(APP_URL);
 </script>
-    
-<script src="Scripts/testimonials-wall.js" defer></script>
+<style>
+  body { margin:0; min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center;
+         background:linear-gradient(180deg,#030817 0%,#071433 55%,#04091c 100%); color:#e6eefc;
+         font-family:Georgia,"Times New Roman",serif; text-align:center; padding:24px; box-sizing:border-box; }
+  img.banner { max-width:min(900px,100%); border-radius:12px; margin-bottom:24px; }
+  h1 { font-weight:500; letter-spacing:.06em; margin:0 0 8px; }
+  p  { color:#9fb3d6; max-width:560px; line-height:1.5; }
+  .btn { display:inline-block; margin:8px; padding:14px 28px; border-radius:999px; font-size:1.05rem;
+         color:#fff; text-decoration:none; cursor:pointer; font-family:inherit;
+         background:linear-gradient(180deg,#0f3a8c 0%,#0a2259 100%); border:1.5px solid #3aa8ff;
+         box-shadow:0 0 14px rgba(58,168,255,.55); }
+  .btn:hover { box-shadow:0 0 22px rgba(92,196,255,.85); }
+  .btn.secondary { background:rgba(10,25,60,.65); }
+  #help { display:none; margin-top:16px; padding:14px 18px; border:1px solid rgba(58,168,255,.5);
+          border-radius:12px; background:rgba(10,25,60,.6); max-width:560px; text-align:left; }
+  #help b { color:#fff; }
+</style>
+</head>
+<body>
+  <img class="banner" src="../il_decimus_banner.png" alt="il_Decimus" onerror="this.remove()">
+  <h1>il_Decimus</h1>
+  <p>Put il_Decimus on your desktop. One click on the icon opens the clean-up tool.</p>
+  <div>
+    <button class="btn" id="install">Add il_Decimus to my desktop</button>
+    <a class="btn secondary" id="open">Open il_Decimus now</a>
+  </div>
+  <div id="help"></div>
+
+<script>
+  document.getElementById("open").href = APP_URL;
+
+  // Register the tiny service worker (needed for the install button)
+  if ("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js");
+
+  let installPrompt = null;
+  // Chrome and Edge fire this when the page can be installed
+  window.addEventListener("beforeinstallprompt", (e) => { e.preventDefault(); installPrompt = e; });
+  window.addEventListener("appinstalled", () => showHelp(
+    "<b>Done!</b> The il_Decimus icon is on your desktop and in your Start menu. Click it any time to open the tool."));
+
+  function showHelp(html) { const h = document.getElementById("help"); h.innerHTML = html; h.style.display = "block"; }
+
+  document.getElementById("install").addEventListener("click", async () => {
+    if (installPrompt) {                       // Chrome / Edge: real install, real desktop icon
+      installPrompt.prompt();
+      await installPrompt.userChoice;
+      installPrompt = null;
+      return;
+    }
+    // Other browsers, or already installed: show simple steps instead
+    const ua = navigator.userAgent;
+    if (/iPhone|iPad|iPod/.test(ua)) {
+      showHelp("<b>iPhone / iPad:</b> tap the <b>Share</b> button, then <b>Add to Home Screen</b>.");
+    } else if (/Android/.test(ua)) {
+      showHelp("<b>Android:</b> tap the browser menu (⋮), then <b>Add to Home screen</b> or <b>Install app</b>.");
+    } else if (/Firefox/.test(ua)) {
+      showHelp("<b>Firefox:</b> drag the padlock at the left of the address bar onto your desktop. " +
+               "Or open this page in <b>Chrome</b> or <b>Edge</b> for the full icon.");
+    } else {
+      showHelp("If nothing happened, il_Decimus may already be installed (check your desktop and Start menu). " +
+               "Otherwise, in <b>Chrome</b> or <b>Edge</b> click the menu (⋮ or …), then <b>Install il_Decimus</b> " +
+               "(Chrome: <b>Cast, save and share → Install page as app</b>; Edge: <b>Apps → Install this site as an app</b>).");
+    }
+  });
+</script>
 </body>
 </html>
