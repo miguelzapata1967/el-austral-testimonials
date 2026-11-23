@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>il_Decimus · El Austral Consultor · Prototipo</title>
+<meta name="description" content="Prueba gratis de limpieza de datos (prototipo) de El Austral Consultor. Tus datos quedan en tu computadora.">
+
+<!-- Icons for this language: browser tab, iPhone, installable desktop app -->
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#16294D">
+
+<!-- Link preview if this page is shared directly -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.elaustralconsultant.com/il_decimus/es/">
+<meta property="og:title" content="il_Decimus · El Austral Consultor · Prototipo">
+<meta property="og:description" content="Prueba gratis de limpieza de datos (prototipo) de El Austral Consultor. Tus datos quedan en tu computadora.">
+<meta property="og:image" content="https://www.elaustralconsultant.com/il_decimus/es/icon-512.png">
+<meta name="twitter:card" content="summary">
+
+<script>
+  // Where the il_Decimus tool lives (in this language). Change only this line if the address changes.
+  const APP_URL = "https://el-austral-demo.streamlit.app/?lang=es";
+  // Opened from the desktop icon? Go straight into the tool.
+  if (new URLSearchParams(location.search).get("app") === "1") location.replace(APP_URL);
+</script>
+<style>
+  body { margin:0; min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center;
+         background:linear-gradient(180deg,#0f1f3f 0%,#16294D 55%,#0b1630 100%); color:#eef2f8;
+         font-family:"Helvetica Neue",Arial,sans-serif; text-align:center; padding:24px; box-sizing:border-box; }
+  img.logo { width:160px; height:160px; border-radius:32px; box-shadow:0 8px 30px rgba(0,0,0,.45); margin-bottom:20px; }
+  .label { color:#C9A227; letter-spacing:.3em; font-size:.8rem; font-weight:700; margin-bottom:6px; }
+  h1 { margin:0 0 6px; font-size:2.2rem; }
+  .tag { display:inline-block; background:#B3243A; color:#fff; border-radius:999px; padding:4px 14px;
+         font-size:.85rem; font-weight:700; letter-spacing:.05em; margin-bottom:14px; }
+  p  { color:#c4cee0; max-width:540px; line-height:1.5; margin:6px auto; }
+  .btn { display:inline-block; margin:10px 8px; padding:14px 28px; border-radius:999px; font-size:1.05rem; font-weight:700;
+         color:#fff; text-decoration:none; cursor:pointer; font-family:inherit; border:2px solid #fff; background:#B3243A; }
+  .btn:hover { background:#cf2c45; }
+  .btn.secondary { background:transparent; }
+  .btn.secondary:hover { background:rgba(255,255,255,.12); }
+  .switch { position:absolute; top:16px; right:20px; color:#c4cee0; font-size:.9rem; }
+  .switch a { color:#fff; }
+  #help { display:none; margin-top:16px; padding:14px 18px; border-left:4px solid #C9A227;
+          border-radius:8px; background:rgba(255,255,255,.08); max-width:540px; text-align:left; }
+  #help b { color:#fff; }
+  footer { margin-top:28px; font-size:.8rem; color:#8f9bb3; }
+</style>
+</head>
+<body>
+  <div class="switch"><a href="../">English</a></div>
+  <img class="logo" src="icon-512.png" alt="il_Decimus">
+  <div class="label">EL AUSTRAL CONSULTOR</div>
+  <h1>il_Decimus</h1>
+  <div class="tag">PROTOTIPO · GRATIS · 10 LIMPIEZAS</div>
+  <p>Probá gratis nuestra herramienta de limpieza de datos. Tus datos quedan en tu computadora.</p>
+  <p>Poné il_Decimus en tu escritorio: un clic en el ícono y abrís la herramienta.</p>
+  <div>
+    <a class="btn" id="open">Abrir il_Decimus</a>
+    <button class="btn secondary" id="install">Agregar il_Decimus a mi escritorio</button>
+  </div>
+  <div id="help"></div>
+  <footer>El Austral Consultor · San José, CA · elaustralconsultant@gmail.com</footer>
+
+<script>
+  document.getElementById("open").href = APP_URL;
+
+  // Tiny service worker, needed for the "add to desktop" button
+  if ("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js");
+
+  let installPrompt = null;
+  // Chrome and Edge fire this when the page can be installed
+  window.addEventListener("beforeinstallprompt", (e) => { e.preventDefault(); installPrompt = e; });
+  window.addEventListener("appinstalled", () => showHelp("<b>¡Listo!</b> El ícono de il_Decimus está en tu escritorio y en el menú Inicio. Hacé clic cuando quieras para abrir la herramienta."));
+
+  function showHelp(html) { const h = document.getElementById("help"); h.innerHTML = html; h.style.display = "block"; }
+
+  document.getElementById("install").addEventListener("click", async () => {
+    if (installPrompt) {                       // Chrome / Edge: real install, real desktop icon
+      installPrompt.prompt();
+      await installPrompt.userChoice;
+      installPrompt = null;
+      return;
+    }
+    // Other browsers, or already installed: show simple steps instead
+    const ua = navigator.userAgent;
+    if (/iPhone|iPad|iPod/.test(ua)) showHelp("<b>iPhone / iPad:</b> tocá <b>Compartir</b> y después <b>Agregar a pantalla de inicio</b>.");
+    else if (/Android/.test(ua))     showHelp("<b>Android:</b> tocá el menú del navegador (⋮) y después <b>Agregar a la pantalla principal</b> o <b>Instalar app</b>.");
+    else if (/Firefox/.test(ua))     showHelp("<b>Firefox:</b> arrastrá el candado de la barra de direcciones a tu escritorio. O abrí esta página en <b>Chrome</b> o <b>Edge</b> para tener el ícono completo.");
+    else                             showHelp("Si no pasó nada, puede que il_Decimus ya esté instalado (mirá tu escritorio y el menú Inicio). Si no, en <b>Chrome</b> o <b>Edge</b> hacé clic en el menú (⋮ o …) y elegí <b>Instalar il_Decimus</b>.");
+  });
+</script>
+</body>
+</html>
