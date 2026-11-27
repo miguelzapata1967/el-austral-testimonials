@@ -1,7 +1,7 @@
 {
   "name": "il_Decimus · El Austral Consultant · Prototype",
   "short_name": "il_Decimus",
-  "description": "Free data clean-up trial (prototype) by El Austral Consultant. Your data stays on your computer.",
+  "description": "Free data clean-up trial (prototype, for testing only) by El Austral Consultant.",
   "start_url": "./?app=1",
   "scope": "./",
   "display": "standalone",
