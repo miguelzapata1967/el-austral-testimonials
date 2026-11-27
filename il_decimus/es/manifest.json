@@ -1,7 +1,7 @@
 {
   "name": "il_Decimus · El Austral Consultor · Prototipo",
   "short_name": "il_Decimus",
-  "description": "Prueba gratis de limpieza de datos (prototipo) de El Austral Consultor. Tus datos quedan en tu computadora.",
+  "description": "Prueba gratis de limpieza de datos (prototipo, solo para pruebas) de El Austral Consultor.",
   "start_url": "./?app=1",
   "scope": "./",
   "display": "standalone",

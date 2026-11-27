@@ -393,6 +393,10 @@ html[lang="es"] body .ea-header .ea-nav { gap: 22px; }
 .ea-ild-pic:hover img { transform: scale(1.01); }
 .ea-ild-copy h2 { margin: 4px 0 10px; font-size: 2.4rem; letter-spacing: .06em; color: #fff; }
 .ea-ild-copy p { line-height: 1.55; }
+/* il_Decimus is a prototype: the warning box (amber, readable on the dark page) */
+.ea-proto { background: rgba(255,193,7,.12); border: 1px solid #f0b429; border-left: 5px solid #f0b429;
+  border-radius: 10px; padding: 10px 14px; color: #ffe8a3; font-size: .95rem; }
+.ea-proto b { color: #ffd166; }
 .ea-ild-btns { display: flex; flex-direction: column; align-items: flex-start; gap: 14px; margin-top: 18px; }
 .ea-ild-dl { display: inline-flex; align-items: center; gap: 12px; padding: 8px 18px 8px 8px; border-radius: 999px;
              background: linear-gradient(180deg, #0f3a8c, #0a2259); border: 1.5px solid #3aa8ff; color: #fff;
